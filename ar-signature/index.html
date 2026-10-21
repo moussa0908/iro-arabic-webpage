@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>إيرو | عيادة إيرو للجراحة التجميلية</title>
+<meta name="description" content="عيادة إيرو للجراحة التجميلية في سيول — د. جيهيون كيم، رعاية شخصية ١:١ مع مترجمة طبية باللغة العربية.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500&display=swap">
+<style>
+/* Layout: editorial ivory pages, arch-framed portrait, one dark green "WhatsApp card" band — calm, one surgeon, one patient. */
+:root{
+  --ivory:#F3EEE7;      /* page ground, from the clinic's profile card */
+  --taupe:#D6CDC3;      /* secondary surface */
+  --ink:#1F1B18;        /* text */
+  --muted:#6E655C;      /* secondary text */
+  --gold:#B48A45;       /* brand gold, used sparingly */
+  --gold-soft:#E6C77A;  /* gold on green */
+  --green:#123D2B;      /* WhatsApp card green */
+  --dot:#C8202D;        /* the red dot of the IRo+ mark */
+  --line:rgba(31,27,24,.14);
+  --f-display:"Amiri","Noto Naskh Arabic","Times New Roman",serif;
+  --f-body:"IBM Plex Sans Arabic","Segoe UI","Tahoma",sans-serif;
+  --f-latin:"Cormorant Garamond","Times New Roman",serif;
+  --gutter:clamp(16px,5vw,72px);
+  --maxw:1240px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;overflow-x:clip}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.eyebrow{font-size:.82rem;letter-spacing:.04em;color:var(--gold);font-weight:500;display:flex;align-items:center;gap:.7em}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1.35;margin:0;text-wrap:balance}
+h2{font-size:clamp(2rem,4.2vw,3.4rem)}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:.85em 1.6em;border-radius:999px;font:500 .98rem var(--f-body);text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:var(--ivory);cursor:pointer;transition:background .3s,color .3s,transform .3s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--ivory)}
+.btn svg{width:18px;height:18px}
+
+/* ---------- loader ---------- */
+#loader{position:fixed;inset:0;z-index:100;background:var(--ivory);display:grid;place-items:center}
+#loader svg{width:min(42vw,220px)}
+#loader .star path{fill:none;stroke:var(--gold);stroke-width:1.2}
+#loader .lg{position:absolute;width:min(46vw,240px);opacity:0}
+.no-js #loader,.reduce #loader{display:none}
+
+/* ---------- header ---------- */
+header.top{position:fixed;top:0;inset-inline:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .4s,box-shadow .4s}
+header.top.solid{background:rgba(243,238,231,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}
+header.top .logo img{height:42px;width:auto}
+nav.main{display:flex;gap:28px;font-size:.95rem}
+nav.main a{text-decoration:none;position:relative;padding-block:4px}
+nav.main a::after{content:"";position:absolute;inset-inline-start:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .35s}
+nav.main a:hover::after{width:100%}
+.lang{font-family:var(--f-latin);font-size:.95rem;letter-spacing:.08em;color:var(--muted);display:flex;gap:10px}
+.lang b{color:var(--ink)}
+@media (max-width:900px){nav.main{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:min(100svh,920px);display:grid;align-items:center;padding-top:110px;padding-bottom:60px;overflow:hidden}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,80px);align-items:center;width:100%}
+.hero h1{font-size:clamp(3rem,8.4vw,7.2rem);line-height:1.2;font-weight:700}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em}
+.hero h1 .w>span{display:inline-block}
+.hero h1 .gold{color:var(--gold)}
+.hero .sub{margin-top:22px;font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--muted);max-width:30em}
+.hero .ctas{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
+.hero .ko{margin-top:38px;font-size:.85rem;color:var(--muted);display:flex;gap:14px;align-items:center}
+.hero .ko span{direction:ltr;font-family:var(--f-latin);font-style:italic;font-size:1.05rem;letter-spacing:.02em}
+.arch{position:relative;aspect-ratio:3/4.1;max-width:100%;border-radius:999px 999px 0 0;overflow:hidden;background:var(--taupe)}
+.arch img{width:100%;height:115%;object-fit:cover;object-position:50% 12%}
+.arch-frame{position:relative}
+.arch-frame::before{content:"";position:absolute;inset:-14px;border:1px solid var(--gold);border-radius:999px 999px 0 0;border-bottom:0;opacity:.6}
+.arch-tag{position:absolute;bottom:22px;inset-inline-start:-28px;background:var(--ivory);padding:14px 20px;border:1px solid var(--line);font-size:.88rem;line-height:1.6;box-shadow:0 18px 40px -20px rgba(31,27,24,.35)}
+.arch-tag b{display:block;font-family:var(--f-display);font-size:1.25rem}
+.scroll-cue{position:absolute;bottom:22px;inset-inline-start:50%;transform:translateX(50%);width:1px;height:56px;background:var(--line);overflow:hidden}
+.scroll-cue::after{content:"";position:absolute;inset:0;background:var(--gold);animation:cue 2.2s infinite}
+@keyframes cue{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .arch-frame{max-width:230px;margin-inline:auto;order:-1}
+  .hero{padding-top:100px}
+  .arch-tag{inset-inline-start:-6px}
+}
+
+/* ---------- marquee ---------- */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding-block:18px;background:var(--ivory)}
+.marquee .track{display:flex;gap:56px;white-space:nowrap;width:max-content;font-family:var(--f-display);font-size:clamp(1.3rem,2.4vw,1.9rem);color:var(--muted)}
+.marquee .track i{font-style:normal;color:var(--gold)}
+
+/* ---------- doctor ---------- */
+section{padding-block:clamp(80px,12vw,160px)}
+.doctor .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.doctor .quote{font-family:var(--f-display);font-size:clamp(1.6rem,3vw,2.5rem);line-height:1.6;margin-top:22px}
+.doctor .quote em{font-style:normal;color:var(--gold)}
+.doctor .sign{margin-top:28px;display:flex;align-items:center;gap:16px}
+.doctor .sign img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:50% 10%}
+.doctor .sign b{font-family:var(--f-display);font-size:1.35rem;display:block}
+.doctor .sign small{color:var(--muted)}
+.cv{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.cv li{display:grid;grid-template-columns:1fr auto;gap:16px;padding-block:16px;border-bottom:1px solid var(--line);font-size:.98rem}
+.cv li span{font-family:var(--f-latin);color:var(--muted);letter-spacing:.06em}
+.cv li.now{font-weight:600}
+.cv li.now span{color:var(--gold)}
+@media (max-width:860px){.doctor .wrap{grid-template-columns:1fr}}
+
+/* ---------- philosophy ---------- */
+.philo{background:var(--taupe)}
+.philo .head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.philo .head p{max-width:28em;color:var(--muted)}
+.pillars{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,32px)}
+.pillar{background:var(--ivory);padding:40px 32px 36px;position:relative;overflow:hidden;min-width:0}
+.pillar .k{font-family:var(--f-latin);font-size:3.6rem;line-height:1;color:var(--gold);opacity:.9}
+.pillar h3{font-size:1.55rem;margin-top:22px}
+.pillar p{margin-top:12px;color:var(--muted);font-size:.98rem}
+.pillar svg{position:absolute;inset-inline-end:-30px;top:-30px;width:140px;opacity:.12}
+.pillar svg path{fill:none;stroke:var(--ink);stroke-width:1}
+@media (max-width:860px){.pillars{grid-template-columns:1fr}}
+
+/* ---------- signature lifting ---------- */
+.signature{position:relative;overflow:hidden;background:var(--ink);color:var(--ivory)}
+.signature .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.signature .eyebrow{color:var(--gold-soft)}
+.signature h2{font-size:clamp(2.4rem,5.4vw,4.6rem)}
+.signature h2 .gold{color:var(--gold-soft)}
+.signature .lead{margin-top:24px;color:rgba(243,238,231,.72);max-width:30em}
+.signature blockquote{margin:32px 0 0;padding-inline-start:20px;border-inline-start:1px solid var(--gold-soft);font-family:var(--f-display);font-size:1.15rem;line-height:1.9;color:rgba(243,238,231,.9)}
+.signature blockquote cite{display:block;margin-top:10px;font:400 .85rem var(--f-body);color:var(--gold-soft);font-style:normal}
+.lift-list{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.lift-list li{padding-block:14px;border-bottom:1px solid rgba(243,238,231,.16);display:flex;justify-content:space-between;gap:12px;font-size:.98rem}
+.lift-list li span{color:var(--gold-soft);font-family:var(--f-latin);font-size:.95rem;direction:ltr}
+.contour{width:100%;max-width:520px;margin-inline:auto}
+.contour path{fill:none;stroke:var(--gold-soft);stroke-width:1.1;stroke-linecap:round}
+.contour .ghost{stroke:rgba(243,238,231,.22);stroke-dasharray:3 6}
+.contour .arrow{stroke:var(--gold-soft)}
+@media (max-width:860px){.signature .wrap{grid-template-columns:1fr}.lift-list{grid-template-columns:1fr}}
+
+/* ---------- procedures slider ---------- */
+.procs .head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.procs .ctrl{display:flex;gap:10px;align-items:center;font-family:var(--f-latin);letter-spacing:.12em}
+.procs .ctrl button{width:52px;height:52px;border-radius:50%;border:1px solid var(--ink);background:transparent;cursor:pointer;display:grid;place-items:center;transition:background .3s,color .3s}
+.procs .ctrl button:hover{background:var(--ink);color:var(--ivory)}
+.procs .ctrl svg{width:20px;height:20px}
+.procs .count{min-width:72px;text-align:center;direction:ltr}
+.rail{margin-top:56px;overflow:hidden;cursor:grab}
+.rail:active{cursor:grabbing}
+.rail-track{display:flex;gap:24px;will-change:transform}
+.pcard{flex:0 0 clamp(270px,30vw,380px);background:#fff;border:1px solid var(--line);padding:30px 28px 28px;display:flex;flex-direction:column;min-width:0;user-select:none}
+.pcard .num{font-family:var(--f-latin);color:var(--gold);font-size:.95rem;letter-spacing:.14em;direction:ltr;text-align:end}
+.pcard .art{height:150px;margin-block:12px 18px;border-radius:999px 999px 0 0;background:linear-gradient(160deg,var(--taupe),var(--ivory));position:relative;overflow:hidden}
+.pcard .art svg{position:absolute;inset:0;width:100%;height:100%}
+.pcard .art svg path{fill:none;stroke:var(--gold);stroke-width:1.2}
+.pcard h3{font-size:1.6rem}
+.pcard p{margin-top:8px;font-size:.95rem;color:var(--muted);flex:1}
+.pcard ul{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.pcard ul li{font-size:.8rem;padding:3px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+.pcard .tags{margin-top:14px;font-size:.82rem;color:var(--gold)}
+.pcard.low{background:transparent}
+.pcard.low .badge{font-size:.75rem;color:var(--muted);border:1px dashed var(--line);padding:2px 10px;border-radius:999px;align-self:flex-start;margin-top:6px}
+
+/* ---------- care ---------- */
+.care .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.care .items{display:grid;gap:18px;margin-top:36px}
+.care .item{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:24px;border:1px solid var(--line);background:rgba(255,255,255,.5)}
+.care .item .ic{width:56px;height:56px;border-radius:50%;background:var(--ink);color:var(--gold-soft);display:grid;place-items:center}
+.care .item .ic svg{width:26px;height:26px}
+.care .item h3{font-size:1.35rem}
+.care .item p{color:var(--muted);font-size:.96rem;margin-top:4px}
+.illu{position:relative;max-width:440px;margin-inline:auto}
+.illu img{border-radius:999px 999px 0 0;background:#fff;filter:saturate(.9)}
+.illu .bubble{position:absolute;background:var(--ivory);border:1px solid var(--line);padding:10px 16px;border-radius:18px;font-size:.92rem;box-shadow:0 14px 30px -18px rgba(31,27,24,.4)}
+.illu .b1{top:14%;inset-inline-end:-14px}
+.illu .b2{top:40%;inset-inline-start:-18px;font-family:"Malgun Gothic",sans-serif;direction:ltr}
+.illu .b3{bottom:16%;inset-inline-end:-6px}
+@media (max-width:860px){.care .wrap{grid-template-columns:1fr}.illu .b1,.illu .b3{inset-inline-end:0}.illu .b2{inset-inline-start:0}}
+
+/* ---------- before / after ---------- */
+.ba{background:var(--taupe)}
+.ba .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:center}
+.ba .note{margin-top:20px;font-size:.88rem;color:var(--muted);border-inline-start:2px solid var(--gold);padding-inline-start:14px}
+.compare{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--ivory);user-select:none;touch-action:pan-y;max-width:100%}
+.compare .side{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-display);font-size:1.4rem;color:var(--muted)}
+.compare .before{background:repeating-linear-gradient(135deg,#e4ddd4 0 14px,#ded6cc 14px 28px)}
+.compare .after{background:linear-gradient(135deg,#f6f1ea,#eadfcf);clip-path:inset(0 0 0 50%)}
+.compare .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--gold);transform:translateX(-1px)}
+.compare .handle::after{content:"⇆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;font-size:1.1rem}
+.compare .lbl{position:absolute;top:14px;font-size:.8rem;background:rgba(31,27,24,.75);color:#fff;padding:2px 10px;border-radius:999px}
+.compare .lbl.l{left:14px}.compare .lbl.r{right:14px}
+.compare input{position:absolute;inset:0;opacity:0;cursor:ew-resize;width:100%;height:100%;margin:0}
+@media (max-width:860px){.ba .wrap{grid-template-columns:1fr}}
+
+/* ---------- WhatsApp card (mirrors the clinic's last card-news slide) ---------- */
+.wa{background:var(--green);color:#F3EEE7;text-align:center;position:relative;overflow:hidden}
+.wa .pattern{position:absolute;inset:0;opacity:.07;pointer-events:none}
+.wa .wrap{position:relative;display:grid;justify-items:center}
+.wa h2{color:var(--gold-soft);font-family:"Alexandria",var(--f-body);font-weight:700;font-size:clamp(2.2rem,6vw,4.4rem);line-height:1.35}
+.wa .lead{margin-top:18px;font-size:clamp(1.15rem,2.4vw,1.7rem);font-weight:300;line-height:1.7}
+.wa h3{margin-top:44px;color:var(--gold-soft);font-family:var(--f-body);font-weight:700;font-size:clamp(1.4rem,3vw,2.2rem)}
+.qr{margin-top:26px;width:220px;aspect-ratio:1;background:#fff;border-radius:18px;padding:16px;display:grid;place-items:center;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);position:relative}
+.qr img{width:100%;height:100%;object-fit:contain}
+.qr .ph{color:var(--green);font-size:.85rem;line-height:1.6;text-align:center;border:1.5px dashed rgba(18,61,43,.4);border-radius:10px;width:100%;height:100%;display:grid;place-items:center;padding:10px}
+.wa .cap{margin-top:18px;font-size:1.05rem;opacity:.85}
+.wa .btn{margin-top:28px;background:var(--gold-soft);border-color:var(--gold-soft);color:var(--green);font-weight:600}
+.wa .btn:hover{background:transparent;color:var(--gold-soft)}
+.wa .mark{margin-top:56px;height:44px;width:auto;opacity:.95}
+
+/* ---------- visit + form ---------- */
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px)}
+.hours{margin-top:28px;border-top:1px solid var(--line)}
+.hours div{display:flex;justify-content:space-between;gap:16px;padding-block:13px;border-bottom:1px solid var(--line);font-size:.98rem}
+.hours div span:last-child{font-family:var(--f-latin);font-size:1.05rem;direction:ltr;font-variant-numeric:tabular-nums}
+.hours .off span:last-child{color:var(--dot);font-family:var(--f-body);direction:rtl;font-size:.95rem}
+.addr{margin-top:26px;font-size:.98rem;line-height:1.9}
+.addr .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.copy{border:1px solid var(--line);background:transparent;border-radius:999px;padding:2px 12px;font:inherit;font-size:.8rem;cursor:pointer}
+.maps{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+.maps a{font-size:.85rem;border:1px solid var(--line);padding:6px 14px;border-radius:999px;text-decoration:none}
+form.consult{background:#fff;border:1px solid var(--line);padding:clamp(24px,4vw,44px);display:grid;gap:18px;align-content:start}
+form.consult h3{font-size:1.8rem}
+form.consult p.hint{color:var(--muted);font-size:.92rem;margin-top:-8px}
+.field{display:grid;gap:6px}
+.field label{font-size:.88rem;font-weight:500}
+.field input,.field select,.field textarea{font:inherit;font-size:1rem;padding:12px 14px;border:1px solid var(--line);background:var(--ivory);color:var(--ink);border-radius:0;width:100%;min-width:0}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{cursor:pointer;position:relative}
+.chips input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;pointer-events:none}
+.chips span{display:inline-block;padding:6px 14px;border:1px solid var(--line);border-radius:999px;font-size:.88rem;transition:all .25s}
+.chips input:checked+span{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.chips input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.form-msg{font-size:.92rem;color:var(--green)}
+@media (max-width:860px){.visit .wrap{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:rgba(243,238,231,.7);padding-block:56px calc(56px + env(safe-area-inset-bottom,0px));font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:start}
+footer img{height:40px;width:auto}
+footer .legal{max-width:40em;line-height:1.9}
+footer .soc{display:flex;gap:14px}
+footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
+
+/* ---------- floating ---------- */
+.float{position:fixed;z-index:60;bottom:calc(22px + env(safe-area-inset-bottom,0px));inset-inline-start:calc(22px + env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:10px}
+.float a{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 14px 30px -12px rgba(0,0,0,.45);text-decoration:none;transition:transform .3s}
+.float a:hover{transform:translateY(-3px)}
+.float .wa-btn{background:#25D366;color:#fff}
+.float .ig-btn{background:var(--ivory);color:var(--ink);border:1px solid var(--line)}
+.float svg{width:28px;height:28px}
+.float .wa-btn::before{content:"";position:absolute;width:58px;height:58px;border-radius:50%;border:2px solid #25D366;animation:ping 2.4s infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+
+.todo{outline:1px dashed var(--dot);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;700&display=swap">
+</head>
+<body class="no-js">
+<script>document.body.classList.remove('no-js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.body.classList.add('reduce');</script>
+
+<!-- loader: eight-point star drawn, then the IRo+ mark -->
+<div id="loader" aria-hidden="true">
+  <svg class="star" viewBox="0 0 200 200"><path d="M100 10 L127 73 L190 100 L127 127 L100 190 L73 127 L10 100 L73 73 Z"/><path d="M36 36 L100 58 L164 36 L142 100 L164 164 L100 142 L36 164 L58 100 Z"/><circle cx="100" cy="100" r="34" fill="none" stroke="#B48A45" stroke-width="1"/></svg>
+  <img class="lg" src="../assets/logo-dark.png" alt="">
+</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#hero" aria-label="عيادة إيرو للجراحة التجميلية"><img src="../assets/logo-dark.png" alt="IRo+ عيادة إيرو للجراحة التجميلية"></a>
+    <nav class="main" aria-label="القائمة الرئيسية">
+      <a href="#doctor">الطبيبة</a>
+      <a href="#lifting">شدّ الوجه</a>
+      <a href="#procedures">الإجراءات</a>
+      <a href="#care">رعايتكم</a>
+      <a href="#visit">الزيارة</a>
+    </nav>
+    <div class="lang" dir="ltr"><a href="https://iroplasticsurgery.com/" target="_blank" rel="noopener">KR</a><span>·</span><b>AR</b></div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">عيادة إيرو للجراحة التجميلية · سيول</p>
+      <h1 id="heroTitle"><span class="w"><span>جمالٌ</span></span> <span class="w"><span>يدوم</span></span><br><span class="w"><span class="gold">نفعُه</span></span></h1>
+      <p class="sub">المكان الذي تأتمنونه على وجوهكم. طبيبة واحدة تتابع حالتكم من الاستشارة الأولى حتى اكتمال النتيجة، بلا مبالغة وبوضوح تام.</p>
+      <div class="ctas">
+        <a class="btn" data-wa href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>استشارة عبر واتساب</a>
+        <a class="btn ghost" href="#procedures">استكشفوا الإجراءات</a>
+      </div>
+      <p class="ko">شعار العيادة <span>“기준은 당신, 완성은 이로”</span> المعيار أنتم، والاكتمال من إيرو</p>
+    </div>
+    <div class="arch-frame">
+      <div class="arch"><img id="heroDoc" src="../assets/doctor.jpg" alt="د. جيهيون كيم، مديرة عيادة إيرو"></div>
+      <div class="arch-tag"><b>د. جيهيون كيم</b>أخصائية جراحة التجميل<br>معتمدة من البورد الكوري</div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"></div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="marq">
+  <span>شدّ الوجه</span><i>✦</i><span>شفط الدهون المخصص</span><i>✦</i><span>تجميل الثدي</span><i>✦</i><span>شباب العينين</span><i>✦</i><span>البشرة والحقن</span><i>✦</i><span>الخلايا الجذعية</span><i>✦</i>
+  <span>شدّ الوجه</span><i>✦</i><span>شفط الدهون المخصص</span><i>✦</i><span>تجميل الثدي</span><i>✦</i><span>شباب العينين</span><i>✦</i><span>البشرة والحقن</span><i>✦</i><span>الخلايا الجذعية</span><i>✦</i>
+</div></div>
+
+<!-- DOCTOR -->
+<section class="doctor" id="doctor">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">مديرة العيادة · رعاية شخصية مخصصة ١:١</p>
+      <p class="quote">«لا أقترح إجراءً لا تحتاجونه. أبدأ بفهم وجوهكم وأسلوب حياتكم، ثم <em>نصمّم معًا</em> الخيار الأنسب لكم.»</p>
+      <div class="sign">
+        <img src="../assets/doctor.jpg" alt="">
+        <div><b>د. جيهيون كيم</b><small>أخصائية جراحة التجميل | معتمدة من البورد الكوري</small></div>
+      </div>
+    </div>
+    <ul class="cv reveal-list">
+      <li class="now">مديرة عيادة إيرو للجراحة التجميلية <span>NOW</span></li>
+      <li>مديرة سابقة في عيادة فيو للجراحة التجميلية <span>VIEW</span></li>
+      <li>مديرة سابقة في عيادة إيت للجراحة التجميلية <span>EIGHT</span></li>
+      <li>عضوة عاملة في الجمعية الكورية لجراحي التجميل والترميم <span>KSPRS</span></li>
+      <li>عضوة عاملة في الجمعية الكورية لجراحة التجميل الجمالية <span>KSAPS</span></li>
+      <li>عضوة عاملة في الجمعية الكورية لجراحة التجميل القحفية الوجهية <span>KSCFPS</span></li>
+      <li>عضوة في الجمعية الكورية لجراحة تجميل وترميم العين <span>KSOPRS</span></li>
+      <li>عضوة في الجمعية الكورية لجراحة تجميل الأنف <span>KSRPS</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philo">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><p class="eyebrow">فلسفة إيرو</p><h2>بلا مبالغة، لكن بوضوح.</h2></div>
+      <p>كل قرار في إيرو يبدأ من حالتكم أنتم، لا من قائمة إجراءات. هذه ثلاثة مبادئ نلتزم بها مع كل مريض.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar">
+        <svg viewBox="0 0 100 100"><path d="M50 2 L64 36 L98 50 L64 64 L50 98 L36 64 L2 50 L36 36 Z"/></svg>
+        <div class="k">I</div>
+        <h3>طبيبة واحدة، مسؤولية كاملة</h3>
+        <p>الطبيبة التي تستشيرونها هي نفسها التي تُجري الإجراء وتتابع تعافيكم. لا تنتقل حالتكم بين أيدٍ مختلفة.</p>
+      </article>
+      <article class="pillar">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#1F1B18"/><circle cx="50" cy="50" r="22" fill="none" stroke="#1F1B18"/></svg>
+        <div class="k">II</div>
+        <h3>تشخيص يجمع الجراحة والتجميل</h3>
+        <p>لا نقسّم الخيارات إلى «إجراء» أو «جراحة» فقط. نقارن بينهما معكم ونختار ما يحقق النتيجة المرجوة بأقل تدخل ضروري.</p>
+      </article>
+      <article class="pillar">
+        <svg viewBox="0 0 100 100"><path d="M10 70 Q50 10 90 70"/><path d="M20 80 Q50 30 80 80"/></svg>
+        <div class="k">III</div>
+        <h3>نتائج طبيعية تدوم</h3>
+        <p>كل تغيير، مهما كان صغيرًا، نصمّمه ضمن توازن الوجه والجسم بالكامل، لتبدو النتيجة جزءًا منكم.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE: LIFTING -->
+<section class="signature" id="lifting">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">الإجراء المميز في إيرو</p>
+      <h2>شدّ الوجه<br><span class="gold">بتوازنٍ كامل</span></h2>
+      <p class="lead">من الأجهزة غير الجراحية إلى شدّ الوجه الجراحي، نختار الطريقة بعد تقييم مرونة الجلد والدهون والعضلات وملامح الوجه معًا.</p>
+      <blockquote>«شدّ الوجه ليس مجرد شدٍّ للجلد المترهل. من المهم النظر إلى الوجه بأكمله لاختيار الطريقة الأنسب لحالتكم.»<cite>د. كيم جيهيون</cite></blockquote>
+      <ul class="lift-list">
+        <li>شدّ الوجه العميق <span>Deep Plane</span></li>
+        <li>شدّ الوجه المصغّر <span>Mini Lift</span></li>
+        <li>ألثيرابي برايم <span>Ulthera Prime</span></li>
+        <li>ثيرماج <span>Thermage FLX</span></li>
+        <li>أوندا <span>ONDA</span></li>
+        <li>شدّ بالخيوط <span>Thread Lift</span></li>
+        <li>إزالة اللغد وتحديد خط الرقبة <span>Neck</span></li>
+        <li>شدّ منتصف الوجه <span>Midface</span></li>
+      </ul>
+    </div>
+    <svg class="contour" id="contour" viewBox="0 0 400 480" aria-hidden="true">
+      <!-- before contour (dashed) and after contour (gold), with lift vectors -->
+      <path class="ghost" d="M200 40 C120 40 82 110 82 200 C82 290 110 352 150 392 C170 412 186 428 200 432 C214 428 230 412 250 392 C290 352 318 290 318 200 C318 110 280 40 200 40 Z"/>
+      <path class="ghost" d="M96 300 C112 350 150 395 200 418"/>
+      <path class="after" d="M200 40 C124 40 86 108 86 196 C86 274 108 326 140 364 C164 392 184 410 200 414 C216 410 236 392 260 364 C292 326 314 274 314 196 C314 108 276 40 200 40 Z"/>
+      <path class="arrow" d="M120 330 L104 262 M104 262 L96 280 M104 262 L118 276"/>
+      <path class="arrow" d="M280 330 L296 262 M296 262 L304 280 M296 262 L282 276"/>
+      <path class="arrow" d="M150 400 L136 350 M136 350 L130 366 M136 350 L148 362"/>
+      <path class="arrow" d="M250 400 L264 350 M264 350 L270 366 M264 350 L252 362"/>
+      <path class="after" d="M150 170 Q170 160 186 170 M214 170 Q230 160 250 170 M184 300 Q200 310 216 300"/>
+    </svg>
+  </div>
+</section>
+
+<!-- PROCEDURES SLIDER -->
+<section class="procs" id="procedures">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow">الإجراءات</p><h2>ما نقدّمه لكم</h2></div>
+      <div class="ctrl">
+        <button type="button" id="prev" aria-label="السابق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
+        <span class="count" id="count">01 / 07</span>
+        <button type="button" id="next" aria-label="التالي"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="rail" id="rail">
+      <div class="rail-track" id="track">
+        <article class="pcard"><div class="num">01 · LIFTING</div><div class="art"><svg viewBox="0 0 300 150"><path d="M60 140 C60 60 100 20 150 20 C200 20 240 60 240 140"/><path d="M90 120 L80 70 M210 120 L220 70"/></svg></div>
+          <h3>شدّ الوجه والرفع</h3><p>استعادة خط الفك وتحديد ملامح الوجه بالجراحة أو بالأجهزة، حسب حالة الجلد والأنسجة.</p>
+          <ul><li>شدّ الوجه</li><li>ألثيرابي</li><li>ثيرماج</li><li>الخيوط</li></ul><p class="tags">#خط_الفك #ترهل_الوجه #نتيجة_طبيعية</p></article>
+        <article class="pcard"><div class="num">02 · FAT</div><div class="art"><svg viewBox="0 0 300 150"><path d="M110 20 C70 60 70 100 110 140 M190 20 C230 60 230 100 190 140"/><path d="M150 30 L150 120"/></svg></div>
+          <h3>نحت الجسم بالدهون</h3><p>شفط الدهون المصمّم لكل جسم، ونقل الدهون الذاتية لاستعادة الامتلاء الطبيعي في الوجه والجسم.</p>
+          <ul><li>شفط الدهون المخصص</li><li>حقن الدهون الذاتية</li></ul><p class="tags">#نحت_الجسم #تناسق #دهون_ذاتية</p></article>
+        <article class="pcard"><div class="num">03 · BREAST</div><div class="art"><svg viewBox="0 0 300 150"><path d="M70 50 C70 130 145 130 150 90 C155 130 230 130 230 50"/></svg></div>
+          <h3>تجميل الثدي</h3><p>تكبير ورفع بشكل متناسق مع الجسم، مع خيار حقن الدهون الذاتية لنتيجة ناعمة الملمس.</p>
+          <ul><li>تكبير الثدي</li><li>رفع الثدي المترهل</li><li>الهالة والحلمة</li><li>إزالة الثدي الإضافي</li></ul><p class="tags">#تناسق_الجسم #ملمس_طبيعي</p></article>
+        <article class="pcard"><div class="num">04 · YOUTHFUL EYES</div><div class="art"><svg viewBox="0 0 300 150"><path d="M60 80 Q150 20 240 80 Q150 130 60 80 Z"/><path d="M70 50 Q150 0 230 50"/></svg></div>
+          <h3>شباب العينين</h3><p>علاج ترهل الجفون والهالات وتجاعيد ما تحت العين، لنظرة أكثر انتعاشًا دون تغيير ملامحكم.</p>
+          <ul><li>رفع الجفن العلوي</li><li>رفع الحاجب دون ندبة ظاهرة</li><li>رفع الجبهة</li><li>إعادة توزيع دهون أسفل العين</li></ul><p class="tags">#جفون_مترهلة #هالات #نظرة_منتعشة</p></article>
+        <article class="pcard"><div class="num">05 · SKIN</div><div class="art"><svg viewBox="0 0 300 150"><circle cx="150" cy="75" r="50"/><circle cx="150" cy="75" r="28"/><circle cx="150" cy="75" r="8"/></svg></div>
+          <h3>البشرة والحقن</h3><p>بوتوكس مصمّم حسب الوجه «أوماكاسي»، فيلر، معززات البشرة، بيكو تونينغ، وعلاج الندبات.</p>
+          <ul><li>بوتوكس أوماكاسي</li><li>فيلر</li><li>معززات البشرة</li><li>علاج الندبات</li></ul><p class="tags">#نضارة #ترطيب #بدون_جراحة</p></article>
+        <article class="pcard"><div class="num">06 · STEM CELL</div><div class="art"><svg viewBox="0 0 300 150"><circle cx="120" cy="70" r="26"/><circle cx="175" cy="60" r="18"/><circle cx="165" cy="105" r="22"/></svg></div>
+          <h3>الخلايا الجذعية</h3><p>علاجات تجديدية تعتمد على خلاياكم الذاتية لدعم جودة البشرة والأنسجة.</p>
+          <ul><li>تجديد البشرة</li><li>دعم نتائج نقل الدهون</li></ul><p class="tags">#تجديد #خلايا_ذاتية</p></article>
+        <article class="pcard low"><div class="num">07 · EYE</div>
+          <h3>تجميل العين</h3><p>إجراءات تجميلية للعين متاحة أيضًا عند الحاجة، بعد استشارة الطبيبة.</p>
+          <ul><li>الجفن المزدوج</li><li>تصحيح شكل العين</li><li>إعادة عمليات العين</li></ul><span class="badge">متاح عند الطلب</span></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARE -->
+<section class="care" id="care">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">رعايتكم في سيول</p>
+      <h2>تتحدثون بلغتكم،<br>ونرافقكم في كل خطوة</h2>
+      <div class="items">
+        <div class="item reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+          <div><h3>منسّقة خاصة</h3><p>منسّقة ترتّب مواعيدكم وتتابع حالتكم قبل الزيارة وأثناءها وبعد عودتكم.</p></div></div>
+        <div class="item reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c0 3-3 7-7 9"/><path d="M13 21l4-10 4 10M14.5 17.5h5"/></svg></div>
+          <div><h3>مترجمة طبية باللغة العربية</h3><p>مترجمة طبية متخصصة ترافقكم في الاستشارة والإجراء، لتفهموا كل تفصيل بوضوح قبل اتخاذ القرار.</p></div></div>
+        <div class="item reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
+          <div><h3>متابعة عبر واتساب</h3><p>أسئلة قبل السفر، وصور المتابعة بعد العودة إلى بلدكم، في محادثة واحدة مع فريق العيادة.</p></div></div>
+      </div>
+    </div>
+    <div class="illu">
+      <img src="../assets/doctor-illust.jpg" alt="رسم توضيحي للطبيبة بزي العمليات">
+      <span class="bubble b1">مرحبًا، كيف يمكنني مساعدتكم؟</span>
+      <span class="bubble b2">안녕하세요</span>
+      <span class="bubble b3">سأترجم لكم كل التفاصيل</span>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="ba">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">قبل وبعد</p>
+      <h2>نتائج حقيقية<br>لمرضى حقيقيين</h2>
+      <p style="margin-top:20px;color:var(--muted)">تُعرض صور قبل وبعد بموافقة المرضى. اسحبوا المؤشر للمقارنة.</p>
+      <p class="note">قد تختلف النتائج من شخص لآخر. تُناقش الآثار الجانبية المحتملة وفترة التعافي بالتفصيل خلال الاستشارة.</p>
+    </div>
+    <div class="compare todo" id="compare" title="يُستبدل بصور المرضى الفعلية">
+      <div class="side before">صورة «قبل»</div>
+      <div class="side after" id="afterSide">صورة «بعد»</div>
+      <span class="lbl l">بعد</span><span class="lbl r">قبل</span>
+      <div class="handle" id="handle"></div>
+      <input type="range" min="0" max="100" value="50" id="cmpRange" aria-label="مقارنة قبل وبعد">
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP CARD -->
+<section class="wa" id="whatsapp">
+  <svg class="pattern" aria-hidden="true" width="100%" height="100%"><defs><pattern id="p8" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M40 4 L51 29 L76 40 L51 51 L40 76 L29 51 L4 40 L29 29 Z" fill="none" stroke="#E6C77A" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#p8)"/></svg>
+  <div class="wrap">
+    <h2 class="wa-line">يسعدنا استقبال<br>أسئلتكم.</h2>
+    <p class="lead wa-line">نجيب عن جميع استفساراتكم<br>بوضوح قبل موعدكم.</p>
+    <h3 class="wa-line">للاستفسار من العيادة</h3>
+    <div class="qr" id="qr"><img src="../assets/whatsapp-qr.png" alt="رمز واتساب لعيادة إيرو" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',innerHTML:'رمز QR<br>من بطاقة واتساب الأصلية'}))"></div>
+    <p class="cap">رمز التواصل عبر واتساب</p>
+    <a class="btn" data-wa href="#" target="_blank" rel="noopener">افتحوا المحادثة على واتساب</a>
+    <img class="mark" src="../assets/logo-light.png" alt="IRo+">
+  </div>
+</section>
+
+<!-- VISIT + FORM -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">زيارة العيادة</p>
+      <h2>مواعيد العمل والموقع</h2>
+      <div class="hours">
+        <div><span>الاثنين · الثلاثاء · الأربعاء · الجمعة</span><span>10:00 – 19:00</span></div>
+        <div class="off"><span>الخميس</span><span>مغلق</span></div>
+        <div><span>السبت</span><span>10:00 – 16:00</span></div>
+        <div class="off"><span>الأحد والعطلات الرسمية</span><span>مغلق</span></div>
+      </div>
+      <p style="margin-top:10px;font-size:.84rem;color:var(--muted)">جميع المواعيد بتوقيت كوريا (KST) — متقدمة ٦ ساعات على الرياض و٥ ساعات على دبي.</p>
+      <div class="addr">
+        <div class="row"><b>العنوان:</b> سيول، سودايمون-غو، شينتشون-رو 37-غيل 10، مبنى آهيون الطبي، الطابق 8</div>
+        <div class="row"><span class="ltr" id="addrEn">8F, 10 Sinchon-ro 37-gil, Seodaemun-gu, Seoul</span><button class="copy" type="button" data-copy="addrEn">نسخ العنوان</button></div>
+        <div class="row"><b>الهاتف:</b> <span class="ltr" id="tel">+82 2-363-5501</span><button class="copy" type="button" data-copy="tel">نسخ</button></div>
+      </div>
+      <div class="maps">
+        <a href="https://maps.google.com/?q=10+Sinchon-ro+37-gil+Seodaemun-gu+Seoul" target="_blank" rel="noopener">Google Maps</a>
+        <a href="https://map.naver.com/p/search/%EC%9D%B4%EB%A1%9C%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener">Naver Map</a>
+        <a href="https://map.kakao.com/?q=%EC%9D%B4%EB%A1%9C%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener">Kakao Map</a>
+      </div>
+    </div>
+    <form class="consult" id="consultForm" novalidate>
+      <h3>طلب استشارة</h3>
+      <p class="hint">املؤوا النموذج، وسيُفتح واتساب برسالة جاهزة إلى فريق العيادة.</p>
+      <div class="two">
+        <div class="field"><label for="f-name">الاسم</label><input id="f-name" name="name" required autocomplete="name" value=""></div>
+        <div class="field"><label for="f-country">البلد</label>
+          <select id="f-country" name="country"><option>الإمارات</option><option>السعودية</option><option>الكويت</option><option>قطر</option><option>البحرين</option><option>عُمان</option><option>بلد آخر</option></select></div>
+      </div>
+      <div class="field"><span style="font-size:.88rem;font-weight:500">الإجراء المطلوب</span>
+        <div class="chips">
+          <label><input type="checkbox" name="proc" value="شدّ الوجه" id="c1" checked><span>شدّ الوجه</span></label>
+          <label><input type="checkbox" name="proc" value="الدهون" id="c2"><span>الدهون</span></label>
+          <label><input type="checkbox" name="proc" value="الثدي" id="c3"><span>الثدي</span></label>
+          <label><input type="checkbox" name="proc" value="شباب العينين" id="c4"><span>شباب العينين</span></label>
+          <label><input type="checkbox" name="proc" value="البشرة والحقن" id="c5"><span>البشرة والحقن</span></label>
+          <label><input type="checkbox" name="proc" value="لست متأكدًا" id="c6"><span>لست متأكدًا بعد</span></label>
+        </div>
+      </div>
+      <div class="field"><label for="f-month">موعد الزيارة المتوقع</label><input id="f-month" name="month" type="month"></div>
+      <div class="field"><label for="f-msg">رسالتكم</label><textarea id="f-msg" name="msg" rows="3" placeholder="صفوا ما تودّون تحسينه"></textarea></div>
+      <button class="btn" type="submit">إرسال عبر واتساب</button>
+      <p class="form-msg" id="formMsg" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="display:grid;gap:18px">
+      <img src="../assets/logo-light.png" alt="IRo+">
+      <p class="legal">عيادة إيرو للجراحة التجميلية · المديرة: د. جيهيون كيم<br>جميع الإجراءات الطبية قد تنطوي على آثار جانبية، وتختلف النتائج من شخص لآخر. يُرجى استشارة الطبيبة قبل اتخاذ أي قرار.</p>
+    </div>
+    <div class="soc">
+      <a href="https://www.instagram.com/irops_ar/" target="_blank" rel="noopener" dir="ltr">@irops_ar</a>
+      <a data-wa href="#" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<div class="float">
+  <a class="wa-btn" data-wa href="#" target="_blank" rel="noopener" aria-label="واتساب"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
+  <a class="ig-btn" href="https://www.instagram.com/irops_ar/" target="_blank" rel="noopener" aria-label="إنستغرام"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="../assets/config.js"></script>
+<script>
+(function(){
+  const CFG = window.IRO_CONFIG || {};
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- WhatsApp links (single source: assets/config.js) ---- */
+  document.querySelectorAll('[data-wa]').forEach(a => a.href = CFG.WA_LINK || '#whatsapp');
+
+  /* ---- copy buttons ---- */
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => {
+    const t = document.getElementById(b.dataset.copy).textContent.trim();
+    const done = () => { const o = b.textContent; b.textContent = 'تم النسخ'; setTimeout(() => b.textContent = o, 1600); };
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(done).catch(() => {
+      const r = document.createRange(); r.selectNodeContents(document.getElementById(b.dataset.copy));
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    });
+  }));
+
+  /* ---- before/after compare ---- */
+  const range = document.getElementById('cmpRange'), after = document.getElementById('afterSide'), handle = document.getElementById('handle');
+  const setCmp = v => { after.style.clipPath = `inset(0 0 0 ${v}%)`; handle.style.left = v + '%'; };
+  range.addEventListener('input', e => setCmp(e.target.value));
+
+  /* ---- consultation form → WhatsApp message ---- */
+  const form = document.getElementById('consultForm'), msg = document.getElementById('formMsg');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    if (!name) { msg.textContent = 'يرجى كتابة الاسم حتى نتمكن من الرد عليكم.'; form.name.focus(); return; }
+    const procs = [...form.querySelectorAll('input[name=proc]:checked')].map(i => i.value).join('، ') || 'غير محدد';
+    const text = `مرحبًا عيادة إيرو،\nالاسم: ${name}\nالبلد: ${form.country.value}\nالإجراء: ${procs}\nموعد الزيارة: ${form.month.value || 'غير محدد'}\n${form.msg.value.trim()}`;
+    const base = CFG.WA_LINK && CFG.WA_LINK.startsWith('https://wa.me/') ? CFG.WA_LINK : null;
+    if (base) { window.open(base + '?text=' + encodeURIComponent(text), '_blank', 'noopener'); msg.textContent = 'تم تجهيز رسالتكم في واتساب. اضغطوا «إرسال» هناك لإتمام الطلب.'; }
+    else { msg.textContent = 'رقم واتساب العيادة لم يُضبط بعد في هذا العرض التجريبي.'; }
+  });
+
+  /* ---- procedures rail (prev/next + drag) ---- */
+  const rail = document.getElementById('rail'), track = document.getElementById('track'), cards = [...track.children];
+  const count = document.getElementById('count'); let idx = 0, x = 0;
+  const pad = n => String(n).padStart(2, '0');
+  const maxShift = () => Math.max(0, track.scrollWidth - rail.clientWidth);
+  const stepW = () => cards[0].getBoundingClientRect().width + 24;
+  function go(i){
+    idx = Math.max(0, Math.min(cards.length - 1, i));
+    x = Math.min(idx * stepW(), maxShift());           // RTL: content moves right (+x) to reveal later cards
+    if (window.gsap && !reduce) gsap.to(track, { x, duration: .9, ease: 'expo.out' }); else track.style.transform = `translateX(${x}px)`;
+    count.textContent = `${pad(idx + 1)} / ${pad(cards.length)}`;
+  }
+  document.getElementById('next').onclick = () => go(idx + 1);
+  document.getElementById('prev').onclick = () => go(idx - 1);
+  let sx = null;
+  rail.addEventListener('pointerdown', e => { sx = e.clientX; });
+  addEventListener('pointerup', e => { if (sx === null) return; const d = e.clientX - sx; sx = null; if (Math.abs(d) > 40) go(idx + (d > 0 ? 1 : -1)); });
+  addEventListener('resize', () => go(idx));
+
+  /* ---- hero canvas: drifting gold threads ---- */
+  const cv = document.getElementById('heroCanvas'), ctx = cv.getContext('2d');
+  let W, H, t = 0; const dpr = Math.min(devicePixelRatio || 1, 2);
+  function size(){ W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  size(); addEventListener('resize', size);
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for (let k = 0; k < 7; k++){
+      ctx.beginPath();
+      const amp = 26 + k * 9, yb = H * (.28 + k * .085);
+      for (let px = 0; px <= W; px += 12){
+        const y = yb + Math.sin(px * .0042 + t * .6 + k * .7) * amp + Math.cos(px * .0017 - t * .35 + k) * amp * .6;
+        px ? ctx.lineTo(px, y) : ctx.moveTo(px, y);
+      }
+      ctx.strokeStyle = `rgba(180,138,69,${.05 + k * .018})`; ctx.lineWidth = 1; ctx.stroke();
+    }
+    t += .006; if (!reduce) requestAnimationFrame(draw);
+  }
+  draw();
+
+  /* ---- motion ---- */
+  const loader = document.getElementById('loader');
+  if (!window.gsap || reduce) { loader && loader.remove(); return; }
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (window.Lenis) {
+    const lenis = new Lenis({ lerp: .09 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(time => lenis.raf(time * 1000)); gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); if (id.length > 1 && document.querySelector(id)) { e.preventDefault(); lenis.scrollTo(id, { offset: -70 }); }
+    }));
+  }
+
+  // intro: star draws, logo fades, curtain lifts, hero words rise
+  const paths = loader.querySelectorAll('path,circle');
+  paths.forEach(p => { const l = p.getTotalLength(); p.style.strokeDasharray = l; p.style.strokeDashoffset = l; });
+  const tl = gsap.timeline();
+  tl.to(paths, { strokeDashoffset: 0, duration: 1.3, ease: 'power2.inOut', stagger: .15 })
+    .to(loader.querySelector('svg'), { scale: .6, opacity: 0, duration: .5 }, '+=.05')
+    .to(loader.querySelector('.lg'), { opacity: 1, duration: .5 }, '<')
+    .to(loader, { clipPath: 'inset(0 0 100% 0)', duration: .9, ease: 'expo.inOut' }, '+=.35')
+    .set(loader, { display: 'none' })
+    .from('#heroTitle .w>span', { yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: .12 }, '-=.45')
+    .from('.hero .sub, .hero .ctas, .hero .ko, .hero .eyebrow', { y: 24, opacity: 0, duration: .8, stagger: .08 }, '-=.8')
+    .from('.arch', { clipPath: 'inset(100% 0 0 0)', duration: 1.3, ease: 'expo.inOut' }, '-=1.3')
+    .from('.arch-tag', { x: -30, opacity: 0, duration: .7 }, '-=.4');
+
+  // header
+  ScrollTrigger.create({ start: 80, onToggle: s => document.getElementById('top').classList.toggle('solid', s.isActive) });
+  // hero portrait parallax
+  gsap.to('#heroDoc', { yPercent: -12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  // marquee (moves left-to-right for RTL reading)
+  const mq = document.getElementById('marq');
+  gsap.fromTo(mq, { xPercent: 0 }, { xPercent: 50, duration: 30, ease: 'none', repeat: -1 });
+
+  // generic reveals
+  gsap.utils.toArray('.reveal').forEach(el => gsap.from(el, { y: 40, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%', once: true } }));
+  gsap.from('.reveal-list li', { x: -30, opacity: 0, duration: .7, stagger: .07, ease: 'power2.out', scrollTrigger: { trigger: '.reveal-list', start: 'top 80%', once: true } });
+  gsap.from('.pillar', { y: 60, opacity: 0, duration: 1, stagger: .15, ease: 'power3.out', scrollTrigger: { trigger: '.pillars', start: 'top 80%', once: true } });
+  gsap.utils.toArray('.pillar svg').forEach(s => gsap.to(s, { rotate: 90, ease: 'none', scrollTrigger: { trigger: s, scrub: true } }));
+
+  // lifting contour: lines draw with scroll
+  const cps = document.querySelectorAll('#contour .after, #contour .arrow');
+  cps.forEach(p => { const l = p.getTotalLength(); p.style.strokeDasharray = l; p.style.strokeDashoffset = l; });
+  gsap.to(cps, { strokeDashoffset: 0, stagger: .12, ease: 'none', scrollTrigger: { trigger: '.signature', start: 'top 70%', end: 'center 45%', scrub: 1 } });
+  gsap.from('.lift-list li', { y: 20, opacity: 0, stagger: .05, duration: .6, scrollTrigger: { trigger: '.lift-list', start: 'top 85%', once: true } });
+
+  // procedure cards fan in
+  gsap.from('.pcard', { y: 80, rotate: -2, opacity: 0, duration: 1, stagger: .08, ease: 'power3.out', scrollTrigger: { trigger: '#rail', start: 'top 85%', once: true } });
+
+  // care bubbles float
+  gsap.from('.illu img', { clipPath: 'inset(100% 0 0 0)', duration: 1.4, ease: 'expo.inOut', scrollTrigger: { trigger: '.illu', start: 'top 80%', once: true } });
+  gsap.from('.illu .bubble', { scale: .6, opacity: 0, duration: .6, stagger: .25, ease: 'back.out(2)', delay: .6, scrollTrigger: { trigger: '.illu', start: 'top 80%', once: true } });
+  gsap.to('.illu .bubble', { y: -8, duration: 2.2, yoyo: true, repeat: -1, ease: 'sine.inOut', stagger: .4 });
+
+  // compare: auto-sweep hint once
+  ScrollTrigger.create({ trigger: '#compare', start: 'top 75%', once: true, onEnter: () => {
+    const o = { v: 50 }; gsap.to(o, { v: 22, duration: .9, yoyo: true, repeat: 1, ease: 'power2.inOut', onUpdate: () => { setCmp(o.v); range.value = o.v; } });
+  }});
+
+  // WhatsApp card: lines stack in, QR lifts
+  gsap.from('.wa-line', { y: 50, opacity: 0, duration: 1, stagger: .15, ease: 'power3.out', scrollTrigger: { trigger: '.wa', start: 'top 70%', once: true } });
+  gsap.from('#qr', { y: 80, rotateX: 50, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '#qr', start: 'top 90%', once: true } });
+  gsap.to('.wa .pattern', { backgroundPosition: '0 0', yPercent: -10, ease: 'none', scrollTrigger: { trigger: '.wa', scrub: true } });
+
+  go(0);
+})();
+</script>
+</body>
+</html>
