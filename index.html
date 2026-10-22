@@ -3,46 +3,78 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <title>IRO 아랍어 웹페이지 시안</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&family=Noto+Sans+KR:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Sans+KR:wght@400;600&display=swap">
 <style>
-:root{--green:#123D2B;--gold:#E6C77A;--sand:#EFE6D6;--ink:#16201B;--muted:#5E6A62}
+:root{--green:#0F3324;--gold:#E6C77A;--gold-ink:#9A7330;--sand:#EFE6D6;--paper:#FAF6EE;--ink:#16201B;--muted:#5E6A62;--line:rgba(22,32,27,.12)}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:var(--sand);color:var(--ink);font-family:"Noto Sans KR",sans-serif;display:grid;place-items:center;padding:40px 16px}
-main{max-width:860px;width:100%}
+body{margin:0;min-height:100vh;background:var(--sand);color:var(--ink);font-family:"Noto Sans KR",sans-serif;padding:40px 16px}
+main{max-width:1040px;margin:0 auto}
 img{height:44px;width:auto}
 h1{font-size:clamp(1.6rem,4vw,2.3rem);margin:22px 0 6px}
 p{color:var(--muted);margin:0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
-a.card{display:grid;gap:8px;text-decoration:none;color:inherit;background:#FAF6EE;border:1px solid rgba(22,32,27,.12);border-radius:20px;padding:28px;transition:transform .25s,box-shadow .25s}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+a.card{display:grid;gap:8px;align-content:start;text-decoration:none;color:inherit;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;transition:transform .25s,box-shadow .25s}
 a.card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(18,61,43,.5)}
-a.card.b{background:var(--green);color:var(--sand)}
-a.card.b p{color:rgba(239,230,214,.75)}
-.k{font-size:.8rem;font-weight:600;color:#9A7330}
-a.card.b .k{color:var(--gold)}
-h2{margin:0;font-size:1.35rem}
-.ar{font-family:"Alexandria",sans-serif;direction:rtl;font-size:1.05rem}
-@media (max-width:640px){.grid{grid-template-columns:1fr}}
+a.card.b{background:#123D2B;color:var(--sand)}
+a.card.c{background:linear-gradient(160deg,#0F3324,#164531);color:var(--sand);outline:2px solid var(--gold);outline-offset:3px}
+a.card.b p,a.card.c p{color:rgba(239,230,214,.78)}
+.k{font-size:.8rem;font-weight:600;color:var(--gold-ink)}
+a.card.b .k,a.card.c .k{color:var(--gold)}
+h2{margin:0;font-size:1.3rem}
+.ar{font-family:"Amiri",serif;direction:rtl;font-size:1.25rem}
+.rec{display:inline-block;font-size:.72rem;background:var(--gold);color:var(--green);padding:2px 10px;border-radius:999px;font-weight:600;justify-self:start}
+.sub{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px}
+.box h3{margin:0 0 10px;font-size:1rem}
+.box ul{margin:0;padding-inline-start:1.1em;color:var(--muted);font-size:.92rem;line-height:1.9}
+.box a{color:var(--ink)}
+@media (max-width:820px){.grid,.sub{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <main>
   <img src="assets/logo-dark.png" alt="IRo+">
   <h1>이로성형외과 아랍어 웹페이지 시안</h1>
-  <p>걸프 지역(UAE·사우디) 환자 대상 · 시안 2종</p>
+  <p>걸프 지역(UAE·사우디·쿠웨이트·카타르) 환자 대상 · 시안 3종 비교 · 모든 아랍어 문구는 (콘텐츠 초안)</p>
   <div class="grid">
     <a class="card" href="ar-signature/">
       <span class="k">시안 A · Signature Editorial</span>
-      <h2>이로 + 커스텀피부과 레퍼런스</h2>
-      <span class="ar">جمالٌ يدوم نفعُه</span>
-      <p>아이보리·골드 톤, 원장 1인 책임 진료 중심의 에디토리얼 구성</p>
+      <h2>아이보리·골드 에디토리얼</h2>
+      <span class="ar">المعيار أنتم</span>
+      <p>원장 1인 책임 진료를 차분하게 보여주는 단일 페이지. 의료광고 기준으로 수정 완료.</p>
     </a>
     <a class="card b" href="ar-journey/">
       <span class="k">시안 B · Medical Journey</span>
-      <h2>아이디병원 아랍어 사이트 레퍼런스</h2>
+      <h2>딥그린 치료 여정 중심</h2>
       <span class="ar">رحلتكم العلاجية في سيول</span>
-      <p>딥그린·골드 톤, 상담부터 귀국 후 관리까지 치료 여정 중심 구성</p>
+      <p>배너 슬라이드, 시술 탭, 상담부터 귀국 후 관리까지의 여정을 담은 단일 페이지. 수정 완료.</p>
     </a>
+    <a class="card c" href="ar/">
+      <span class="rec">추천 · 운영용 구조</span>
+      <span class="k">시안 C · B의 신뢰 구조 + A의 고급스러움</span>
+      <h2>/ar/ 다중 페이지 사이트</h2>
+      <span class="ar">المعيار أنتم</span>
+      <p>에메랄드·골드 모션 그래픽, 시술별 상세 페이지 4개, 원장·여정·FAQ·상담·개인정보 페이지, 검색·AI 노출 구조 포함.</p>
+    </a>
+  </div>
+  <div class="sub">
+    <div class="box">
+      <h3>C안 페이지</h3>
+      <ul>
+        <li><a href="ar/face-lifting/">리프팅</a> · <a href="ar/fat-repositioning/">지방재배치</a> · <a href="ar/facial-surgery/">눈·이마</a> · <a href="ar/other-procedures/">기타 시술</a></li>
+        <li><a href="ar/doctor/">원장</a> · <a href="ar/journey/">치료 여정</a> · <a href="ar/faq/">FAQ</a> · <a href="ar/consultation/">상담폼</a> · <a href="ar/privacy/">개인정보</a></li>
+        <li>화면 왼쪽의 <b>(콘텐츠 초안)</b> 배지를 누르면 원장 확인이 필요한 수치가 표시됩니다</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>문서 · 복구</h3>
+      <ul>
+        <li><a href="https://github.com/moussa0908/iro-arabic-webpage/tree/ccr-70d1b558-v5euia/docs">운영 문서 (구조 설계도, 의료광고 검수표, 상담폼 연동)</a></li>
+        <li>초기 시안 원본: <a href="archive/v1-initial/ar-signature/">A v1</a> · <a href="archive/v1-initial/ar-journey/">B v1</a></li>
+      </ul>
+    </div>
   </div>
 </main>
 </body>

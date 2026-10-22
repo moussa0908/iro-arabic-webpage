@@ -1,0 +1,37 @@
+# robots.txt 는 도메인 최상위에서만 동작합니다. 자체 도메인 연결 후 유효합니다.
+# 공개 전: 각 페이지에 noindex 가 걸려 있습니다 (tools/build.py 의 INDEXABLE).
+User-agent: *
+Allow: /ar/
+Disallow: /archive/
+Disallow: /docs/
+Disallow: /tools/
+Disallow: /src/
+
+User-agent: GPTBot
+Allow: /ar/
+
+User-agent: OAI-SearchBot
+Allow: /ar/
+
+User-agent: ChatGPT-User
+Allow: /ar/
+
+User-agent: ClaudeBot
+Allow: /ar/
+
+User-agent: Claude-SearchBot
+Allow: /ar/
+
+User-agent: PerplexityBot
+Allow: /ar/
+
+User-agent: Google-Extended
+Allow: /ar/
+
+User-agent: Bingbot
+Allow: /ar/
+
+User-agent: Googlebot
+Allow: /ar/
+
+Sitemap: https://moussa0908.github.io/iro-arabic-webpage/sitemap.xml

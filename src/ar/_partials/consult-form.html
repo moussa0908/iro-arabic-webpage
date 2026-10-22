@@ -1,0 +1,51 @@
+<div class="consult-box">
+  <div class="side rv">
+    <p class="eyebrow">طلب استشارة</p>
+    <h2>أخبرونا بما يهمّكم</h2>
+    <p class="lead" style="margin-top:14px">املؤوا النموذج في دقيقة، وسيتواصل معكم فريق العيادة عبر واتساب.</p>
+    <ol>
+      <li>يصل طلبكم إلى فريق العيادة، ونرد خلال مواعيد العمل بتوقيت كوريا.</li>
+      <li>نتواصل معكم عبر واتساب، ونطلب الصور اللازمة لتقييم حالتكم بعد موافقتكم.</li>
+      <li>تراجع الطبيبة الصور، وتشرح الخيارات المناسبة ومدة الإقامة المتوقعة في سيول.</li>
+    </ol>
+  </div>
+  <div>
+    <form class="cform rv" id="consultForm" data-consult novalidate>
+      <div class="two">
+        <div class="field"><label for="f-name">الاسم</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-country">البلد</label>
+          <select id="f-country" name="country">
+            <option data-dial="+971">الإمارات</option><option data-dial="+966">السعودية</option><option data-dial="+965">الكويت</option><option data-dial="+974">قطر</option><option data-dial="+973">البحرين</option><option data-dial="+968">عُمان</option><option data-dial="+">بلد آخر</option>
+          </select></div>
+      </div>
+      <div class="field"><label for="f-phone">رقم واتساب</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" value="+971" required><small>مع رمز الدولة</small></div>
+      <div class="field"><span class="lbl" id="f-proc">الإجراء الذي تودّون الاستفسار عنه</span>
+        <div class="pick" role="group" aria-labelledby="f-proc">
+          <label><input type="checkbox" name="proc" value="lifting"><span>شدّ الوجه</span></label>
+          <label><input type="checkbox" name="proc" value="fat"><span>إعادة توزيع الدهون</span></label>
+          <label><input type="checkbox" name="proc" value="face"><span>العين والجبهة</span></label>
+          <label><input type="checkbox" name="proc" value="body"><span>شفط الدهون</span></label>
+          <label><input type="checkbox" name="proc" value="breast"><span>الثدي</span></label>
+          <label><input type="checkbox" name="proc" value="skin"><span>علاجات غير جراحية</span></label>
+          <label><input type="checkbox" name="proc" value="general"><span>لست متأكدًا بعد</span></label>
+        </div></div>
+      <div class="two">
+        <div class="field"><label for="f-month">الشهر المتوقع للزيارة</label><input id="f-month" name="month" type="month"></div>
+        <div class="field"><label for="f-stay">مدة الإقامة الممكنة في سيول</label>
+          <select id="f-stay" name="stay"><option value="">لم أحدد بعد</option><option>أقل من أسبوع</option><option>من أسبوع إلى أسبوعين</option><option>أكثر من أسبوعين</option></select></div>
+      </div>
+      <div class="field"><label for="f-lang">لغة التواصل المفضلة</label>
+        <select id="f-lang" name="language"><option>العربية</option><option>الإنجليزية</option></select></div>
+      <div class="field"><label for="f-msg">ما الذي تودّون تحسينه؟</label><textarea id="f-msg" name="msg" rows="3"></textarea><small>لا ترسلوا صورًا هنا. نطلبها منكم عبر واتساب بعد التواصل.</small></div>
+      <div class="hp" aria-hidden="true"><label for="f-web">الموقع</label><input id="f-web" name="website" tabindex="-1" autocomplete="off"></div>
+      <label class="consent"><input type="checkbox" name="consent" required><span>أوافق على جمع بياناتي واستخدامها للرد على استفساري وفق <a href="{{privacy}}">سياسة الخصوصية</a>.</span></label>
+      <button class="btn ink block" type="submit">إرسال الطلب</button>
+      <p data-form-msg aria-live="polite"></p>
+    </form>
+    <div class="done" data-consult-done hidden>
+      <h3>شكرًا لكم</h3>
+      <p data-done-text></p>
+      <a class="btn wa" data-done-wa target="_blank" rel="noopener" hidden>متابعة المحادثة على واتساب</a>
+    </div>
+  </div>
+</div>
