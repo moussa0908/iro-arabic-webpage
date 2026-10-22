@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>إيرو | رحلتكم العلاجية في سيول</title>
+<meta name="description" content="عيادة إيرو للجراحة التجميلية — رحلتكم من أول رسالة على واتساب حتى المتابعة بعد العودة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800&family=Tajawal:wght@400;500;700&display=swap">
+<style>
+/* Layout: functional "patient journey" site — utility bar, banner slider, tabbed procedures, pinned horizontal journey, stepped request. Green + sand from the clinic's WhatsApp card. */
+:root{
+  --green:#123D2B;     /* primary, from the WhatsApp card */
+  --green-2:#1B5039;   /* raised green surface */
+  --sand:#EFE6D6;      /* light ground */
+  --paper:#FAF6EE;     /* card surface */
+  --gold:#E6C77A;      /* headline gold */
+  --gold-ink:#9A7330;  /* gold readable on sand */
+  --ink:#16201B;
+  --muted:#5E6A62;
+  --line:rgba(22,32,27,.12);
+  --wa:#25D366;
+  --f-display:"Alexandria","Tajawal","Segoe UI",sans-serif;
+  --f-body:"Tajawal","Segoe UI","Tahoma",sans-serif;
+  --gutter:clamp(16px,4.5vw,64px);
+  --maxw:1280px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{overflow-x:clip}
+body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--gold-ink);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+h1,h2,h3{font-family:var(--f-display);margin:0;line-height:1.35;text-wrap:balance}
+h2{font-size:clamp(1.9rem,4vw,3.1rem);font-weight:700}
+p{margin:0}
+.kicker{font-family:var(--f-display);font-size:.85rem;font-weight:600;color:var(--gold-ink);letter-spacing:.02em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;padding:.8em 1.5em;border-radius:12px;font-family:var(--f-display);font-weight:600;font-size:.95rem;text-decoration:none;border:0;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.gold{background:var(--gold);color:var(--green)}
+.btn.green{background:var(--green);color:var(--gold)}
+.btn.wa{background:var(--wa);color:#fff}
+.btn.line{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px currentColor}
+.btn svg{width:18px;height:18px}
+section{padding-block:clamp(72px,10vw,130px)}
+
+/* ---------- utility bar + header ---------- */
+.util{background:var(--green);color:rgba(239,230,214,.85);font-size:.82rem}
+.util .wrap{display:flex;justify-content:space-between;gap:16px;align-items:center;min-height:38px;flex-wrap:wrap}
+.util nav{display:flex;gap:18px;flex-wrap:wrap}
+.util a{text-decoration:none}
+.util a:hover{color:var(--gold)}
+.util .lang{direction:ltr;letter-spacing:.06em}
+.util .lang b{color:var(--gold)}
+header.main{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(250,246,238,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.main .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:74px}
+header.main img{height:38px;width:auto}
+header.main nav{display:flex;gap:4px}
+header.main nav a{font-family:var(--f-display);font-size:.92rem;text-decoration:none;padding:8px 14px;border-radius:10px;transition:background .25s}
+header.main nav a:hover{background:var(--sand)}
+@media (max-width:980px){header.main nav{display:none}}
+@media (max-width:560px){.util nav{display:none}.util .wrap{justify-content:center}header.main .btn{padding:.6em 1em;font-size:.85rem}}
+
+/* ---------- hero banner slider ---------- */
+.hero{padding-block:24px 0}
+.slides{position:relative;display:grid;border-radius:28px;overflow:hidden;background:var(--green);color:var(--sand);min-height:clamp(460px,60vh,600px);isolation:isolate}
+.slide{grid-area:1/1;position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:24px;padding:clamp(28px,5vw,72px);opacity:0;visibility:hidden}
+.slide.on{opacity:1;visibility:visible}
+.slide .copy{position:relative;z-index:2;min-width:0}
+.slide .tag{display:inline-block;font-family:var(--f-display);font-size:.8rem;padding:4px 12px;border-radius:999px;background:rgba(230,199,122,.16);color:var(--gold)}
+.slide h1{margin-top:18px;font-size:clamp(2rem,4.2vw,3.5rem);font-weight:800;color:var(--gold);line-height:1.25}
+.slide h1 .l{display:block;overflow:hidden}
+.slide h1 .l>span{display:inline-block}
+.slide p.s{margin-top:16px;font-size:clamp(1.02rem,1.6vw,1.2rem);max-width:30em;opacity:.88}
+.slide .ctas{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.slide .visual{position:relative;height:100%;min-height:280px;display:grid;place-items:center}
+.slide .visual img{max-height:min(520px,56vh);width:auto;border-radius:220px 220px 24px 24px;object-fit:cover}
+.slide .orb{position:absolute;border-radius:50%;filter:blur(2px)}
+.slides .bg{position:absolute;inset:0;z-index:-1;opacity:.12}
+.dots{position:absolute;bottom:22px;inset-inline-end:clamp(28px,5vw,72px);display:flex;gap:10px;z-index:3}
+.dots button{width:46px;height:4px;border-radius:4px;border:0;background:rgba(239,230,214,.25);cursor:pointer;position:relative;overflow:hidden;padding:0}
+.dots button i{position:absolute;inset:0;background:var(--gold);transform-origin:right;transform:scaleX(0)}
+.dots button.on i{animation:fill 6s linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+@media (max-width:820px){
+  .slide{grid-template-columns:1fr;align-content:start;padding-bottom:60px}
+  .slide .visual{display:none}
+  .slides{min-height:0}
+}
+
+/* ---------- quick cards ---------- */
+.quick{padding-block:28px 0}
+.quick .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.q{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px;text-decoration:none;display:grid;gap:6px;transition:transform .3s,box-shadow .3s}
+.q:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(18,61,43,.45)}
+.q .ic{width:44px;height:44px;border-radius:12px;background:var(--green);color:var(--gold);display:grid;place-items:center}
+.q .ic svg{width:22px;height:22px}
+.q b{font-family:var(--f-display);font-size:1.05rem;margin-top:8px}
+.q span{font-size:.88rem;color:var(--muted)}
+@media (max-width:820px){.quick .grid{grid-template-columns:1fr 1fr}}
+
+/* ---------- doctor ---------- */
+.doc .card{background:var(--paper);border-radius:28px;display:grid;grid-template-columns:.85fr 1.15fr;overflow:hidden;border:1px solid var(--line)}
+.doc .flip{position:relative;min-height:460px;background:#fff;cursor:pointer}
+.doc .flip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;transition:opacity .8s,transform 1.2s}
+.doc .flip .ph{opacity:0;transform:scale(1.06)}
+.doc .flip.show .ph{opacity:1;transform:scale(1)}
+.doc .flip.show .il{opacity:0}
+.doc .flip .hint{position:absolute;bottom:16px;inset-inline-start:16px;background:rgba(18,61,43,.88);color:var(--gold);font-size:.8rem;padding:6px 12px;border-radius:999px;z-index:2}
+.doc .info{padding:clamp(28px,4.5vw,60px);display:grid;align-content:center;gap:14px;min-width:0}
+.doc h2{font-size:clamp(2rem,4vw,3rem)}
+.doc .role{color:var(--muted)}
+.doc .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.doc .badges span{font-size:.82rem;padding:5px 12px;border-radius:999px;background:var(--sand);direction:ltr}
+.doc blockquote{margin:10px 0 0;padding:18px 20px;border-radius:14px;background:var(--green);color:var(--sand);font-size:1.02rem;line-height:1.9}
+.doc details{margin-top:4px}
+.doc summary{cursor:pointer;font-family:var(--f-display);font-size:.92rem;color:var(--gold-ink)}
+.doc details ul{margin:10px 0 0;padding-inline-start:1.1em;font-size:.94rem;color:var(--muted)}
+@media (max-width:820px){.doc .card{grid-template-columns:1fr}.doc .flip{min-height:420px}}
+
+/* ---------- procedures tabs ---------- */
+.procs .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.tabs{margin-top:34px;display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.tabs button{flex:0 0 auto;border:1px solid var(--line);background:var(--paper);padding:10px 18px;border-radius:999px;font-family:var(--f-display);font-size:.92rem;cursor:pointer;transition:background .25s,color .25s}
+.tabs button[aria-selected="true"]{background:var(--green);color:var(--gold);border-color:var(--green)}
+.tabs button.minor{color:var(--muted)}
+.panel{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pc{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px;display:grid;gap:10px;align-content:start;min-width:0;position:relative;overflow:hidden}
+.pc .n{font-family:var(--f-display);font-size:.78rem;color:var(--gold-ink);direction:ltr;text-align:end}
+.pc h3{font-size:1.25rem}
+.pc p{font-size:.94rem;color:var(--muted)}
+.pc .more{font-family:var(--f-display);font-size:.85rem;color:var(--green);text-decoration:none;margin-top:4px}
+.pc::after{content:"";position:absolute;inset-inline-start:-40px;bottom:-40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(230,199,122,.35),transparent 70%)}
+.panel-intro{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;background:var(--green);color:var(--sand);border-radius:20px;padding:22px 26px}
+.panel-intro b{font-family:var(--f-display);color:var(--gold);font-size:1.2rem}
+@media (max-width:900px){.panel{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.panel{grid-template-columns:1fr}}
+
+/* ---------- journey (pinned horizontal) ---------- */
+.journey{background:var(--green);color:var(--sand);overflow:hidden;padding-block:0}
+.journey .pin{min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr);align-content:center;gap:40px;padding-block:80px}
+.journey h2{color:var(--gold)}
+.journey .kicker{color:rgba(230,199,122,.8)}
+.jtrack{display:flex;gap:22px;width:max-content;justify-self:start;padding-inline:max(var(--gutter),calc((100vw - var(--maxw))/2 + var(--gutter)))}
+.step{width:clamp(270px,30vw,360px);background:var(--green-2);border:1px solid rgba(230,199,122,.18);border-radius:22px;padding:28px;display:grid;gap:12px;align-content:start;position:relative}
+.step .no{font-family:var(--f-display);font-weight:800;font-size:3.4rem;line-height:1;color:transparent;-webkit-text-stroke:1px var(--gold)}
+.step h3{font-size:1.3rem;color:var(--gold)}
+.step p{font-size:.95rem;opacity:.86}
+.step .ic{position:absolute;top:26px;inset-inline-end:26px;width:46px;height:46px;border-radius:50%;background:rgba(230,199,122,.12);display:grid;place-items:center;color:var(--gold)}
+.step .ic svg{width:22px;height:22px}
+.jline{height:2px;background:rgba(230,199,122,.2);margin-inline:var(--gutter);position:relative;overflow:hidden;border-radius:2px}
+.jline i{position:absolute;inset:0;background:var(--gold);transform-origin:right;transform:scaleX(0)}
+@media (max-width:820px){
+  .journey .pin{min-height:auto}
+  .jtrack{width:auto;flex-direction:column;padding-inline:var(--gutter)}
+  .step{width:auto}
+  .jline{display:none}
+}
+
+/* ---------- care team ---------- */
+.team .grid{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.tm{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:clamp(24px,3.5vw,40px);display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
+.tm .av{width:74px;height:74px;border-radius:50%;background:var(--green);color:var(--gold);display:grid;place-items:center}
+.tm .av svg{width:34px;height:34px}
+.tm h3{font-size:1.35rem}
+.tm p{color:var(--muted);margin-top:6px}
+.tm ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.tm li{font-size:.82rem;padding:4px 12px;border-radius:999px;background:var(--sand)}
+@media (max-width:820px){.team .grid{grid-template-columns:1fr}}
+
+/* ---------- gallery ---------- */
+.gallery{background:var(--paper)}
+.gallery .grid{margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gph{aspect-ratio:3/4;border-radius:18px;position:relative;overflow:hidden;display:grid;place-items:center;color:var(--muted);font-family:var(--f-display);font-size:.9rem;background:repeating-linear-gradient(135deg,#ece3d3 0 12px,#e6dccb 12px 24px);border:1px dashed rgba(22,32,27,.2)}
+.gph em{position:absolute;top:10px;inset-inline-end:10px;font-style:normal;font-size:.74rem;background:var(--green);color:var(--gold);padding:2px 10px;border-radius:999px}
+.gallery .note{margin-top:18px;font-size:.86rem;color:var(--muted)}
+@media (max-width:820px){.gallery .grid{grid-template-columns:1fr 1fr}}
+
+/* ---------- WhatsApp card ---------- */
+.wa-card{padding-block:clamp(72px,10vw,130px)}
+.wcard{background:var(--green);color:var(--sand);border-radius:32px;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:center;padding:clamp(28px,6vw,80px);position:relative;overflow:hidden}
+.wcard h2{color:var(--gold);font-size:clamp(2.2rem,5.4vw,4.2rem);font-weight:800;line-height:1.3}
+.wcard .lead{margin-top:16px;font-family:var(--f-display);font-weight:300;font-size:clamp(1.15rem,2.2vw,1.6rem);line-height:1.7}
+.wcard h3{margin-top:30px;color:var(--gold);font-size:clamp(1.3rem,2.6vw,1.9rem)}
+.wcard .btn{margin-top:22px}
+.qrbox{justify-self:center;display:grid;justify-items:center;gap:16px;text-align:center}
+.qr{width:min(240px,60vw);aspect-ratio:1;background:#fff;border-radius:20px;padding:16px;display:grid;place-items:center;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.qr img{width:100%;height:100%;object-fit:contain}
+.qr .qph{color:var(--green);font-size:.85rem;line-height:1.6;border:1.5px dashed rgba(18,61,43,.4);border-radius:10px;width:100%;height:100%;display:grid;place-items:center;padding:10px}
+.qrbox img.mark{height:40px;width:auto}
+.wcard .ring{position:absolute;border:1px solid rgba(230,199,122,.18);border-radius:50%;pointer-events:none}
+@media (max-width:820px){.wcard{grid-template-columns:1fr;text-align:center}}
+
+/* ---------- request form (3 steps) ---------- */
+.req .box{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,4.5vw,56px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,64px)}
+.stepper{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:10px}
+.stepper li{display:flex;align-items:center;gap:12px;color:var(--muted);font-family:var(--f-display);font-size:.95rem}
+.stepper li b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);font-size:.9rem;transition:all .3s}
+.stepper li.on{color:var(--ink)}
+.stepper li.on b{background:var(--green);color:var(--gold);border-color:var(--green)}
+.stepper li.done b{background:var(--gold);color:var(--green);border-color:var(--gold)}
+form .pane{display:grid;gap:16px;align-content:start}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.opts label{position:relative;cursor:pointer}
+.opts input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.opts span{display:block;border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center;font-family:var(--f-display);font-size:.92rem;background:#fff;transition:all .25s}
+.opts input:checked+span{background:var(--green);color:var(--gold);border-color:var(--green)}
+.opts input:focus-visible+span{outline:2px solid var(--gold-ink);outline-offset:2px}
+.field{display:grid;gap:6px}
+.field label{font-family:var(--f-display);font-size:.88rem}
+.field input,.field select,.field textarea{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);width:100%;min-width:0}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+.nav{display:flex;gap:10px;justify-content:space-between;margin-top:8px;flex-wrap:wrap}
+.fmsg{font-size:.92rem;color:var(--green);min-height:1.6em}
+@media (max-width:820px){.req .box{grid-template-columns:1fr}.opts{grid-template-columns:1fr 1fr}}
+
+/* ---------- FAQ ---------- */
+.faq .list{margin-top:30px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding-block:20px;font-family:var(--f-display);font-size:1.08rem;font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:0 0 32px;height:32px;border-radius:50%;background:var(--green);color:var(--gold);display:grid;place-items:center;font-style:normal;transition:transform .35s}
+.faq details[open] summary i{transform:rotate(45deg)}
+.faq .a{padding-bottom:20px;color:var(--muted);max-width:60em}
+
+/* ---------- location ---------- */
+.loc .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.loc .c{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px}
+.loc .c h3{font-size:1.2rem}
+.hours{margin-top:14px}
+.hours div{display:flex;justify-content:space-between;gap:14px;padding-block:10px;border-bottom:1px solid var(--line);font-size:.96rem}
+.hours div span:last-child{direction:ltr;font-variant-numeric:tabular-nums}
+.hours .off span:last-child{color:#B3261E;direction:rtl}
+.loc .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.cpy{border:1px solid var(--line);background:#fff;border-radius:999px;padding:2px 12px;font-size:.8rem;cursor:pointer}
+.maps{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.maps a{font-size:.85rem;border:1px solid var(--line);padding:6px 14px;border-radius:999px;text-decoration:none;background:#fff}
+@media (max-width:820px){.loc .grid{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:rgba(239,230,214,.7);font-size:.88rem;padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap}
+footer img{height:38px;width:auto}
+
+/* ---------- floating action bar ---------- */
+.fab{position:fixed;z-index:60;bottom:calc(18px + env(safe-area-inset-bottom,0px));inset-inline:0;display:flex;justify-content:center;pointer-events:none;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.fab .bar{pointer-events:auto;display:flex;gap:6px;background:rgba(18,61,43,.96);padding:7px;border-radius:999px;box-shadow:0 20px 40px -18px rgba(0,0,0,.55);backdrop-filter:blur(8px)}
+.fab a{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--sand);font-family:var(--f-display);font-size:.88rem;padding:10px 16px;border-radius:999px;white-space:nowrap}
+.fab a.w{background:var(--wa);color:#fff}
+.fab a svg{width:18px;height:18px}
+@media (max-width:420px){.fab a{padding:10px 12px;font-size:.8rem}.fab a.t2{display:none}}
+
+.todo{outline:1px dashed #B3261E;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></symbol>
+</svg>
+
+<div class="util">
+  <div class="wrap">
+    <nav aria-label="روابط سريعة">
+      <a href="#request">الاستشارة أونلاين</a>
+      <a href="#gallery">صور قبل وبعد</a>
+      <a href="#journey">رحلتكم العلاجية</a>
+      <a href="https://www.instagram.com/irops_ar/" target="_blank" rel="noopener">إنستغرام <span class="ltr">@irops_ar</span></a>
+    </nav>
+    <div class="lang"><a href="https://iroplasticsurgery.com/" target="_blank" rel="noopener">KR</a> · <b>AR</b></div>
+  </div>
+</div>
+
+<header class="main">
+  <div class="wrap">
+    <a href="#top" aria-label="عيادة إيرو للجراحة التجميلية"><img src="../../../assets/logo-dark.png" alt="IRo+ عيادة إيرو للجراحة التجميلية"></a>
+    <nav aria-label="القائمة الرئيسية">
+      <a href="#doctor">الطبيبة</a>
+      <a href="#procedures">الإجراءات</a>
+      <a href="#journey">الرحلة العلاجية</a>
+      <a href="#team">فريق الرعاية</a>
+      <a href="#faq">الأسئلة الشائعة</a>
+      <a href="#location">الموقع</a>
+    </nav>
+    <a class="btn wa" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>واتساب</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO SLIDER -->
+<section class="hero">
+  <div class="wrap">
+    <div class="slides" id="slides" aria-roledescription="carousel">
+      <svg class="bg" aria-hidden="true" width="100%" height="100%"><defs><pattern id="pt" width="90" height="90" patternUnits="userSpaceOnUse"><path d="M45 5 L57 33 L85 45 L57 57 L45 85 L33 57 L5 45 L33 33 Z" fill="none" stroke="#E6C77A"/></pattern></defs><rect width="100%" height="100%" fill="url(#pt)"/></svg>
+
+      <div class="slide on" aria-label="١ من ٣">
+        <div class="copy">
+          <span class="tag">شدّ الوجه · الإجراء المميز</span>
+          <h1><span class="l"><span>ملامح أكثر تحديدًا،</span></span><span class="l"><span>بنتيجة تشبهكم</span></span></h1>
+          <p class="s">نقيّم مرونة الجلد والدهون والعضلات معًا، ثم نختار بين الأجهزة وشدّ الوجه الجراحي ما يناسب حالتكم.</p>
+          <div class="ctas"><a class="btn gold" href="#request">اطلبوا استشارة</a><a class="btn line" href="#procedures">تعرّفوا على الإجراءات</a></div>
+        </div>
+        <div class="visual"><span class="orb" style="width:320px;height:320px;background:radial-gradient(circle,rgba(230,199,122,.35),transparent 70%)"></span><img src="../../../assets/doctor.jpg" alt="د. جيهيون كيم"></div>
+      </div>
+
+      <div class="slide" aria-label="٢ من ٣">
+        <div class="copy">
+          <span class="tag">بلغتكم</span>
+          <h1><span class="l"><span>مترجمة طبية بالعربية</span></span><span class="l"><span>في كل خطوة</span></span></h1>
+          <p class="s">من الاستشارة الأولى حتى المتابعة، تفهمون كل تفصيل بوضوح قبل اتخاذ القرار.</p>
+          <div class="ctas"><a class="btn gold" href="#team">تعرّفوا على فريق الرعاية</a></div>
+        </div>
+        <div class="visual"><img src="../../../assets/doctor-illust.jpg" alt="رسم توضيحي للطبيبة بزي العمليات"></div>
+      </div>
+
+      <div class="slide" aria-label="٣ من ٣">
+        <div class="copy">
+          <span class="tag">قبل السفر</span>
+          <h1><span class="l"><span>أرسلوا سؤالكم</span></span><span class="l"><span>على واتساب</span></span></h1>
+          <p class="s">نجيب عن جميع استفساراتكم بوضوح قبل موعدكم، ونرتّب زيارتكم مسبقًا.</p>
+          <div class="ctas"><a class="btn wa" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>ابدأوا المحادثة</a></div>
+        </div>
+        <div class="visual"><div class="qr" style="width:240px"><img src="../../../assets/whatsapp-qr.png" alt="رمز واتساب" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'qph',innerHTML:'رمز QR<br>من بطاقة واتساب'}))"></div></div>
+      </div>
+
+      <div class="dots" id="dots" role="tablist" aria-label="الشرائح">
+        <button type="button" class="on" aria-label="الشريحة ١"><i></i></button>
+        <button type="button" aria-label="الشريحة ٢"><i></i></button>
+        <button type="button" aria-label="الشريحة ٣"><i></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK CARDS -->
+<section class="quick">
+  <div class="wrap grid">
+    <a class="q" href="#request"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H8l-4 4z"/></svg></span><b>الاستشارة أونلاين</b><span>أرسلوا صوركم واستفساركم</span></a>
+    <a class="q" href="#gallery"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="8" height="14" rx="1"/><rect x="13" y="5" width="8" height="14" rx="1"/></svg></span><b>صور قبل وبعد</b><span>حسب نوع الإجراء</span></a>
+    <a class="q" href="#journey"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></span><b>رحلتكم العلاجية</b><span>من الرسالة الأولى حتى العودة</span></a>
+    <a class="q" href="#location"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><b>الموقع والمواعيد</b><span>سيول، سودايمون-غو</span></a>
+  </div>
+</section>
+
+<!-- DOCTOR -->
+<section class="doc" id="doctor">
+  <div class="wrap">
+    <div class="card">
+      <div class="flip" id="flip" role="button" tabindex="0" aria-label="بدّلوا بين الصورة والرسم">
+        <img class="il" src="../../../assets/doctor-illust.jpg" alt="رسم الطبيبة في غرفة العمليات">
+        <img class="ph" src="../../../assets/doctor.jpg" alt="د. جيهيون كيم">
+        <span class="hint">اضغطوا لرؤية الطبيبة</span>
+      </div>
+      <div class="info">
+        <p class="kicker">مديرة العيادة · رعاية شخصية مخصصة ١:١</p>
+        <h2>د. جيهيون كيم</h2>
+        <p class="role">أخصائية جراحة التجميل، معتمدة من البورد الكوري</p>
+        <div class="badges"><span>KSPRS</span><span>KSAPS</span><span>KSCFPS</span><span>KSOPRS</span><span>KSRPS</span></div>
+        <blockquote>«بدلًا من تقسيم الخيارات إلى مجرد إجراء أو جراحة، نعمل معًا على تصميم الخيار الأمثل وفقًا لحالتكم والنتيجة المرجوة.»</blockquote>
+        <details>
+          <summary>السيرة المهنية كاملة</summary>
+          <ul>
+            <li>مديرة عيادة إيرو للجراحة التجميلية (حاليًا)</li>
+            <li>مديرة سابقة في عيادة فيو (VIEW) للجراحة التجميلية</li>
+            <li>مديرة سابقة في عيادة إيت (EIGHT) للجراحة التجميلية</li>
+            <li>عضوة عاملة في الجمعية الكورية لجراحي التجميل والترميم (KSPRS)</li>
+            <li>عضوة عاملة في الجمعية الكورية لجراحة التجميل الجمالية (KSAPS)</li>
+            <li>عضوة عاملة في الجمعية الكورية لجراحة التجميل القحفية الوجهية (KSCFPS)</li>
+            <li>عضوة في الجمعية الكورية لجراحة تجميل وترميم العين (KSOPRS)</li>
+            <li>عضوة في الجمعية الكورية لجراحة تجميل الأنف (KSRPS)</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCEDURES -->
+<section class="procs" id="procedures">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="kicker">الإجراءات</p><h2>اختاروا ما يهمّكم</h2></div>
+      <p style="color:var(--muted);max-width:30em">تحدد الطبيبة الإجراء المناسب بعد الاستشارة. هذه نظرة عامة على ما تقدّمه العيادة.</p>
+    </div>
+    <div class="tabs" role="tablist" id="tabs" aria-label="فئات الإجراءات"></div>
+    <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="journey" id="journey">
+  <div class="pin" id="pin">
+    <div class="wrap"><p class="kicker">من الرسالة الأولى حتى ما بعد العودة</p><h2>رحلتكم العلاجية في ست خطوات</h2></div>
+    <div class="jtrack" id="jtrack">
+      <article class="step"><span class="ic"><svg><use href="#i-wa"/></svg></span><span class="no">01</span><h3>استشارة عبر واتساب</h3><p>أرسلوا صوركم وما تودّون تحسينه. تراجعها الطبيبة ويصلكم الرد بالعربية.</p></article>
+      <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span class="no">02</span><h3>تحديد موعد الزيارة</h3><p>ترتّب المنسّقة موعد الاستشارة والإجراء بما يناسب جدول سفركم.</p></article>
+      <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c0 3-3 7-7 9"/><path d="M13 21l4-10 4 10M14.5 17.5h5"/></svg></span><span class="no">03</span><h3>استشارة مع الطبيبة</h3><p>تلتقون بالدكتورة كيم مباشرة، بحضور مترجمة طبية باللغة العربية.</p></article>
+      <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 4v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V7z"/></svg></span><span class="no">04</span><h3>الإجراء</h3><p>تُجري الطبيبة نفسها الإجراء الذي ناقشتموه، دون انتقال حالتكم إلى طبيب آخر.</p></article>
+      <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12a8 8 0 1 1-3-6.2"/><path d="M20 4v5h-5"/></svg></span><span class="no">05</span><h3>مراجعات التعافي</h3><p>زيارات متابعة في العيادة خلال إقامتكم في سيول للتأكد من سير التعافي.</p></article>
+      <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 16l20-8-6 12-3-5z"/></svg></span><span class="no">06</span><h3>متابعة بعد العودة</h3><p>أرسلوا صور التعافي من بلدكم عبر واتساب، ويتابع فريق العيادة حالتكم.</p></article>
+    </div>
+    <div class="jline" aria-hidden="true"><i id="jfill"></i></div>
+  </div>
+</section>
+
+<!-- CARE TEAM -->
+<section class="team" id="team">
+  <div class="wrap">
+    <p class="kicker">فريق الرعاية</p>
+    <h2>معكم من أول سؤال حتى آخر مراجعة</h2>
+    <div class="grid">
+      <article class="tm"><span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span>
+        <div><h3>منسّقة خاصة</h3><p>تنظّم مواعيدكم، وتجيب عن أسئلتكم العملية، وتتابع حالتكم بعد عودتكم.</p><ul><li>جدولة المواعيد</li><li>تذكير قبل الزيارة</li><li>متابعة بعد العودة</li></ul></div></article>
+      <article class="tm"><span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c0 3-3 7-7 9"/><path d="M13 21l4-10 4 10M14.5 17.5h5"/></svg></span>
+        <div><h3>مترجمة طبية متخصصة</h3><p>ترافقكم في الاستشارة والإجراء وتشرح المصطلحات الطبية وتعليمات الرعاية بالعربية.</p><ul><li>العربية</li><li>الاستشارة</li><li>تعليمات ما بعد الإجراء</li></ul></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <p class="kicker">قبل وبعد</p>
+    <h2>نتائج مرضانا</h2>
+    <div class="tabs" role="tablist" id="gtabs" aria-label="فئات الصور">
+      <button type="button" role="tab" aria-selected="true">شدّ الوجه</button>
+      <button type="button" role="tab" aria-selected="false">الدهون</button>
+      <button type="button" role="tab" aria-selected="false">الثدي</button>
+      <button type="button" role="tab" aria-selected="false">شباب العينين</button>
+      <button type="button" role="tab" aria-selected="false">سيلفي المرضى</button>
+    </div>
+    <div class="grid todo" id="ggrid">
+      <div class="gph"><em>قبل</em>صورة المريض</div><div class="gph"><em>بعد</em>صورة المريض</div>
+      <div class="gph"><em>قبل</em>صورة المريض</div><div class="gph"><em>بعد</em>صورة المريض</div>
+    </div>
+    <p class="note">تُعرض الصور بموافقة المرضى. قد تختلف النتائج من شخص لآخر، وتُناقش الآثار الجانبية المحتملة وفترة التعافي خلال الاستشارة.</p>
+  </div>
+</section>
+
+<!-- WHATSAPP CARD -->
+<section class="wa-card" id="whatsapp">
+  <div class="wrap">
+    <div class="wcard" id="wcard">
+      <span class="ring" style="width:520px;height:520px;inset-inline-start:-160px;top:-200px"></span>
+      <span class="ring" style="width:340px;height:340px;inset-inline-start:-70px;top:-110px"></span>
+      <div>
+        <h2>يسعدنا استقبال<br>أسئلتكم.</h2>
+        <p class="lead">نجيب عن جميع استفساراتكم<br>بوضوح قبل موعدكم.</p>
+        <h3>للاستفسار من العيادة</h3>
+        <a class="btn gold" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>افتحوا المحادثة على واتساب</a>
+      </div>
+      <div class="qrbox">
+        <div class="qr" id="qr"><img src="../../../assets/whatsapp-qr.png" alt="رمز واتساب لعيادة إيرو" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'qph',innerHTML:'رمز QR<br>من بطاقة واتساب الأصلية'}))"></div>
+        <p>رمز التواصل عبر واتساب</p>
+        <img class="mark" src="../../../assets/logo-light.png" alt="IRo+">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REQUEST -->
+<section class="req" id="request">
+  <div class="wrap">
+    <div class="box">
+      <div>
+        <p class="kicker">طلب استشارة</p>
+        <h2>ثلاث خطوات فقط</h2>
+        <p style="margin-top:12px;color:var(--muted)">عند الإرسال يُفتح واتساب برسالة جاهزة إلى فريق العيادة.</p>
+        <ol class="stepper" id="stepper">
+          <li class="on"><b>1</b>الإجراء المطلوب</li>
+          <li><b>2</b>موعد الزيارة</li>
+          <li><b>3</b>بيانات التواصل</li>
+        </ol>
+      </div>
+      <form id="reqForm" novalidate>
+        <div class="pane" data-step="0">
+          <div class="opts">
+            <label><input type="checkbox" id="o1" value="شدّ الوجه" checked><span>شدّ الوجه</span></label>
+            <label><input type="checkbox" id="o2" value="الدهون"><span>الدهون</span></label>
+            <label><input type="checkbox" id="o3" value="الثدي"><span>الثدي</span></label>
+            <label><input type="checkbox" id="o4" value="شباب العينين"><span>شباب العينين</span></label>
+            <label><input type="checkbox" id="o5" value="البشرة والحقن"><span>البشرة والحقن</span></label>
+            <label><input type="checkbox" id="o6" value="غير متأكد"><span>لست متأكدًا</span></label>
+          </div>
+        </div>
+        <div class="pane" data-step="1" hidden>
+          <div class="field"><label for="r-month">الشهر المتوقع للزيارة</label><input id="r-month" type="month"></div>
+          <div class="field"><label for="r-stay">مدة الإقامة المتوقعة في سيول</label>
+            <select id="r-stay"><option>لم أحدد بعد</option><option>أقل من أسبوع</option><option>من أسبوع إلى أسبوعين</option><option>أكثر من أسبوعين</option></select></div>
+        </div>
+        <div class="pane" data-step="2" hidden>
+          <div class="field"><label for="r-name">الاسم</label><input id="r-name" autocomplete="name"></div>
+          <div class="field"><label for="r-country">البلد</label>
+            <select id="r-country"><option>الإمارات</option><option>السعودية</option><option>الكويت</option><option>قطر</option><option>البحرين</option><option>عُمان</option><option>بلد آخر</option></select></div>
+          <div class="field"><label for="r-note">ملاحظات</label><textarea id="r-note" rows="3" placeholder="صفوا ما تودّون تحسينه"></textarea></div>
+        </div>
+        <div class="nav">
+          <button type="button" class="btn line" id="back" hidden>السابق</button>
+          <button type="button" class="btn green" id="fwd">التالي</button>
+          <button type="submit" class="btn wa" id="send" hidden><svg><use href="#i-wa"/></svg>إرسال عبر واتساب</button>
+        </div>
+        <p class="fmsg" id="fmsg" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <p class="kicker">الأسئلة الشائعة</p>
+    <h2>قبل أن تحجزوا</h2>
+    <div class="list">
+      <details open><summary>هل يوجد من يتحدث العربية في العيادة؟<i>+</i></summary><p class="a">نعم. ترافقكم مترجمة طبية متخصصة باللغة العربية في الاستشارة والإجراء، وتشرح لكم تعليمات الرعاية بعده.</p></details>
+      <details><summary>هل يمكنني الاستشارة قبل السفر إلى سيول؟<i>+</i></summary><p class="a">نعم. أرسلوا صوركم واستفساركم عبر واتساب، وتراجع الطبيبة حالتكم ويصلكم الرد قبل حجز الموعد.</p></details>
+      <details><summary>هل الطبيبة نفسها من تُجري الإجراء؟<i>+</i></summary><p class="a">نعم. د. جيهيون كيم تُجري الاستشارة والإجراء وتتابع التعافي بنفسها، فلا تنتقل حالتكم بين أطباء مختلفين.</p></details>
+      <details><summary>كم يومًا أحتاج للبقاء في سيول؟<i>+</i></summary><p class="a">يختلف ذلك حسب الإجراء وحالتكم. تحدد الطبيبة المدة المناسبة بعد الاستشارة لتتمكنوا من التخطيط لسفركم.</p></details>
+      <details><summary>كيف تتم المتابعة بعد عودتي إلى بلدي؟<i>+</i></summary><p class="a">ترسلون صور التعافي عبر واتساب في المواعيد التي تحددها الطبيبة، ويتواصل معكم فريق العيادة عند الحاجة.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="loc" id="location">
+  <div class="wrap">
+    <p class="kicker">الموقع والمواعيد</p>
+    <h2>زوروا عيادة إيرو</h2>
+    <div class="grid">
+      <div class="c">
+        <h3>مواعيد العمل (بتوقيت كوريا)</h3>
+        <div class="hours">
+          <div><span>الاثنين · الثلاثاء · الأربعاء · الجمعة</span><span>10:00 – 19:00</span></div>
+          <div class="off"><span>الخميس</span><span>مغلق</span></div>
+          <div><span>السبت</span><span>10:00 – 16:00</span></div>
+          <div class="off"><span>الأحد والعطلات الرسمية</span><span>مغلق</span></div>
+        </div>
+        <p style="margin-top:12px;font-size:.86rem;color:var(--muted)">توقيت كوريا متقدم ٦ ساعات على الرياض و٥ ساعات على دبي.</p>
+      </div>
+      <div class="c">
+        <h3>العنوان</h3>
+        <p style="margin-top:10px">سيول، سودايمون-غو، شينتشون-رو 37-غيل 10، مبنى آهيون الطبي، الطابق 8</p>
+        <div class="row"><span class="ltr" id="addrEn">8F, 10 Sinchon-ro 37-gil, Seodaemun-gu, Seoul</span><button type="button" class="cpy" data-copy="addrEn">نسخ</button></div>
+        <div class="row"><b>الهاتف:</b><span class="ltr" id="tel">+82 2-363-5501</span><button type="button" class="cpy" data-copy="tel">نسخ</button></div>
+        <div class="maps">
+          <a href="https://maps.google.com/?q=10+Sinchon-ro+37-gil+Seodaemun-gu+Seoul" target="_blank" rel="noopener">Google Maps</a>
+          <a href="https://map.naver.com/p/search/%EC%9D%B4%EB%A1%9C%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener">Naver Map</a>
+          <a href="https://map.kakao.com/?q=%EC%9D%B4%EB%A1%9C%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener">Kakao Map</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="display:grid;gap:14px;max-width:40em">
+      <img src="../../../assets/logo-light.png" alt="IRo+">
+      <p>عيادة إيرو للجراحة التجميلية · المديرة: د. جيهيون كيم<br>جميع الإجراءات الطبية قد تنطوي على آثار جانبية، وتختلف النتائج من شخص لآخر.</p>
+    </div>
+    <div style="display:flex;gap:16px;align-items:start"><a href="https://www.instagram.com/irops_ar/" target="_blank" rel="noopener" dir="ltr">@irops_ar</a><a data-wa href="#" target="_blank" rel="noopener">WhatsApp</a></div>
+  </div>
+</footer>
+
+<div class="fab">
+  <div class="bar">
+    <a class="w" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>واتساب</a>
+    <a href="#request">طلب استشارة</a>
+    <a href="#gallery" class="t2">قبل وبعد</a>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="../../../assets/config.js"></script>
+<script>
+(function(){
+  const CFG = window.IRO_CONFIG || {};
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const G = window.gsap && !reduce;
+  document.querySelectorAll('[data-wa]').forEach(a => a.href = CFG.WA_LINK || '#whatsapp');
+
+  /* ---------- copy ---------- */
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => {
+    const el = document.getElementById(b.dataset.copy), t = el.textContent.trim();
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => {
+      const o = b.textContent; b.textContent = 'تم النسخ'; setTimeout(() => b.textContent = o, 1500);
+    }).catch(() => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); });
+  }));
+
+  /* ---------- hero slider ---------- */
+  const slides = [...document.querySelectorAll('.slide')], dots = [...document.querySelectorAll('#dots button')];
+  let cur = 0, timer;
+  function show(n){
+    if (n === cur) return;
+    const a = slides[cur], b = slides[n];
+    dots[cur].classList.remove('on'); void dots[n].offsetWidth; dots[n].classList.add('on');
+    if (G){
+      gsap.to(a, { opacity: 0, duration: .6, onComplete: () => a.classList.remove('on') });
+      b.classList.add('on');
+      gsap.fromTo(b, { opacity: 0 }, { opacity: 1, duration: .6 });
+      gsap.fromTo(b.querySelectorAll('h1 .l>span'), { yPercent: 110 }, { yPercent: 0, duration: 1, ease: 'expo.out', stagger: .1 });
+      gsap.fromTo(b.querySelectorAll('.tag,.s,.ctas'), { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: .7, stagger: .08, delay: .2 });
+      gsap.fromTo(b.querySelector('.visual'), { scale: .92, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.1, ease: 'expo.out' });
+    } else { a.classList.remove('on'); b.classList.add('on'); }
+    cur = n; restart();
+  }
+  function restart(){ clearTimeout(timer); if (!reduce) timer = setTimeout(() => show((cur + 1) % slides.length), 6000); }
+  dots.forEach((d, i) => d.addEventListener('click', () => show(i)));
+  restart();
+
+  /* ---------- doctor flip ---------- */
+  const flip = document.getElementById('flip');
+  const toggle = () => { flip.classList.toggle('show'); flip.querySelector('.hint').textContent = flip.classList.contains('show') ? 'اضغطوا لرؤية الرسم' : 'اضغطوا لرؤية الطبيبة'; };
+  flip.addEventListener('click', toggle);
+  flip.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+
+  /* ---------- procedures (cosmetic eye surgery deliberately last) ---------- */
+  const CATS = [
+    { k: 'شدّ الوجه', intro: 'الإجراء المميز في إيرو', items: [
+      ['Deep Plane', 'شدّ الوجه العميق', 'شدّ الطبقات العميقة لإعادة تحديد خط الفك والخدين بنتيجة طبيعية.'],
+      ['Mini Lift', 'شدّ الوجه المصغّر', 'خيار أقل تدخلًا لترهل خفيف إلى متوسط في الثلث السفلي من الوجه.'],
+      ['Ulthera Prime', 'ألثيرابي برايم', 'شدّ بالموجات فوق الصوتية المركزة دون جراحة.'],
+      ['Thermage FLX', 'ثيرماج', 'تحفيز الكولاجين بالترددات الراديوية لشدّ البشرة.'],
+      ['Thread Lift', 'شدّ بالخيوط', 'رفع لطيف بخيوط قابلة للامتصاص مع فترة تعافٍ قصيرة.'],
+      ['Neck', 'إزالة اللغد وتحديد الرقبة', 'تحديد الزاوية بين الفك والرقبة.'] ] },
+    { k: 'الدهون', items: [
+      ['Liposuction', 'شفط الدهون المخصص', 'نحت يراعي شكل الجسم ونسبه بدل إزالة الدهون فقط.'],
+      ['Fat Graft', 'حقن الدهون الذاتية', 'استعادة الامتلاء في الوجه أو الجسم بدهونكم الذاتية.'],
+      ['Stem Cell', 'دعم بالخلايا الجذعية', 'علاجات تجديدية تدعم جودة الأنسجة ونتيجة نقل الدهون.'] ] },
+    { k: 'الثدي', items: [
+      ['Augmentation', 'تكبير الثدي', 'حجم وشكل متناسقان مع الجسم.'],
+      ['Lift', 'رفع الثدي المترهل', 'إعادة الشكل والموضع بعد الولادة أو فقدان الوزن.'],
+      ['Fat Transfer', 'حقن الدهون في الثدي', 'زيادة طبيعية الملمس بالدهون الذاتية.'],
+      ['Areola', 'تجميل الهالة والحلمة', 'تصحيح الحجم والشكل.'],
+      ['Accessory', 'إزالة الثدي الإضافي', 'تحسين منطقة الإبط.'] ] },
+    { k: 'شباب العينين', items: [
+      ['Upper Bleph', 'رفع الجفن العلوي', 'علاج ترهل الجفن العلوي المرتبط بالعمر.'],
+      ['Brow Lift', 'رفع الحاجب دون ندبة ظاهرة', 'شدّ من تحت الحاجب لنظرة منتعشة.'],
+      ['Forehead', 'رفع الجبهة', 'تخفيف خطوط الجبهة وترهل الحاجبين.'],
+      ['Glow Lower', 'إعادة توزيع دهون أسفل العين', 'علاج الانتفاخ والهالات تحت العين.'],
+      ['Midface', 'شدّ منتصف الوجه', 'استعادة امتلاء منطقة الخدين وأسفل العين.'] ] },
+    { k: 'البشرة والحقن', items: [
+      ['Botox', 'بوتوكس أوماكاسي', 'جرعات وتوزيع مصمّمان حسب ملامح كل وجه.'],
+      ['Filler', 'فيلر', 'تحديد الملامح واستعادة الحجم بشكل مدروس.'],
+      ['Skin Booster', 'معززات البشرة', 'ترطيب ونضارة من الداخل.'],
+      ['Pico Toning', 'بيكو تونينغ', 'توحيد لون البشرة وعلاج التصبغات.'],
+      ['Scar', 'علاج الندبات', 'تحسين مظهر الندبات الجراحية وغيرها.'] ] },
+    { k: 'تجميل العين', minor: true, intro: 'متاح عند الطلب بعد استشارة الطبيبة', items: [
+      ['Double Eyelid', 'الجفن المزدوج', 'إنشاء طية جفن طبيعية.'],
+      ['Eye Correction', 'تصحيح شكل العين', 'تحسين انفتاح العين.'],
+      ['Revision', 'إعادة عمليات العين', 'تصحيح نتائج عمليات سابقة.'] ] }
+  ];
+  const tabs = document.getElementById('tabs'), panel = document.getElementById('panel');
+  CATS.forEach((c, i) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.role = 'tab'; b.id = 'tab' + i; b.textContent = c.k; if (c.minor) b.className = 'minor';
+    b.setAttribute('aria-selected', i === 0); b.onclick = () => render(i); tabs.appendChild(b);
+  });
+  function render(i){
+    [...tabs.children].forEach((b, j) => b.setAttribute('aria-selected', i === j));
+    const c = CATS[i];
+    panel.innerHTML = (c.intro ? `<div class="panel-intro"><b>${c.k}</b><span>${c.intro}</span><a class="btn gold" href="#request">اطلبوا استشارة</a></div>` : '') +
+      c.items.map(([en, ar, d], n) => `<article class="pc"><span class="n">${String(n + 1).padStart(2, '0')} · ${en}</span><h3>${ar}</h3><p>${d}</p><a class="more" href="#request">استشيروا الطبيبة ←</a></article>`).join('');
+    if (G) gsap.from(panel.children, { y: 30, opacity: 0, duration: .6, stagger: .06, ease: 'power3.out' });
+  }
+  render(0);
+
+  /* gallery tabs (visual only until real photos arrive) */
+  const gt = document.getElementById('gtabs');
+  gt.querySelectorAll('button').forEach(b => b.onclick = () => {
+    gt.querySelectorAll('button').forEach(x => x.setAttribute('aria-selected', x === b));
+    if (G) gsap.fromTo('#ggrid .gph', { rotateY: 90, opacity: 0 }, { rotateY: 0, opacity: 1, duration: .6, stagger: .07 });
+  });
+
+  /* ---------- request form (3 steps → WhatsApp) ---------- */
+  const form = document.getElementById('reqForm'), panes = [...form.querySelectorAll('.pane')], st = [...document.querySelectorAll('#stepper li')];
+  const back = document.getElementById('back'), fwd = document.getElementById('fwd'), send = document.getElementById('send'), fmsg = document.getElementById('fmsg');
+  let step = 0;
+  function setStep(n){
+    panes[step].hidden = true; step = n; panes[step].hidden = false;
+    st.forEach((li, i) => { li.className = i < step ? 'done' : i === step ? 'on' : ''; });
+    back.hidden = step === 0; fwd.hidden = step === panes.length - 1; send.hidden = step !== panes.length - 1; fmsg.textContent = '';
+    if (G) gsap.from(panes[step], { x: -24, opacity: 0, duration: .45 });
+  }
+  fwd.onclick = () => {
+    if (step === 0 && !form.querySelector('.opts input:checked')) { fmsg.textContent = 'اختاروا إجراءً واحدًا على الأقل، أو «لست متأكدًا».'; return; }
+    setStep(step + 1);
+  };
+  back.onclick = () => setStep(step - 1);
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('r-name').value.trim();
+    if (!name) { fmsg.textContent = 'يرجى كتابة الاسم حتى نتمكن من الرد عليكم.'; document.getElementById('r-name').focus(); return; }
+    const procs = [...form.querySelectorAll('.opts input:checked')].map(i => i.value).join('، ');
+    const text = `مرحبًا عيادة إيرو،\nالاسم: ${name}\nالبلد: ${document.getElementById('r-country').value}\nالإجراء: ${procs}\nالشهر المتوقع: ${document.getElementById('r-month').value || 'غير محدد'}\nمدة الإقامة: ${document.getElementById('r-stay').value}\n${document.getElementById('r-note').value.trim()}`;
+    if (CFG.WA_LINK && CFG.WA_LINK.startsWith('https://wa.me/')) { window.open(CFG.WA_LINK + '?text=' + encodeURIComponent(text), '_blank', 'noopener'); fmsg.textContent = 'تم تجهيز رسالتكم في واتساب. اضغطوا «إرسال» هناك لإتمام الطلب.'; }
+    else fmsg.textContent = 'رقم واتساب العيادة لم يُضبط بعد في هذا العرض التجريبي.';
+  });
+
+  /* ---------- scroll motion ---------- */
+  if (!G) return;
+  gsap.registerPlugin(ScrollTrigger);
+  if (window.Lenis){
+    const lenis = new Lenis({ lerp: .1 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); if (id.length > 1 && document.querySelector(id)) { e.preventDefault(); lenis.scrollTo(id, { offset: -80 }); }
+    }));
+  }
+
+  // intro
+  gsap.from('.slides', { clipPath: 'inset(8% 8% 8% 8% round 28px)', duration: 1.4, ease: 'expo.out' });
+  gsap.from('.slide.on h1 .l>span', { yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: .12, delay: .3 });
+  gsap.from('.slide.on .tag, .slide.on .s, .slide.on .ctas', { y: 20, opacity: 0, duration: .8, stagger: .08, delay: .5 });
+  gsap.from('.q', { y: 40, opacity: 0, duration: .8, stagger: .08, delay: .7, ease: 'power3.out' });
+
+  gsap.from('.doc .card', { y: 60, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.doc', start: 'top 80%', once: true } });
+  ScrollTrigger.create({ trigger: '#flip', start: 'top 55%', once: true, onEnter: () => setTimeout(() => { if (!flip.classList.contains('show')) toggle(); }, 900) });
+
+  ['.procs .head', '.team h2', '.gallery h2', '.faq h2', '.loc h2', '.req .box'].forEach(s => gsap.from(s, { y: 40, opacity: 0, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: s, start: 'top 85%', once: true } }));
+  gsap.from('.tm', { y: 50, opacity: 0, stagger: .15, duration: .9, scrollTrigger: { trigger: '.team .grid', start: 'top 80%', once: true } });
+  gsap.from('.faq details', { y: 20, opacity: 0, stagger: .07, duration: .6, scrollTrigger: { trigger: '.faq .list', start: 'top 85%', once: true } });
+
+  // journey: pin + horizontal travel (RTL: track moves toward +x)
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 821px)', () => {
+    const track = document.getElementById('jtrack');
+    const dist = () => Math.max(0, track.scrollWidth - innerWidth);
+    const tw = gsap.to(track, { x: dist, ease: 'none', scrollTrigger: { trigger: '#pin', start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 1, invalidateOnRefresh: true } });
+    gsap.to('#jfill', { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '#pin', start: 'top top', end: () => '+=' + dist(), scrub: 1 } });
+    gsap.utils.toArray('.step').forEach(s => gsap.from(s, { opacity: .5, scale: .94, scrollTrigger: { trigger: s, containerAnimation: tw, start: 'right 95%', end: 'right 65%', scrub: true } }));
+  });
+  mm.add('(max-width: 820px)', () => {
+    gsap.utils.toArray('.step').forEach(s => gsap.from(s, { y: 40, opacity: 0, duration: .7, scrollTrigger: { trigger: s, start: 'top 88%', once: true } }));
+  });
+
+  // WhatsApp card
+  gsap.from('#wcard', { scale: .92, borderRadius: '80px', duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '#wcard', start: 'top 80%', once: true } });
+  gsap.from('#wcard h2, #wcard .lead, #wcard h3, #wcard .btn', { y: 40, opacity: 0, stagger: .12, duration: .9, scrollTrigger: { trigger: '#wcard', start: 'top 70%', once: true } });
+  gsap.from('#qr', { y: 60, rotate: -6, opacity: 0, duration: 1.1, ease: 'back.out(1.6)', scrollTrigger: { trigger: '#wcard', start: 'top 65%', once: true } });
+  gsap.to('.wcard .ring', { scale: 1.15, duration: 4, yoyo: true, repeat: -1, ease: 'sine.inOut', stagger: .6 });
+})();
+</script>
+</body>
+</html>
