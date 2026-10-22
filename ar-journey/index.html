@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>إيرو | رحلتكم العلاجية في سيول</title>
 <meta name="description" content="عيادة إيرو للجراحة التجميلية — رحلتكم من أول رسالة على واتساب حتى المتابعة بعد العودة.">
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800&family=Tajawal:wght@400;500;700&display=swap">
@@ -173,13 +174,6 @@ header.main nav a:hover{background:var(--sand)}
 .tm li{font-size:.82rem;padding:4px 12px;border-radius:999px;background:var(--sand)}
 @media (max-width:820px){.team .grid{grid-template-columns:1fr}}
 
-/* ---------- gallery ---------- */
-.gallery{background:var(--paper)}
-.gallery .grid{margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.gph{aspect-ratio:3/4;border-radius:18px;position:relative;overflow:hidden;display:grid;place-items:center;color:var(--muted);font-family:var(--f-display);font-size:.9rem;background:repeating-linear-gradient(135deg,#ece3d3 0 12px,#e6dccb 12px 24px);border:1px dashed rgba(22,32,27,.2)}
-.gph em{position:absolute;top:10px;inset-inline-end:10px;font-style:normal;font-size:.74rem;background:var(--green);color:var(--gold);padding:2px 10px;border-radius:999px}
-.gallery .note{margin-top:18px;font-size:.86rem;color:var(--muted)}
-@media (max-width:820px){.gallery .grid{grid-template-columns:1fr 1fr}}
 
 /* ---------- WhatsApp card ---------- */
 .wa-card{padding-block:clamp(72px,10vw,130px)}
@@ -254,11 +248,29 @@ footer img{height:38px;width:auto}
 .fab a svg{width:18px;height:18px}
 @media (max-width:420px){.fab a{padding:10px 12px;font-size:.8rem}.fab a.t2{display:none}}
 
-.todo{outline:1px dashed #B3261E;outline-offset:3px}
+/* shared consult form (same fields as /ar/consultation/) */
+.pick{display:flex;flex-wrap:wrap;gap:8px}
+.pick label{position:relative;cursor:pointer}
+.pick input{position:absolute;inset:0;opacity:0;margin:0;width:100%;height:100%;cursor:pointer}
+.pick span{display:inline-block;padding:7px 14px;border:1px solid var(--line);border-radius:999px;font-size:.88rem;transition:all .25s}
+.pick input:checked+span{background:var(--green);border-color:var(--green);color:#F3EEE7}
+.pick input:focus-visible+span{outline:2px solid var(--gold,#B48A45);outline-offset:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field small{font-size:.8rem;opacity:.75}
+.field input[type=tel]{direction:ltr;text-align:right}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.86rem}
+.consent input{margin-top:6px;width:18px;height:18px;flex:0 0 auto;accent-color:var(--green)}
+.hp{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+[data-form-msg]{font-size:.92rem;color:var(--green);min-height:1.4em}
+[data-form-msg].bad{color:#B3261E}
+.done{background:var(--green);color:#F3EEE7;padding:clamp(24px,4vw,44px);display:grid;gap:16px;justify-items:start;border-radius:inherit}
+.done h3{font-size:1.6rem}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+.req form{display:grid;gap:16px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
-<body>
+<body data-clinic="iro" data-procedure="general" data-consult="#request">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></symbol>
 </svg>
@@ -267,11 +279,11 @@ footer img{height:38px;width:auto}
   <div class="wrap">
     <nav aria-label="روابط سريعة">
       <a href="#request">الاستشارة أونلاين</a>
-      <a href="#gallery">صور قبل وبعد</a>
+      <a href="#faq">الأسئلة الشائعة</a>
       <a href="#journey">رحلتكم العلاجية</a>
       <a href="https://www.instagram.com/irops_ar/" target="_blank" rel="noopener">إنستغرام <span class="ltr">@irops_ar</span></a>
     </nav>
-    <div class="lang"><a href="https://iroplasticsurgery.com/" target="_blank" rel="noopener">KR</a> · <b>AR</b></div>
+    <div class="lang" style="direction:rtl;letter-spacing:0"><a href="https://iroplasticsurgery.com/" target="_blank" rel="noopener">الموقع الكوري</a></div>
   </div>
 </div>
 
@@ -286,7 +298,7 @@ footer img{height:38px;width:auto}
       <a href="#faq">الأسئلة الشائعة</a>
       <a href="#location">الموقع</a>
     </nav>
-    <a class="btn wa" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>واتساب</a>
+    <a class="btn wa" data-wa><svg><use href="#i-wa"/></svg>واتساب</a>
   </div>
 </header>
 
@@ -299,20 +311,20 @@ footer img{height:38px;width:auto}
 
       <div class="slide on" aria-label="١ من ٣">
         <div class="copy">
-          <span class="tag">شدّ الوجه · الإجراء المميز</span>
-          <h1><span class="l"><span>ملامح أكثر تحديدًا،</span></span><span class="l"><span>بنتيجة تشبهكم</span></span></h1>
+          <span class="tag">شدّ الوجه · مجال تركيز العيادة</span>
+          <h1><span class="l"><span>شدّ الوجه يبدأ</span></span><span class="l"><span>من تقييم الوجه كاملًا</span></span></h1>
           <p class="s">نقيّم مرونة الجلد والدهون والعضلات معًا، ثم نختار بين الأجهزة وشدّ الوجه الجراحي ما يناسب حالتكم.</p>
-          <div class="ctas"><a class="btn gold" href="#request">اطلبوا استشارة</a><a class="btn line" href="#procedures">تعرّفوا على الإجراءات</a></div>
+          <div class="ctas"><a class="btn gold" href="#request">اطلبوا استشارة</a><a class="btn line" href="../ar/face-lifting/">تفاصيل شدّ الوجه</a></div>
         </div>
         <div class="visual"><span class="orb" style="width:320px;height:320px;background:radial-gradient(circle,rgba(230,199,122,.35),transparent 70%)"></span><img src="../assets/doctor.jpg" alt="د. جيهيون كيم"></div>
       </div>
 
       <div class="slide" aria-label="٢ من ٣">
         <div class="copy">
-          <span class="tag">بلغتكم</span>
-          <h1><span class="l"><span>مترجمة طبية بالعربية</span></span><span class="l"><span>في كل خطوة</span></span></h1>
-          <p class="s">من الاستشارة الأولى حتى المتابعة، تفهمون كل تفصيل بوضوح قبل اتخاذ القرار.</p>
-          <div class="ctas"><a class="btn gold" href="#team">تعرّفوا على فريق الرعاية</a></div>
+          <span class="tag">عند الطلب</span>
+          <h1><span class="l"><span>ترجمة إلى العربية</span></span><span class="l"><span>ومنسّقة ترافقكم</span></span></h1>
+          <p class="s">نرتّبهما عند الطلب للاستشارة وشرح تعليمات الرعاية، لتفهموا كل تفصيل قبل اتخاذ القرار.</p>
+          <div class="ctas"><a class="btn gold" href="#team">كيف نرافقكم</a></div>
         </div>
         <div class="visual"><img src="../assets/doctor-illust.jpg" alt="رسم توضيحي للطبيبة بزي العمليات"></div>
       </div>
@@ -322,9 +334,9 @@ footer img{height:38px;width:auto}
           <span class="tag">قبل السفر</span>
           <h1><span class="l"><span>أرسلوا سؤالكم</span></span><span class="l"><span>على واتساب</span></span></h1>
           <p class="s">نجيب عن جميع استفساراتكم بوضوح قبل موعدكم، ونرتّب زيارتكم مسبقًا.</p>
-          <div class="ctas"><a class="btn wa" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>ابدأوا المحادثة</a></div>
+          <div class="ctas"><a class="btn wa" data-wa><svg><use href="#i-wa"/></svg>ابدأوا المحادثة</a></div>
         </div>
-        <div class="visual"><div class="qr" style="width:240px"><img src="../assets/whatsapp-qr.png" alt="رمز واتساب" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'qph',innerHTML:'رمز QR<br>من بطاقة واتساب'}))"></div></div>
+        <div class="visual"><div class="qr" style="width:240px"><img src="../assets/whatsapp-qr.png" alt="رمز واتساب" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'qph',innerHTML:'رمز واتساب<br>يُضاف هنا'}))"></div></div>
       </div>
 
       <div class="dots" id="dots" role="tablist" aria-label="الشرائح">
@@ -339,8 +351,8 @@ footer img{height:38px;width:auto}
 <!-- QUICK CARDS -->
 <section class="quick">
   <div class="wrap grid">
-    <a class="q" href="#request"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H8l-4 4z"/></svg></span><b>الاستشارة أونلاين</b><span>أرسلوا صوركم واستفساركم</span></a>
-    <a class="q" href="#gallery"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="8" height="14" rx="1"/><rect x="13" y="5" width="8" height="14" rx="1"/></svg></span><b>صور قبل وبعد</b><span>حسب نوع الإجراء</span></a>
+    <a class="q" href="#request"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H8l-4 4z"/></svg></span><b>الاستشارة أونلاين</b><span>أرسلوا استفساركم قبل السفر</span></a>
+    <a class="q" href="#faq"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17h.01"/></svg></span><b>الأسئلة الشائعة</b><span>قبل أن تحجزوا</span></a>
     <a class="q" href="#journey"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></span><b>رحلتكم العلاجية</b><span>من الرسالة الأولى حتى العودة</span></a>
     <a class="q" href="#location"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><b>الموقع والمواعيد</b><span>سيول، سودايمون-غو</span></a>
   </div>
@@ -359,19 +371,18 @@ footer img{height:38px;width:auto}
         <p class="kicker">مديرة العيادة · رعاية شخصية مخصصة ١:١</p>
         <h2>د. جيهيون كيم</h2>
         <p class="role">أخصائية جراحة التجميل، معتمدة من البورد الكوري</p>
-        <div class="badges"><span>KSPRS</span><span>KSAPS</span><span>KSCFPS</span><span>KSOPRS</span><span>KSRPS</span></div>
-        <blockquote>«بدلًا من تقسيم الخيارات إلى مجرد إجراء أو جراحة، نعمل معًا على تصميم الخيار الأمثل وفقًا لحالتكم والنتيجة المرجوة.»</blockquote>
+        <blockquote>«بدلًا من تقسيم الخيارات إلى مجرد إجراء أو جراحة، نقارن الخيارات معًا ونختار ما يناسب حالتكم والنتيجة التي تريدونها.»</blockquote>
         <details>
           <summary>السيرة المهنية كاملة</summary>
           <ul>
             <li>مديرة عيادة إيرو للجراحة التجميلية (حاليًا)</li>
-            <li>مديرة سابقة في عيادة فيو (VIEW) للجراحة التجميلية</li>
-            <li>مديرة سابقة في عيادة إيت (EIGHT) للجراحة التجميلية</li>
-            <li>عضوة عاملة في الجمعية الكورية لجراحي التجميل والترميم (KSPRS)</li>
-            <li>عضوة عاملة في الجمعية الكورية لجراحة التجميل الجمالية (KSAPS)</li>
-            <li>عضوة عاملة في الجمعية الكورية لجراحة التجميل القحفية الوجهية (KSCFPS)</li>
-            <li>عضوة في الجمعية الكورية لجراحة تجميل وترميم العين (KSOPRS)</li>
-            <li>عضوة في الجمعية الكورية لجراحة تجميل الأنف (KSRPS)</li>
+            <li>مديرة سابقة في عيادة «فيو» للجراحة التجميلية</li>
+            <li>مديرة سابقة في عيادة «إيت» للجراحة التجميلية</li>
+            <li>عضوة عاملة في الجمعية الكورية لجراحي التجميل والترميم</li>
+            <li>عضوة عاملة في الجمعية الكورية لجراحة التجميل الجمالية</li>
+            <li>عضوة عاملة في الجمعية الكورية لجراحة التجميل القحفية الوجهية</li>
+            <li>عضوة في الجمعية الكورية لجراحة تجميل وترميم العين</li>
+            <li>عضوة في الجمعية الكورية لجراحة تجميل الأنف</li>
           </ul>
         </details>
       </div>
@@ -384,7 +395,7 @@ footer img{height:38px;width:auto}
   <div class="wrap">
     <div class="head">
       <div><p class="kicker">الإجراءات</p><h2>اختاروا ما يهمّكم</h2></div>
-      <p style="color:var(--muted);max-width:30em">تحدد الطبيبة الإجراء المناسب بعد الاستشارة. هذه نظرة عامة على ما تقدّمه العيادة.</p>
+      <p style="color:var(--muted);max-width:30em">تحدد الطبيبة الإجراء المناسب بعد الاستشارة. مرتبة حسب مجالات تركيز العيادة.</p>
     </div>
     <div class="tabs" role="tablist" id="tabs" aria-label="فئات الإجراءات"></div>
     <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
@@ -396,11 +407,11 @@ footer img{height:38px;width:auto}
   <div class="pin" id="pin">
     <div class="wrap"><p class="kicker">من الرسالة الأولى حتى ما بعد العودة</p><h2>رحلتكم العلاجية في ست خطوات</h2></div>
     <div class="jtrack" id="jtrack">
-      <article class="step"><span class="ic"><svg><use href="#i-wa"/></svg></span><span class="no">01</span><h3>استشارة عبر واتساب</h3><p>أرسلوا صوركم وما تودّون تحسينه. تراجعها الطبيبة ويصلكم الرد بالعربية.</p></article>
-      <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span class="no">02</span><h3>تحديد موعد الزيارة</h3><p>ترتّب المنسّقة موعد الاستشارة والإجراء بما يناسب جدول سفركم.</p></article>
-      <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c0 3-3 7-7 9"/><path d="M13 21l4-10 4 10M14.5 17.5h5"/></svg></span><span class="no">03</span><h3>استشارة مع الطبيبة</h3><p>تلتقون بالدكتورة كيم مباشرة، بحضور مترجمة طبية باللغة العربية.</p></article>
+      <article class="step"><span class="ic"><svg><use href="#i-wa"/></svg></span><span class="no">01</span><h3>استشارة عبر واتساب</h3><p>أرسلوا سؤالكم وما تودّون تحسينه. بعد موافقتكم نطلب الصور اللازمة، وتراجعها الطبيبة قبل أي حجز.</p></article>
+      <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span class="no">02</span><h3>تحديد موعد الزيارة</h3><p>نحدد معكم موعد الاستشارة والإجراء ومدة الإقامة المقترحة، قبل أن تحجزوا رحلتكم.</p></article>
+      <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c0 3-3 7-7 9"/><path d="M13 21l4-10 4 10M14.5 17.5h5"/></svg></span><span class="no">03</span><h3>استشارة مع الطبيبة</h3><p>تلتقون بالدكتورة كيم مباشرة، ويمكن ترتيب ترجمة إلى العربية ومنسّقة ترافقكم عند الطلب.</p></article>
       <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 4v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V7z"/></svg></span><span class="no">04</span><h3>الإجراء</h3><p>تُجري الطبيبة نفسها الإجراء الذي ناقشتموه، دون انتقال حالتكم إلى طبيب آخر.</p></article>
-      <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12a8 8 0 1 1-3-6.2"/><path d="M20 4v5h-5"/></svg></span><span class="no">05</span><h3>مراجعات التعافي</h3><p>زيارات متابعة في العيادة خلال إقامتكم في سيول للتأكد من سير التعافي.</p></article>
+      <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12a8 8 0 1 1-3-6.2"/><path d="M20 4v5h-5"/></svg></span><span class="no">05</span><h3>التعافي في سيول</h3><p>لا تتوفر غرف إقامة في العيادة. تقيمون في فندق من اختياركم، وتعودون لمراجعات المتابعة.</p></article>
       <article class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 16l20-8-6 12-3-5z"/></svg></span><span class="no">06</span><h3>متابعة بعد العودة</h3><p>أرسلوا صور التعافي من بلدكم عبر واتساب، ويتابع فريق العيادة حالتكم.</p></article>
     </div>
     <div class="jline" aria-hidden="true"><i id="jfill"></i></div>
@@ -412,32 +423,13 @@ footer img{height:38px;width:auto}
   <div class="wrap">
     <p class="kicker">فريق الرعاية</p>
     <h2>معكم من أول سؤال حتى آخر مراجعة</h2>
+    <p style="margin-top:12px;color:var(--muted)">الاستشارة والإجراء مع طبيبة، د. جيهيون كيم.</p>
     <div class="grid">
       <article class="tm"><span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span>
-        <div><h3>منسّقة خاصة</h3><p>تنظّم مواعيدكم، وتجيب عن أسئلتكم العملية، وتتابع حالتكم بعد عودتكم.</p><ul><li>جدولة المواعيد</li><li>تذكير قبل الزيارة</li><li>متابعة بعد العودة</li></ul></div></article>
+        <div><h3>منسّقة ترافقكم</h3><p>عند الطلب، ترافقكم منسّقة خلال زيارتكم للعيادة، وتساعدكم في تنظيم المواعيد.</p><ul><li>عند الطلب</li><li>جدولة المواعيد</li><li>متابعة عبر واتساب</li></ul></div></article>
       <article class="tm"><span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c0 3-3 7-7 9"/><path d="M13 21l4-10 4 10M14.5 17.5h5"/></svg></span>
-        <div><h3>مترجمة طبية متخصصة</h3><p>ترافقكم في الاستشارة والإجراء وتشرح المصطلحات الطبية وتعليمات الرعاية بالعربية.</p><ul><li>العربية</li><li>الاستشارة</li><li>تعليمات ما بعد الإجراء</li></ul></div></article>
+        <div><h3>ترجمة إلى العربية</h3><p>عند الطلب، نرتّب ترجمة إلى العربية في الاستشارة وعند شرح تعليمات الرعاية بعد الإجراء.</p><ul><li>عند الطلب</li><li>الاستشارة</li><li>تعليمات ما بعد الإجراء</li></ul></div></article>
     </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="gallery" id="gallery">
-  <div class="wrap">
-    <p class="kicker">قبل وبعد</p>
-    <h2>نتائج مرضانا</h2>
-    <div class="tabs" role="tablist" id="gtabs" aria-label="فئات الصور">
-      <button type="button" role="tab" aria-selected="true">شدّ الوجه</button>
-      <button type="button" role="tab" aria-selected="false">الدهون</button>
-      <button type="button" role="tab" aria-selected="false">الثدي</button>
-      <button type="button" role="tab" aria-selected="false">شباب العينين</button>
-      <button type="button" role="tab" aria-selected="false">سيلفي المرضى</button>
-    </div>
-    <div class="grid todo" id="ggrid">
-      <div class="gph"><em>قبل</em>صورة المريض</div><div class="gph"><em>بعد</em>صورة المريض</div>
-      <div class="gph"><em>قبل</em>صورة المريض</div><div class="gph"><em>بعد</em>صورة المريض</div>
-    </div>
-    <p class="note">تُعرض الصور بموافقة المرضى. قد تختلف النتائج من شخص لآخر، وتُناقش الآثار الجانبية المحتملة وفترة التعافي خلال الاستشارة.</p>
   </div>
 </section>
 
@@ -451,10 +443,10 @@ footer img{height:38px;width:auto}
         <h2>يسعدنا استقبال<br>أسئلتكم.</h2>
         <p class="lead">نجيب عن جميع استفساراتكم<br>بوضوح قبل موعدكم.</p>
         <h3>للاستفسار من العيادة</h3>
-        <a class="btn gold" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>افتحوا المحادثة على واتساب</a>
+        <a class="btn gold" data-wa><svg><use href="#i-wa"/></svg>افتحوا المحادثة على واتساب</a>
       </div>
       <div class="qrbox">
-        <div class="qr" id="qr"><img src="../assets/whatsapp-qr.png" alt="رمز واتساب لعيادة إيرو" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'qph',innerHTML:'رمز QR<br>من بطاقة واتساب الأصلية'}))"></div>
+        <div class="qr" id="qr"><img src="../assets/whatsapp-qr.png" alt="رمز واتساب لعيادة إيرو" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'qph',innerHTML:'رمز واتساب<br>يُضاف هنا'}))"></div>
         <p>رمز التواصل عبر واتساب</p>
         <img class="mark" src="../assets/logo-light.png" alt="IRo+">
       </div>
@@ -468,43 +460,53 @@ footer img{height:38px;width:auto}
     <div class="box">
       <div>
         <p class="kicker">طلب استشارة</p>
-        <h2>ثلاث خطوات فقط</h2>
-        <p style="margin-top:12px;color:var(--muted)">عند الإرسال يُفتح واتساب برسالة جاهزة إلى فريق العيادة.</p>
-        <ol class="stepper" id="stepper">
-          <li class="on"><b>1</b>الإجراء المطلوب</li>
-          <li><b>2</b>موعد الزيارة</li>
-          <li><b>3</b>بيانات التواصل</li>
+        <h2>أخبرونا بما يهمّكم</h2>
+        <p style="margin-top:12px;color:var(--muted)">يصل طلبكم إلى فريق العيادة، ونتواصل معكم عبر واتساب.</p>
+        <ol class="stepper">
+          <li class="on"><b>1</b>أرسلوا الطلب</li>
+          <li><b>2</b>نتواصل معكم عبر واتساب</li>
+          <li><b>3</b>تراجع الطبيبة حالتكم</li>
         </ol>
       </div>
-      <form id="reqForm" novalidate>
-        <div class="pane" data-step="0">
-          <div class="opts">
-            <label><input type="checkbox" id="o1" value="شدّ الوجه" checked><span>شدّ الوجه</span></label>
-            <label><input type="checkbox" id="o2" value="الدهون"><span>الدهون</span></label>
-            <label><input type="checkbox" id="o3" value="الثدي"><span>الثدي</span></label>
-            <label><input type="checkbox" id="o4" value="شباب العينين"><span>شباب العينين</span></label>
-            <label><input type="checkbox" id="o5" value="البشرة والحقن"><span>البشرة والحقن</span></label>
-            <label><input type="checkbox" id="o6" value="غير متأكد"><span>لست متأكدًا</span></label>
-          </div>
-        </div>
-        <div class="pane" data-step="1" hidden>
-          <div class="field"><label for="r-month">الشهر المتوقع للزيارة</label><input id="r-month" type="month"></div>
-          <div class="field"><label for="r-stay">مدة الإقامة المتوقعة في سيول</label>
-            <select id="r-stay"><option>لم أحدد بعد</option><option>أقل من أسبوع</option><option>من أسبوع إلى أسبوعين</option><option>أكثر من أسبوعين</option></select></div>
-        </div>
-        <div class="pane" data-step="2" hidden>
-          <div class="field"><label for="r-name">الاسم</label><input id="r-name" autocomplete="name"></div>
-          <div class="field"><label for="r-country">البلد</label>
-            <select id="r-country"><option>الإمارات</option><option>السعودية</option><option>الكويت</option><option>قطر</option><option>البحرين</option><option>عُمان</option><option>بلد آخر</option></select></div>
-          <div class="field"><label for="r-note">ملاحظات</label><textarea id="r-note" rows="3" placeholder="صفوا ما تودّون تحسينه"></textarea></div>
-        </div>
-        <div class="nav">
-          <button type="button" class="btn line" id="back" hidden>السابق</button>
-          <button type="button" class="btn green" id="fwd">التالي</button>
-          <button type="submit" class="btn wa" id="send" hidden><svg><use href="#i-wa"/></svg>إرسال عبر واتساب</button>
-        </div>
-        <p class="fmsg" id="fmsg" aria-live="polite"></p>
-      </form>
+      <div><form class="reqform" id="consultForm" data-consult novalidate>
+      <div class="two">
+        <div class="field"><label for="f-name">الاسم</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-country">البلد</label>
+          <select id="f-country" name="country">
+            <option data-dial="+971">الإمارات</option><option data-dial="+966">السعودية</option><option data-dial="+965">الكويت</option><option data-dial="+974">قطر</option><option data-dial="+973">البحرين</option><option data-dial="+968">عُمان</option><option data-dial="+">بلد آخر</option>
+          </select></div>
+      </div>
+      <div class="field"><label for="f-phone">رقم واتساب</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" value="+971" required><small>مع رمز الدولة</small></div>
+      <div class="field"><span class="lbl" id="f-proc">الإجراء الذي تودّون الاستفسار عنه</span>
+        <div class="pick" role="group" aria-labelledby="f-proc">
+          <label><input type="checkbox" name="proc" value="lifting"><span>شدّ الوجه</span></label>
+          <label><input type="checkbox" name="proc" value="fat"><span>إعادة توزيع الدهون</span></label>
+          <label><input type="checkbox" name="proc" value="face"><span>العين والجبهة</span></label>
+          <label><input type="checkbox" name="proc" value="nose"><span>تجميل الأنف</span></label>
+          <label><input type="checkbox" name="proc" value="body"><span>شفط الدهون</span></label>
+          <label><input type="checkbox" name="proc" value="breast"><span>الثدي</span></label>
+          <label><input type="checkbox" name="proc" value="skin"><span>علاجات غير جراحية</span></label>
+          <label><input type="checkbox" name="proc" value="general"><span>لست متأكدًا بعد</span></label>
+        </div></div>
+      <div class="two">
+        <div class="field"><label for="f-month">الشهر المتوقع للزيارة</label><input id="f-month" name="month" type="month"></div>
+        <div class="field"><label for="f-stay">مدة الإقامة الممكنة في سيول</label>
+          <select id="f-stay" name="stay"><option value="">لم أحدد بعد</option><option>أقل من أسبوع</option><option>من أسبوع إلى أسبوعين</option><option>أكثر من أسبوعين</option></select></div>
+      </div>
+      <div class="field"><label for="f-lang">لغة التواصل المفضلة</label>
+        <select id="f-lang" name="language"><option>العربية</option><option>الإنجليزية</option></select></div>
+      <div class="field"><label for="f-msg">ما الذي تودّون تحسينه؟</label><textarea id="f-msg" name="msg" rows="3"></textarea><small>لا ترسلوا صورًا هنا. نطلبها منكم عبر واتساب بعد التواصل.</small></div>
+      <div class="hp" aria-hidden="true"><label for="f-web">الموقع</label><input id="f-web" name="website" tabindex="-1" autocomplete="off"></div>
+      <label class="consent"><input type="checkbox" name="consent" required><span>أوافق على جمع بياناتي واستخدامها للرد على استفساري وفق <a href="../ar/privacy/">سياسة الخصوصية</a>.</span></label>
+      <button class="btn ink block" type="submit">إرسال الطلب</button>
+      <p data-form-msg aria-live="polite"></p>
+    </form>
+<div class="done" data-consult-done hidden>
+      <h3>شكرًا لكم</h3>
+      <p data-done-text></p>
+      <a class="btn wa" data-done-wa target="_blank" rel="noopener" hidden>متابعة المحادثة على واتساب</a>
+    </div>
+  </div>
     </div>
   </div>
 </section>
@@ -515,11 +517,13 @@ footer img{height:38px;width:auto}
     <p class="kicker">الأسئلة الشائعة</p>
     <h2>قبل أن تحجزوا</h2>
     <div class="list">
-      <details open><summary>هل يوجد من يتحدث العربية في العيادة؟<i>+</i></summary><p class="a">نعم. ترافقكم مترجمة طبية متخصصة باللغة العربية في الاستشارة والإجراء، وتشرح لكم تعليمات الرعاية بعده.</p></details>
-      <details><summary>هل يمكنني الاستشارة قبل السفر إلى سيول؟<i>+</i></summary><p class="a">نعم. أرسلوا صوركم واستفساركم عبر واتساب، وتراجع الطبيبة حالتكم ويصلكم الرد قبل حجز الموعد.</p></details>
+      <details open><summary>هل يتوفر من يتحدث العربية؟<i>+</i></summary><p class="a">نرتّب عند الطلب ترجمة إلى العربية في الاستشارة وعند شرح تعليمات الرعاية. أخبرونا بذلك عند تحديد الموعد.</p></details>
+      <details><summary>هل يمكنني الاستشارة قبل السفر إلى سيول؟<i>+</i></summary><p class="a">نعم. أرسلوا سؤالكم عبر واتساب، وبعد موافقتكم نطلب الصور اللازمة. تراجعها الطبيبة وتشرح الخيارات قبل أن تحجزوا. القرار النهائي يكون بعد الفحص في العيادة.</p></details>
       <details><summary>هل الطبيبة نفسها من تُجري الإجراء؟<i>+</i></summary><p class="a">نعم. د. جيهيون كيم تُجري الاستشارة والإجراء وتتابع التعافي بنفسها، فلا تنتقل حالتكم بين أطباء مختلفين.</p></details>
       <details><summary>كم يومًا أحتاج للبقاء في سيول؟<i>+</i></summary><p class="a">يختلف ذلك حسب الإجراء وحالتكم. تحدد الطبيبة المدة المناسبة بعد الاستشارة لتتمكنوا من التخطيط لسفركم.</p></details>
       <details><summary>كيف تتم المتابعة بعد عودتي إلى بلدي؟<i>+</i></summary><p class="a">ترسلون صور التعافي عبر واتساب في المواعيد التي تحددها الطبيبة، ويتواصل معكم فريق العيادة عند الحاجة.</p></details>
+      <details><summary>هل أحتاج إلى الإقامة في المستشفى؟<i>+</i></summary><p class="a">لا تتوفر غرف إقامة في العيادة. تقيمون في فندق من اختياركم، وتعودون إلى العيادة في مواعيد المتابعة.</p></details>
+      <details><summary>هل توجد غرفة صلاة أو طعام حلال في العيادة؟<i>+</i></summary><p class="a">لا تتوفر في العيادة غرفة صلاة مخصصة أو وجبات. يقع مسجد سيول المركزي في حي إيتايوون، وتتوفر حوله مطاعم حلال عديدة.</p></details>
     </div>
   </div>
 </section>
@@ -538,17 +542,18 @@ footer img{height:38px;width:auto}
           <div><span>السبت</span><span>10:00 – 16:00</span></div>
           <div class="off"><span>الأحد والعطلات الرسمية</span><span>مغلق</span></div>
         </div>
-        <p style="margin-top:12px;font-size:.86rem;color:var(--muted)">توقيت كوريا متقدم ٦ ساعات على الرياض و٥ ساعات على دبي.</p>
+        <p style="margin-top:12px;font-size:.86rem;color:var(--muted)">توقيت كوريا متقدم ٥ ساعات على الإمارات، و٦ ساعات على السعودية والكويت وقطر.</p>
       </div>
       <div class="c">
         <h3>العنوان</h3>
         <p style="margin-top:10px">سيول، سودايمون-غو، شينتشون-رو 37-غيل 10، مبنى آهيون الطبي، الطابق 8</p>
+        <p style="margin-top:10px;font-size:.86rem;color:var(--muted)">العنوان بالإنجليزية لسائق سيارة الأجرة:</p>
         <div class="row"><span class="ltr" id="addrEn">8F, 10 Sinchon-ro 37-gil, Seodaemun-gu, Seoul</span><button type="button" class="cpy" data-copy="addrEn">نسخ</button></div>
         <div class="row"><b>الهاتف:</b><span class="ltr" id="tel">+82 2-363-5501</span><button type="button" class="cpy" data-copy="tel">نسخ</button></div>
         <div class="maps">
-          <a href="https://maps.google.com/?q=10+Sinchon-ro+37-gil+Seodaemun-gu+Seoul" target="_blank" rel="noopener">Google Maps</a>
-          <a href="https://map.naver.com/p/search/%EC%9D%B4%EB%A1%9C%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener">Naver Map</a>
-          <a href="https://map.kakao.com/?q=%EC%9D%B4%EB%A1%9C%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener">Kakao Map</a>
+          <a href="https://maps.google.com/?q=10+Sinchon-ro+37-gil+Seodaemun-gu+Seoul" target="_blank" rel="noopener">خرائط جوجل</a>
+          <a href="https://map.naver.com/p/search/%EC%9D%B4%EB%A1%9C%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener">خرائط نيفر</a>
+          <a href="https://map.kakao.com/?q=%EC%9D%B4%EB%A1%9C%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener">خرائط كاكاو</a>
         </div>
       </div>
     </div>
@@ -562,15 +567,15 @@ footer img{height:38px;width:auto}
       <img src="../assets/logo-light.png" alt="IRo+">
       <p>عيادة إيرو للجراحة التجميلية · المديرة: د. جيهيون كيم<br>جميع الإجراءات الطبية قد تنطوي على آثار جانبية، وتختلف النتائج من شخص لآخر.</p>
     </div>
-    <div style="display:flex;gap:16px;align-items:start"><a href="https://www.instagram.com/irops_ar/" target="_blank" rel="noopener" dir="ltr">@irops_ar</a><a data-wa href="#" target="_blank" rel="noopener">WhatsApp</a></div>
+    <div style="display:flex;gap:16px;align-items:start"><a href="https://www.instagram.com/irops_ar/" target="_blank" rel="noopener" dir="ltr">@irops_ar</a><a data-wa data-place="footer">واتساب</a></div>
   </div>
 </footer>
 
 <div class="fab">
   <div class="bar">
-    <a class="w" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>واتساب</a>
+    <a class="w" data-wa><svg><use href="#i-wa"/></svg>واتساب</a>
     <a href="#request">طلب استشارة</a>
-    <a href="#gallery" class="t2">قبل وبعد</a>
+    <a href="#faq" class="t2">الأسئلة الشائعة</a>
   </div>
 </div>
 
@@ -578,12 +583,11 @@ footer img{height:38px;width:auto}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
 <script>
 (function(){
-  const CFG = window.IRO_CONFIG || {};
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const G = window.gsap && !reduce;
-  document.querySelectorAll('[data-wa]').forEach(a => a.href = CFG.WA_LINK || '#whatsapp');
 
   /* ---------- copy ---------- */
   document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => {
@@ -620,88 +624,56 @@ footer img{height:38px;width:auto}
   flip.addEventListener('click', toggle);
   flip.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
 
-  /* ---------- procedures (cosmetic eye surgery deliberately last) ---------- */
+  /* ---------- procedures (clinic focus first: lifting → fat → eye & brow) ---------- */
   const CATS = [
-    { k: 'شدّ الوجه', intro: 'الإجراء المميز في إيرو', items: [
-      ['Deep Plane', 'شدّ الوجه العميق', 'شدّ الطبقات العميقة لإعادة تحديد خط الفك والخدين بنتيجة طبيعية.'],
-      ['Mini Lift', 'شدّ الوجه المصغّر', 'خيار أقل تدخلًا لترهل خفيف إلى متوسط في الثلث السفلي من الوجه.'],
-      ['Ulthera Prime', 'ألثيرابي برايم', 'شدّ بالموجات فوق الصوتية المركزة دون جراحة.'],
-      ['Thermage FLX', 'ثيرماج', 'تحفيز الكولاجين بالترددات الراديوية لشدّ البشرة.'],
-      ['Thread Lift', 'شدّ بالخيوط', 'رفع لطيف بخيوط قابلة للامتصاص مع فترة تعافٍ قصيرة.'],
-      ['Neck', 'إزالة اللغد وتحديد الرقبة', 'تحديد الزاوية بين الفك والرقبة.'] ] },
-    { k: 'الدهون', items: [
-      ['Liposuction', 'شفط الدهون المخصص', 'نحت يراعي شكل الجسم ونسبه بدل إزالة الدهون فقط.'],
-      ['Fat Graft', 'حقن الدهون الذاتية', 'استعادة الامتلاء في الوجه أو الجسم بدهونكم الذاتية.'],
-      ['Stem Cell', 'دعم بالخلايا الجذعية', 'علاجات تجديدية تدعم جودة الأنسجة ونتيجة نقل الدهون.'] ] },
-    { k: 'الثدي', items: [
-      ['Augmentation', 'تكبير الثدي', 'حجم وشكل متناسقان مع الجسم.'],
-      ['Lift', 'رفع الثدي المترهل', 'إعادة الشكل والموضع بعد الولادة أو فقدان الوزن.'],
-      ['Fat Transfer', 'حقن الدهون في الثدي', 'زيادة طبيعية الملمس بالدهون الذاتية.'],
-      ['Areola', 'تجميل الهالة والحلمة', 'تصحيح الحجم والشكل.'],
-      ['Accessory', 'إزالة الثدي الإضافي', 'تحسين منطقة الإبط.'] ] },
-    { k: 'شباب العينين', items: [
-      ['Upper Bleph', 'رفع الجفن العلوي', 'علاج ترهل الجفن العلوي المرتبط بالعمر.'],
-      ['Brow Lift', 'رفع الحاجب دون ندبة ظاهرة', 'شدّ من تحت الحاجب لنظرة منتعشة.'],
-      ['Forehead', 'رفع الجبهة', 'تخفيف خطوط الجبهة وترهل الحاجبين.'],
-      ['Glow Lower', 'إعادة توزيع دهون أسفل العين', 'علاج الانتفاخ والهالات تحت العين.'],
-      ['Midface', 'شدّ منتصف الوجه', 'استعادة امتلاء منطقة الخدين وأسفل العين.'] ] },
-    { k: 'البشرة والحقن', items: [
-      ['Botox', 'بوتوكس أوماكاسي', 'جرعات وتوزيع مصمّمان حسب ملامح كل وجه.'],
-      ['Filler', 'فيلر', 'تحديد الملامح واستعادة الحجم بشكل مدروس.'],
-      ['Skin Booster', 'معززات البشرة', 'ترطيب ونضارة من الداخل.'],
-      ['Pico Toning', 'بيكو تونينغ', 'توحيد لون البشرة وعلاج التصبغات.'],
-      ['Scar', 'علاج الندبات', 'تحسين مظهر الندبات الجراحية وغيرها.'] ] },
-    { k: 'تجميل العين', minor: true, intro: 'متاح عند الطلب بعد استشارة الطبيبة', items: [
-      ['Double Eyelid', 'الجفن المزدوج', 'إنشاء طية جفن طبيعية.'],
-      ['Eye Correction', 'تصحيح شكل العين', 'تحسين انفتاح العين.'],
-      ['Revision', 'إعادة عمليات العين', 'تصحيح نتائج عمليات سابقة.'] ] }
+    { k: 'شدّ الوجه', intro: 'مجال تركيز العيادة', page: '../ar/face-lifting/', items: [
+      ['شدّ الوجه العميق', 'إعادة تموضع الطبقات العميقة لترهل متوسط إلى واضح في الخدين وخط الفك والرقبة.'],
+      ['شدّ الوجه المصغّر', 'خيار أقل تدخلًا لترهل خفيف إلى متوسط في الثلث السفلي من الوجه.'],
+      ['شدّ منتصف الوجه', 'رفع أنسجة الخدين ومنطقة أسفل العين التي انخفضت مع العمر.'],
+      ['تحديد الرقبة وخط الفك', 'تحديد الزاوية بين الفك والرقبة.'],
+      ['الشدّ بالخيوط', 'رفع بخيوط قابلة للامتصاص لترهل خفيف، مع تعافٍ أقصر.'],
+      ['أجهزة الشدّ غير الجراحية', 'الموجات فوق الصوتية المركزة والترددات الراديوية لتحسين تدريجي دون جراحة.'] ] },
+    { k: 'إعادة توزيع الدهون', intro: 'مجال تركيز العيادة', page: '../ar/fat-repositioning/', items: [
+      ['إعادة توزيع الدهون تحت العين', 'نقل الدهون البارزة لتملأ التجويف تحت العين، بدل إزالتها كلها.'],
+      ['حقن الدهون الذاتية في الوجه', 'استعادة الامتلاء في الجبهة والصدغين والخدين بدهونكم الذاتية.'] ] },
+    { k: 'العين والجبهة', intro: 'مجال تركيز العيادة', page: '../ar/facial-surgery/', items: [
+      ['رفع الجفن العلوي', 'إزالة الجلد الزائد الذي يثقل الجفن مع العمر، مع الحفاظ على شكل العين.'],
+      ['رفع الحاجب', 'شدّ من الحافة السفلية للحاجب لتخفيف ثقل الجفن.'],
+      ['رفع الجبهة', 'رفع الحاجبين وأنسجة الجبهة إلى موضع أعلى.'] ] },
+    { k: 'تجميل الأنف', page: '../ar/rhinoplasty/', items: [
+      ['حدبة الأنف', 'تخفيف البروز في جسر الأنف ليصبح الخط أكثر انسيابًا مع ملامح الوجه.'],
+      ['طرف الأنف', 'إعادة تشكيل غضاريف الطرف العريض أو المتدلي.'],
+      ['الأنف المائل', 'تقليل الانحراف في الجسر أو الطرف.'],
+      ['إعادة تجميل الأنف', 'تقييم وتصحيح نتائج عمليات سابقة بواقعية.'] ] },
+    { k: 'شفط الدهون', page: '../ar/other-procedures/#body', items: [
+      ['شفط الدهون', 'نحت يُخطَّط وفق شكل الجسم ونسبه.'],
+      ['حقن الدهون الذاتية في الجسم', 'نقل دهونكم إلى مناطق تحتاج إلى امتلاء.'] ] },
+    { k: 'الثدي', page: '../ar/other-procedures/#breast', items: [
+      ['تكبير الثدي', 'حجم وشكل يُخطَّط لهما وفق قياسات الجسم.'],
+      ['رفع الثدي', 'إعادة الشكل والموضع بعد الولادة أو فقدان الوزن.'],
+      ['حقن الدهون في الثدي', 'زيادة معتدلة في الحجم بالدهون الذاتية.'],
+      ['الهالة والحلمة', 'تصحيح الحجم والشكل.'],
+      ['الثدي الإضافي', 'إزالة النسيج الإضافي في منطقة الإبط.'] ] },
+    { k: 'علاجات غير جراحية', page: '../ar/other-procedures/#non-surgical', items: [
+      ['حقن التوكسين', 'جرعات وتوزيع يُحددان حسب ملامح الوجه وحركة العضلات.'],
+      ['الفيلر', 'استعادة الحجم في مناطق محددة من الوجه.'],
+      ['معززات البشرة', 'لتحسين ترطيب البشرة ونضارتها.'],
+      ['علاج التصبغات والندبات', 'تحسين مظهر التصبغات والندبات.'] ] }
   ];
   const tabs = document.getElementById('tabs'), panel = document.getElementById('panel');
   CATS.forEach((c, i) => {
     const b = document.createElement('button');
-    b.type = 'button'; b.role = 'tab'; b.id = 'tab' + i; b.textContent = c.k; if (c.minor) b.className = 'minor';
+    b.type = 'button'; b.role = 'tab'; b.id = 'tab' + i; b.textContent = c.k;
     b.setAttribute('aria-selected', i === 0); b.onclick = () => render(i); tabs.appendChild(b);
   });
   function render(i){
     [...tabs.children].forEach((b, j) => b.setAttribute('aria-selected', i === j));
     const c = CATS[i];
-    panel.innerHTML = (c.intro ? `<div class="panel-intro"><b>${c.k}</b><span>${c.intro}</span><a class="btn gold" href="#request">اطلبوا استشارة</a></div>` : '') +
-      c.items.map(([en, ar, d], n) => `<article class="pc"><span class="n">${String(n + 1).padStart(2, '0')} · ${en}</span><h3>${ar}</h3><p>${d}</p><a class="more" href="#request">استشيروا الطبيبة ←</a></article>`).join('');
+    panel.innerHTML = `<div class="panel-intro"><b>${c.k}</b>${c.intro ? `<span>${c.intro}</span>` : ''}<a class="btn gold" href="${c.page}">التفاصيل ومدة الإقامة</a></div>` +
+      c.items.map(([ar, d], n) => `<article class="pc"><span class="n">${String(n + 1).padStart(2, '0')}</span><h3>${ar}</h3><p>${d}</p><a class="more" href="#request">استشيروا الطبيبة ←</a></article>`).join('');
     if (G) gsap.from(panel.children, { y: 30, opacity: 0, duration: .6, stagger: .06, ease: 'power3.out' });
   }
   render(0);
-
-  /* gallery tabs (visual only until real photos arrive) */
-  const gt = document.getElementById('gtabs');
-  gt.querySelectorAll('button').forEach(b => b.onclick = () => {
-    gt.querySelectorAll('button').forEach(x => x.setAttribute('aria-selected', x === b));
-    if (G) gsap.fromTo('#ggrid .gph', { rotateY: 90, opacity: 0 }, { rotateY: 0, opacity: 1, duration: .6, stagger: .07 });
-  });
-
-  /* ---------- request form (3 steps → WhatsApp) ---------- */
-  const form = document.getElementById('reqForm'), panes = [...form.querySelectorAll('.pane')], st = [...document.querySelectorAll('#stepper li')];
-  const back = document.getElementById('back'), fwd = document.getElementById('fwd'), send = document.getElementById('send'), fmsg = document.getElementById('fmsg');
-  let step = 0;
-  function setStep(n){
-    panes[step].hidden = true; step = n; panes[step].hidden = false;
-    st.forEach((li, i) => { li.className = i < step ? 'done' : i === step ? 'on' : ''; });
-    back.hidden = step === 0; fwd.hidden = step === panes.length - 1; send.hidden = step !== panes.length - 1; fmsg.textContent = '';
-    if (G) gsap.from(panes[step], { x: -24, opacity: 0, duration: .45 });
-  }
-  fwd.onclick = () => {
-    if (step === 0 && !form.querySelector('.opts input:checked')) { fmsg.textContent = 'اختاروا إجراءً واحدًا على الأقل، أو «لست متأكدًا».'; return; }
-    setStep(step + 1);
-  };
-  back.onclick = () => setStep(step - 1);
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const name = document.getElementById('r-name').value.trim();
-    if (!name) { fmsg.textContent = 'يرجى كتابة الاسم حتى نتمكن من الرد عليكم.'; document.getElementById('r-name').focus(); return; }
-    const procs = [...form.querySelectorAll('.opts input:checked')].map(i => i.value).join('، ');
-    const text = `مرحبًا عيادة إيرو،\nالاسم: ${name}\nالبلد: ${document.getElementById('r-country').value}\nالإجراء: ${procs}\nالشهر المتوقع: ${document.getElementById('r-month').value || 'غير محدد'}\nمدة الإقامة: ${document.getElementById('r-stay').value}\n${document.getElementById('r-note').value.trim()}`;
-    if (CFG.WA_LINK && CFG.WA_LINK.startsWith('https://wa.me/')) { window.open(CFG.WA_LINK + '?text=' + encodeURIComponent(text), '_blank', 'noopener'); fmsg.textContent = 'تم تجهيز رسالتكم في واتساب. اضغطوا «إرسال» هناك لإتمام الطلب.'; }
-    else fmsg.textContent = 'رقم واتساب العيادة لم يُضبط بعد في هذا العرض التجريبي.';
-  });
 
   /* ---------- scroll motion ---------- */
   if (!G) return;
@@ -724,7 +696,7 @@ footer img{height:38px;width:auto}
   gsap.from('.doc .card', { y: 60, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.doc', start: 'top 80%', once: true } });
   ScrollTrigger.create({ trigger: '#flip', start: 'top 55%', once: true, onEnter: () => setTimeout(() => { if (!flip.classList.contains('show')) toggle(); }, 900) });
 
-  ['.procs .head', '.team h2', '.gallery h2', '.faq h2', '.loc h2', '.req .box'].forEach(s => gsap.from(s, { y: 40, opacity: 0, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: s, start: 'top 85%', once: true } }));
+  ['.procs .head', '.team h2', '.faq h2', '.loc h2', '.req .box'].forEach(s => gsap.from(s, { y: 40, opacity: 0, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: s, start: 'top 85%', once: true } }));
   gsap.from('.tm', { y: 50, opacity: 0, stagger: .15, duration: .9, scrollTrigger: { trigger: '.team .grid', start: 'top 80%', once: true } });
   gsap.from('.faq details', { y: 20, opacity: 0, stagger: .07, duration: .6, scrollTrigger: { trigger: '.faq .list', start: 'top 85%', once: true } });
 
