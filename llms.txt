@@ -2,13 +2,14 @@
 
 > Plastic surgery clinic in Sinchon, Seodaemun-gu, Seoul, South Korea. All consultations, procedures and follow-up visits are performed by one female board-certified plastic surgeon, Dr. Jihyun Kim (د. جيهيون كيم). Arabic interpretation and a female coordinator can be arranged on request. Initial consultation via WhatsApp before travel. No inpatient rooms; patients stay in a hotel during recovery.
 
-Focus areas: face lifting, under-eye fat repositioning and facial fat grafting, upper eyelid / brow / forehead rejuvenation. Also: liposuction, breast surgery, non-surgical treatments.
+Focus areas: face lifting, under-eye fat repositioning and facial fat grafting, upper eyelid / brow / forehead rejuvenation, rhinoplasty. Also: liposuction, breast surgery, non-surgical treatments.
 
 ## Arabic pages
 - [Home](https://moussa0908.github.io/iro-arabic-webpage/ar/): overview, patient journey, clinic location and hours
 - [Face lifting](https://moussa0908.github.io/iro-arabic-webpage/ar/face-lifting/): deep plane, mini lift, midface, neck, threads, devices; suggested stay in Seoul and recovery
 - [Fat repositioning](https://moussa0908.github.io/iro-arabic-webpage/ar/fat-repositioning/): under-eye fat repositioning and facial fat grafting
 - [Eye and forehead](https://moussa0908.github.io/iro-arabic-webpage/ar/facial-surgery/): upper blepharoplasty for aging, brow lift, forehead lift
+- [Rhinoplasty](https://moussa0908.github.io/iro-arabic-webpage/ar/rhinoplasty/): dorsal hump, nasal tip, deviated nose, revision; suggested stay in Seoul and recovery
 - [Other procedures](https://moussa0908.github.io/iro-arabic-webpage/ar/other-procedures/): liposuction, breast, non-surgical
 - [Doctor](https://moussa0908.github.io/iro-arabic-webpage/ar/doctor/): Dr. Jihyun Kim, career and society memberships
 - [Patient journey](https://moussa0908.github.io/iro-arabic-webpage/ar/journey/): steps from WhatsApp consultation to follow-up after returning home; Seoul practical info

@@ -57,13 +57,13 @@ section{padding-block:clamp(72px,11vw,140px)}
 .site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
 .site-head .logo img{height:38px;width:auto}
 .site-head nav{display:flex;gap:4px}
-.site-head nav a{text-decoration:none;font-size:.93rem;padding:8px 12px;border-radius:999px;transition:background .25s}
+.site-head nav a{text-decoration:none;font-size:.93rem;padding:8px 11px;white-space:nowrap;border-radius:999px;transition:background .25s}
 .site-head nav a:hover,.site-head nav a[aria-current="page"]{background:var(--taupe)}
 .site-head .actions{display:flex;align-items:center;gap:10px}
 .site-head .btn{padding:.6em 1.15em;font-size:.9rem}
 .menu-btn{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;place-items:center}
 .menu-btn svg{width:20px;height:20px}
-@media (max-width:1020px){.site-head nav{display:none}.menu-btn{display:grid}}
+@media (max-width:1180px){.site-head nav{display:none}.menu-btn{display:grid}}
 @media (max-width:420px){.site-head .btn span{display:none}.site-head .btn{padding:.6em .8em}}
 .drawer{position:fixed;inset:0;z-index:70;background:var(--green);color:var(--ivory);display:grid;align-content:start;gap:6px;padding:calc(84px + env(safe-area-inset-top,0px)) var(--gutter) 40px;transform:translateY(-100%);transition:transform .55s cubic-bezier(.7,0,.2,1);visibility:hidden}
 .drawer.open{transform:none;visibility:visible}
@@ -114,7 +114,7 @@ section{padding-block:clamp(72px,11vw,140px)}
 
 /* ---------- focus procedures ---------- */
 .head-row{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
-.focus{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px);margin-top:48px}
+.focus{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,24px);margin-top:48px}
 .fcard{position:relative;background:var(--paper);border:1px solid var(--line);padding:30px 26px 26px;display:flex;flex-direction:column;gap:10px;text-decoration:none;min-width:0;overflow:hidden;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
 .fcard:hover{transform:translateY(-6px);box-shadow:0 30px 60px -36px rgba(15,51,36,.55)}
 .fcard .n{font-family:var(--f-display);font-size:2.6rem;line-height:1;color:var(--gold)}

@@ -36,6 +36,7 @@ window.IRO_CONFIG = {
     lifting:  { code: 'LIFT', ar: 'شدّ الوجه' },
     fat:      { code: 'FAT',  ar: 'إعادة توزيع الدهون وحقن الدهون' },
     face:     { code: 'FACE', ar: 'تجديد ملامح العين والجبهة' },
+    nose:     { code: 'NOSE', ar: 'تجميل الأنف' },
     body:     { code: 'BODY', ar: 'شفط الدهون ونحت الجسم' },
     breast:   { code: 'BRST', ar: 'تجميل الثدي' },
     skin:     { code: 'SKIN', ar: 'العلاجات غير الجراحية' },

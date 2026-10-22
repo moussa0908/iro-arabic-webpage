@@ -24,6 +24,7 @@ NAV = [
     ("face-lifting", "شدّ الوجه"),
     ("fat-repositioning", "إعادة توزيع الدهون"),
     ("facial-surgery", "تجديد العين والجبهة"),
+    ("rhinoplasty", "تجميل الأنف"),
     ("doctor", "الطبيبة"),
     ("journey", "رحلتكم العلاجية"),
     ("faq", "الأسئلة الشائعة"),
@@ -32,6 +33,7 @@ PROC_NAV = [
     ("face-lifting", "شدّ الوجه"),
     ("fat-repositioning", "إعادة توزيع الدهون وحقن الدهون الذاتية"),
     ("facial-surgery", "تجديد منطقة العين والجبهة"),
+    ("rhinoplasty", "تجميل الأنف"),
     ("other-procedures", "إجراءات أخرى"),
 ]
 
@@ -142,7 +144,7 @@ def build_page(meta, body):
 
     robots = "index, follow, max-image-preview:large" if INDEXABLE else "noindex, nofollow"
     nav = "".join(f'<a href="{href(s)}"{" aria-current=\"page\"" if s == slug else ""}>{t}</a>' for s, t in NAV)
-    drawer = "".join(f'<a href="{href(s)}">{t}</a>' for s, t in [("", "الرئيسية")] + NAV[:3] + [("other-procedures", "إجراءات أخرى")] + NAV[3:] + [("consultation", "طلب استشارة")])
+    drawer = "".join(f'<a href="{href(s)}">{t}</a>' for s, t in [("", "الرئيسية")] + NAV[:4] + [("other-procedures", "إجراءات أخرى")] + NAV[4:] + [("consultation", "طلب استشارة")])
 
     # ---- page hero for inner pages ----
     hero = ""
