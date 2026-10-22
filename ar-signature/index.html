@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>إيرو | عيادة إيرو للجراحة التجميلية</title>
-<meta name="description" content="عيادة إيرو للجراحة التجميلية في سيول — د. جيهيون كيم، رعاية شخصية ١:١ مع مترجمة طبية باللغة العربية.">
+<meta name="description" content="عيادة إيرو للجراحة التجميلية في سيول — د. جيهيون كيم، أخصائية جراحة التجميل. ترجمة إلى العربية ومنسّقة ترافقكم عند الطلب.">
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500&display=swap">
@@ -76,8 +77,6 @@ nav.main a:hover::after{width:100%}
 .hero h1 .gold{color:var(--gold)}
 .hero .sub{margin-top:22px;font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--muted);max-width:30em}
 .hero .ctas{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
-.hero .ko{margin-top:38px;font-size:.85rem;color:var(--muted);display:flex;gap:14px;align-items:center}
-.hero .ko span{direction:ltr;font-family:var(--f-latin);font-style:italic;font-size:1.05rem;letter-spacing:.02em}
 .arch{position:relative;aspect-ratio:3/4.1;max-width:100%;border-radius:999px 999px 0 0;overflow:hidden;background:var(--taupe)}
 .arch img{width:100%;height:115%;object-fit:cover;object-position:50% 12%}
 .arch-frame{position:relative}
@@ -110,9 +109,7 @@ section{padding-block:clamp(80px,12vw,160px)}
 .doctor .sign small{color:var(--muted)}
 .cv{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .cv li{display:grid;grid-template-columns:1fr auto;gap:16px;padding-block:16px;border-bottom:1px solid var(--line);font-size:.98rem}
-.cv li span{font-family:var(--f-latin);color:var(--muted);letter-spacing:.06em}
 .cv li.now{font-weight:600}
-.cv li.now span{color:var(--gold)}
 @media (max-width:860px){.doctor .wrap{grid-template-columns:1fr}}
 
 /* ---------- philosophy ---------- */
@@ -139,7 +136,6 @@ section{padding-block:clamp(80px,12vw,160px)}
 .signature blockquote cite{display:block;margin-top:10px;font:400 .85rem var(--f-body);color:var(--gold-soft);font-style:normal}
 .lift-list{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
 .lift-list li{padding-block:14px;border-bottom:1px solid rgba(243,238,231,.16);display:flex;justify-content:space-between;gap:12px;font-size:.98rem}
-.lift-list li span{color:var(--gold-soft);font-family:var(--f-latin);font-size:.95rem;direction:ltr}
 .contour{width:100%;max-width:520px;margin-inline:auto}
 .contour path{fill:none;stroke:var(--gold-soft);stroke-width:1.1;stroke-linecap:round}
 .contour .ghost{stroke:rgba(243,238,231,.22);stroke-dasharray:3 6}
@@ -160,14 +156,11 @@ section{padding-block:clamp(80px,12vw,160px)}
 .pcard .num{font-family:var(--f-latin);color:var(--gold);font-size:.95rem;letter-spacing:.14em;direction:ltr;text-align:end}
 .pcard .art{height:150px;margin-block:12px 18px;border-radius:999px 999px 0 0;background:linear-gradient(160deg,var(--taupe),var(--ivory));position:relative;overflow:hidden}
 .pcard .art svg{position:absolute;inset:0;width:100%;height:100%}
-.pcard .art svg path{fill:none;stroke:var(--gold);stroke-width:1.2}
+.pcard .art svg path,.pcard .art svg circle{fill:none;stroke:var(--gold);stroke-width:1.2}
 .pcard h3{font-size:1.6rem}
 .pcard p{margin-top:8px;font-size:.95rem;color:var(--muted);flex:1}
 .pcard ul{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:6px}
 .pcard ul li{font-size:.8rem;padding:3px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
-.pcard .tags{margin-top:14px;font-size:.82rem;color:var(--gold)}
-.pcard.low{background:transparent}
-.pcard.low .badge{font-size:.75rem;color:var(--muted);border:1px dashed var(--line);padding:2px 10px;border-radius:999px;align-self:flex-start;margin-top:6px}
 
 /* ---------- care ---------- */
 .care .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
@@ -185,20 +178,6 @@ section{padding-block:clamp(80px,12vw,160px)}
 .illu .b3{bottom:16%;inset-inline-end:-6px}
 @media (max-width:860px){.care .wrap{grid-template-columns:1fr}.illu .b1,.illu .b3{inset-inline-end:0}.illu .b2{inset-inline-start:0}}
 
-/* ---------- before / after ---------- */
-.ba{background:var(--taupe)}
-.ba .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:center}
-.ba .note{margin-top:20px;font-size:.88rem;color:var(--muted);border-inline-start:2px solid var(--gold);padding-inline-start:14px}
-.compare{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--ivory);user-select:none;touch-action:pan-y;max-width:100%}
-.compare .side{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-display);font-size:1.4rem;color:var(--muted)}
-.compare .before{background:repeating-linear-gradient(135deg,#e4ddd4 0 14px,#ded6cc 14px 28px)}
-.compare .after{background:linear-gradient(135deg,#f6f1ea,#eadfcf);clip-path:inset(0 0 0 50%)}
-.compare .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--gold);transform:translateX(-1px)}
-.compare .handle::after{content:"⇆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;font-size:1.1rem}
-.compare .lbl{position:absolute;top:14px;font-size:.8rem;background:rgba(31,27,24,.75);color:#fff;padding:2px 10px;border-radius:999px}
-.compare .lbl.l{left:14px}.compare .lbl.r{right:14px}
-.compare input{position:absolute;inset:0;opacity:0;cursor:ew-resize;width:100%;height:100%;margin:0}
-@media (max-width:860px){.ba .wrap{grid-template-columns:1fr}}
 
 /* ---------- WhatsApp card (mirrors the clinic's last card-news slide) ---------- */
 .wa{background:var(--green);color:#F3EEE7;text-align:center;position:relative;overflow:hidden}
@@ -263,10 +242,30 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
 
 .todo{outline:1px dashed var(--dot);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* shared consult form (same fields as /ar/consultation/) */
+.pick{display:flex;flex-wrap:wrap;gap:8px}
+.pick label{position:relative;cursor:pointer}
+.pick input{position:absolute;inset:0;opacity:0;margin:0;width:100%;height:100%;cursor:pointer}
+.pick span{display:inline-block;padding:7px 14px;border:1px solid var(--line);border-radius:999px;font-size:.88rem;transition:all .25s}
+.pick input:checked+span{background:var(--green);border-color:var(--green);color:#F3EEE7}
+.pick input:focus-visible+span{outline:2px solid var(--gold,#B48A45);outline-offset:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field small{font-size:.8rem;opacity:.75}
+.field input[type=tel]{direction:ltr;text-align:right}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.86rem}
+.consent input{margin-top:6px;width:18px;height:18px;flex:0 0 auto;accent-color:var(--green)}
+.hp{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+[data-form-msg]{font-size:.92rem;color:var(--green);min-height:1.4em}
+[data-form-msg].bad{color:#B3261E}
+.done{background:var(--green);color:#F3EEE7;padding:clamp(24px,4vw,44px);display:grid;gap:16px;justify-items:start;border-radius:inherit}
+.done h3{font-size:1.6rem}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+.lift-list li{justify-content:flex-start;gap:12px}.lift-list li::before{content:"";width:6px;height:6px;rotate:45deg;background:var(--gold-soft);align-self:center}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;700&display=swap">
 </head>
-<body class="no-js">
+<body class="no-js" data-clinic="iro" data-procedure="general" data-consult="#visit">
 <script>document.body.classList.remove('no-js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.body.classList.add('reduce');</script>
 
 <!-- loader: eight-point star drawn, then the IRo+ mark -->
@@ -285,7 +284,7 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
       <a href="#care">رعايتكم</a>
       <a href="#visit">الزيارة</a>
     </nav>
-    <div class="lang" dir="ltr"><a href="https://iroplasticsurgery.com/" target="_blank" rel="noopener">KR</a><span>·</span><b>AR</b></div>
+    <div class="lang"><a href="https://iroplasticsurgery.com/" target="_blank" rel="noopener" style="font-family:var(--f-body);font-size:.85rem">الموقع الكوري</a></div>
   </div>
 </header>
 
@@ -296,13 +295,12 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
   <div class="wrap">
     <div>
       <p class="eyebrow">عيادة إيرو للجراحة التجميلية · سيول</p>
-      <h1 id="heroTitle"><span class="w"><span>جمالٌ</span></span> <span class="w"><span>يدوم</span></span><br><span class="w"><span class="gold">نفعُه</span></span></h1>
-      <p class="sub">المكان الذي تأتمنونه على وجوهكم. طبيبة واحدة تتابع حالتكم من الاستشارة الأولى حتى اكتمال النتيجة، بلا مبالغة وبوضوح تام.</p>
+      <h1 id="heroTitle"><span class="w"><span>المعيار</span></span><br><span class="w"><span class="gold">أنتم</span></span></h1>
+      <p class="sub">طبيبة واحدة، أخصائية في جراحة التجميل، تتابع حالتكم من الاستشارة الأولى حتى المتابعة بعد عودتكم، بلا مبالغة وبوضوح تام.</p>
       <div class="ctas">
-        <a class="btn" data-wa href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>استشارة عبر واتساب</a>
+        <a class="btn" data-wa data-place="hero"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>استشارة عبر واتساب</a>
         <a class="btn ghost" href="#procedures">استكشفوا الإجراءات</a>
       </div>
-      <p class="ko">شعار العيادة <span>“기준은 당신, 완성은 이로”</span> المعيار أنتم، والاكتمال من إيرو</p>
     </div>
     <div class="arch-frame">
       <div class="arch"><img id="heroDoc" src="../assets/doctor.jpg" alt="د. جيهيون كيم، مديرة عيادة إيرو"></div>
@@ -313,8 +311,8 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
 </section>
 
 <div class="marquee" aria-hidden="true"><div class="track" id="marq">
-  <span>شدّ الوجه</span><i>✦</i><span>شفط الدهون المخصص</span><i>✦</i><span>تجميل الثدي</span><i>✦</i><span>شباب العينين</span><i>✦</i><span>البشرة والحقن</span><i>✦</i><span>الخلايا الجذعية</span><i>✦</i>
-  <span>شدّ الوجه</span><i>✦</i><span>شفط الدهون المخصص</span><i>✦</i><span>تجميل الثدي</span><i>✦</i><span>شباب العينين</span><i>✦</i><span>البشرة والحقن</span><i>✦</i><span>الخلايا الجذعية</span><i>✦</i>
+  <span>شدّ الوجه</span><i>✦</i><span>إعادة توزيع الدهون تحت العين</span><i>✦</i><span>حقن الدهون الذاتية</span><i>✦</i><span>رفع الجفن العلوي</span><i>✦</i><span>رفع الحاجب والجبهة</span><i>✦</i><span>شفط الدهون</span><i>✦</i><span>تجميل الثدي</span><i>✦</i>
+  <span>شدّ الوجه</span><i>✦</i><span>إعادة توزيع الدهون تحت العين</span><i>✦</i><span>حقن الدهون الذاتية</span><i>✦</i><span>رفع الجفن العلوي</span><i>✦</i><span>رفع الحاجب والجبهة</span><i>✦</i><span>شفط الدهون</span><i>✦</i><span>تجميل الثدي</span><i>✦</i>
 </div></div>
 
 <!-- DOCTOR -->
@@ -329,14 +327,14 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
       </div>
     </div>
     <ul class="cv reveal-list">
-      <li class="now">مديرة عيادة إيرو للجراحة التجميلية <span>NOW</span></li>
-      <li>مديرة سابقة في عيادة فيو للجراحة التجميلية <span>VIEW</span></li>
-      <li>مديرة سابقة في عيادة إيت للجراحة التجميلية <span>EIGHT</span></li>
-      <li>عضوة عاملة في الجمعية الكورية لجراحي التجميل والترميم <span>KSPRS</span></li>
-      <li>عضوة عاملة في الجمعية الكورية لجراحة التجميل الجمالية <span>KSAPS</span></li>
-      <li>عضوة عاملة في الجمعية الكورية لجراحة التجميل القحفية الوجهية <span>KSCFPS</span></li>
-      <li>عضوة في الجمعية الكورية لجراحة تجميل وترميم العين <span>KSOPRS</span></li>
-      <li>عضوة في الجمعية الكورية لجراحة تجميل الأنف <span>KSRPS</span></li>
+      <li class="now">مديرة عيادة إيرو للجراحة التجميلية (حاليًا)</li>
+      <li>مديرة سابقة في عيادة «فيو» للجراحة التجميلية</li>
+      <li>مديرة سابقة في عيادة «إيت» للجراحة التجميلية</li>
+      <li>عضوة عاملة في الجمعية الكورية لجراحي التجميل والترميم</li>
+      <li>عضوة عاملة في الجمعية الكورية لجراحة التجميل الجمالية</li>
+      <li>عضوة عاملة في الجمعية الكورية لجراحة التجميل القحفية الوجهية</li>
+      <li>عضوة في الجمعية الكورية لجراحة تجميل وترميم العين</li>
+      <li>عضوة في الجمعية الكورية لجراحة تجميل الأنف</li>
     </ul>
   </div>
 </section>
@@ -351,21 +349,21 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
     <div class="pillars">
       <article class="pillar">
         <svg viewBox="0 0 100 100"><path d="M50 2 L64 36 L98 50 L64 64 L50 98 L36 64 L2 50 L36 36 Z"/></svg>
-        <div class="k">I</div>
+        <div class="k">١</div>
         <h3>طبيبة واحدة، مسؤولية كاملة</h3>
         <p>الطبيبة التي تستشيرونها هي نفسها التي تُجري الإجراء وتتابع تعافيكم. لا تنتقل حالتكم بين أيدٍ مختلفة.</p>
       </article>
       <article class="pillar">
         <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#1F1B18"/><circle cx="50" cy="50" r="22" fill="none" stroke="#1F1B18"/></svg>
-        <div class="k">II</div>
+        <div class="k">٢</div>
         <h3>تشخيص يجمع الجراحة والتجميل</h3>
         <p>لا نقسّم الخيارات إلى «إجراء» أو «جراحة» فقط. نقارن بينهما معكم ونختار ما يحقق النتيجة المرجوة بأقل تدخل ضروري.</p>
       </article>
       <article class="pillar">
         <svg viewBox="0 0 100 100"><path d="M10 70 Q50 10 90 70"/><path d="M20 80 Q50 30 80 80"/></svg>
-        <div class="k">III</div>
-        <h3>نتائج طبيعية تدوم</h3>
-        <p>كل تغيير، مهما كان صغيرًا، نصمّمه ضمن توازن الوجه والجسم بالكامل، لتبدو النتيجة جزءًا منكم.</p>
+        <div class="k">٣</div>
+        <h3>تصميم يراعي توازن الوجه</h3>
+        <p>كل تغيير، مهما كان صغيرًا، نصمّمه ضمن توازن الوجه والجسم بالكامل، ليبقى التغيير متناسقًا مع ملامحكم.</p>
       </article>
     </div>
   </div>
@@ -375,20 +373,20 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
 <section class="signature" id="lifting">
   <div class="wrap">
     <div>
-      <p class="eyebrow">الإجراء المميز في إيرو</p>
+      <p class="eyebrow">مجال تركيز العيادة</p>
       <h2>شدّ الوجه<br><span class="gold">بتوازنٍ كامل</span></h2>
       <p class="lead">من الأجهزة غير الجراحية إلى شدّ الوجه الجراحي، نختار الطريقة بعد تقييم مرونة الجلد والدهون والعضلات وملامح الوجه معًا.</p>
       <blockquote>«شدّ الوجه ليس مجرد شدٍّ للجلد المترهل. من المهم النظر إلى الوجه بأكمله لاختيار الطريقة الأنسب لحالتكم.»<cite>د. كيم جيهيون</cite></blockquote>
       <ul class="lift-list">
-        <li>شدّ الوجه العميق <span>Deep Plane</span></li>
-        <li>شدّ الوجه المصغّر <span>Mini Lift</span></li>
-        <li>ألثيرابي برايم <span>Ulthera Prime</span></li>
-        <li>ثيرماج <span>Thermage FLX</span></li>
-        <li>أوندا <span>ONDA</span></li>
-        <li>شدّ بالخيوط <span>Thread Lift</span></li>
-        <li>إزالة اللغد وتحديد خط الرقبة <span>Neck</span></li>
-        <li>شدّ منتصف الوجه <span>Midface</span></li>
+        <li>شدّ الوجه العميق</li>
+        <li>شدّ الوجه المصغّر</li>
+        <li>شدّ منتصف الوجه</li>
+        <li>تحديد الرقبة وخط الفك</li>
+        <li>الشدّ بالخيوط</li>
+        <li>شدّ بالموجات فوق الصوتية المركزة</li>
+        <li>شدّ بالترددات الراديوية</li>
       </ul>
+      <a class="btn" style="margin-top:32px;background:var(--gold-soft);border-color:var(--gold-soft);color:var(--ink)" href="../ar/face-lifting/">تفاصيل شدّ الوجه ومدة الإقامة</a>
     </div>
     <svg class="contour" id="contour" viewBox="0 0 400 480" aria-hidden="true">
       <!-- before contour (dashed) and after contour (gold), with lift vectors -->
@@ -411,7 +409,7 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
       <div><p class="eyebrow">الإجراءات</p><h2>ما نقدّمه لكم</h2></div>
       <div class="ctrl">
         <button type="button" id="prev" aria-label="السابق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
-        <span class="count" id="count">01 / 07</span>
+        <span class="count" id="count">01 / 06</span>
         <button type="button" id="next" aria-label="التالي"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
       </div>
     </div>
@@ -419,27 +417,24 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
   <div class="wrap">
     <div class="rail" id="rail">
       <div class="rail-track" id="track">
-        <article class="pcard"><div class="num">01 · LIFTING</div><div class="art"><svg viewBox="0 0 300 150"><path d="M60 140 C60 60 100 20 150 20 C200 20 240 60 240 140"/><path d="M90 120 L80 70 M210 120 L220 70"/></svg></div>
-          <h3>شدّ الوجه والرفع</h3><p>استعادة خط الفك وتحديد ملامح الوجه بالجراحة أو بالأجهزة، حسب حالة الجلد والأنسجة.</p>
-          <ul><li>شدّ الوجه</li><li>ألثيرابي</li><li>ثيرماج</li><li>الخيوط</li></ul><p class="tags">#خط_الفك #ترهل_الوجه #نتيجة_طبيعية</p></article>
-        <article class="pcard"><div class="num">02 · FAT</div><div class="art"><svg viewBox="0 0 300 150"><path d="M110 20 C70 60 70 100 110 140 M190 20 C230 60 230 100 190 140"/><path d="M150 30 L150 120"/></svg></div>
-          <h3>نحت الجسم بالدهون</h3><p>شفط الدهون المصمّم لكل جسم، ونقل الدهون الذاتية لاستعادة الامتلاء الطبيعي في الوجه والجسم.</p>
-          <ul><li>شفط الدهون المخصص</li><li>حقن الدهون الذاتية</li></ul><p class="tags">#نحت_الجسم #تناسق #دهون_ذاتية</p></article>
-        <article class="pcard"><div class="num">03 · BREAST</div><div class="art"><svg viewBox="0 0 300 150"><path d="M70 50 C70 130 145 130 150 90 C155 130 230 130 230 50"/></svg></div>
-          <h3>تجميل الثدي</h3><p>تكبير ورفع بشكل متناسق مع الجسم، مع خيار حقن الدهون الذاتية لنتيجة ناعمة الملمس.</p>
-          <ul><li>تكبير الثدي</li><li>رفع الثدي المترهل</li><li>الهالة والحلمة</li><li>إزالة الثدي الإضافي</li></ul><p class="tags">#تناسق_الجسم #ملمس_طبيعي</p></article>
-        <article class="pcard"><div class="num">04 · YOUTHFUL EYES</div><div class="art"><svg viewBox="0 0 300 150"><path d="M60 80 Q150 20 240 80 Q150 130 60 80 Z"/><path d="M70 50 Q150 0 230 50"/></svg></div>
-          <h3>شباب العينين</h3><p>علاج ترهل الجفون والهالات وتجاعيد ما تحت العين، لنظرة أكثر انتعاشًا دون تغيير ملامحكم.</p>
-          <ul><li>رفع الجفن العلوي</li><li>رفع الحاجب دون ندبة ظاهرة</li><li>رفع الجبهة</li><li>إعادة توزيع دهون أسفل العين</li></ul><p class="tags">#جفون_مترهلة #هالات #نظرة_منتعشة</p></article>
-        <article class="pcard"><div class="num">05 · SKIN</div><div class="art"><svg viewBox="0 0 300 150"><circle cx="150" cy="75" r="50"/><circle cx="150" cy="75" r="28"/><circle cx="150" cy="75" r="8"/></svg></div>
-          <h3>البشرة والحقن</h3><p>بوتوكس مصمّم حسب الوجه «أوماكاسي»، فيلر، معززات البشرة، بيكو تونينغ، وعلاج الندبات.</p>
-          <ul><li>بوتوكس أوماكاسي</li><li>فيلر</li><li>معززات البشرة</li><li>علاج الندبات</li></ul><p class="tags">#نضارة #ترطيب #بدون_جراحة</p></article>
-        <article class="pcard"><div class="num">06 · STEM CELL</div><div class="art"><svg viewBox="0 0 300 150"><circle cx="120" cy="70" r="26"/><circle cx="175" cy="60" r="18"/><circle cx="165" cy="105" r="22"/></svg></div>
-          <h3>الخلايا الجذعية</h3><p>علاجات تجديدية تعتمد على خلاياكم الذاتية لدعم جودة البشرة والأنسجة.</p>
-          <ul><li>تجديد البشرة</li><li>دعم نتائج نقل الدهون</li></ul><p class="tags">#تجديد #خلايا_ذاتية</p></article>
-        <article class="pcard low"><div class="num">07 · EYE</div>
-          <h3>تجميل العين</h3><p>إجراءات تجميلية للعين متاحة أيضًا عند الحاجة، بعد استشارة الطبيبة.</p>
-          <ul><li>الجفن المزدوج</li><li>تصحيح شكل العين</li><li>إعادة عمليات العين</li></ul><span class="badge">متاح عند الطلب</span></article>
+        <article class="pcard"><div class="num">01</div><div class="art"><svg viewBox="0 0 300 150"><path d="M60 140 C60 60 100 20 150 20 C200 20 240 60 240 140"/><path d="M90 120 L80 70 M210 120 L220 70"/></svg></div>
+          <h3>شدّ الوجه</h3><p>لترهل الخدين وخط الفك والرقبة، بالجراحة أو بالخيوط أو بالأجهزة، حسب حالة الجلد والأنسجة.</p>
+          <ul><li>شدّ الوجه العميق</li><li>الشدّ المصغّر</li><li>الخيوط</li><li>الأجهزة</li></ul></article>
+        <article class="pcard"><div class="num">02</div><div class="art"><svg viewBox="0 0 300 150"><path d="M60 70 Q150 20 240 70 Q150 110 60 70 Z"/><path d="M90 104 Q150 126 210 104"/><path d="M130 130 L150 114 L170 130"/></svg></div>
+          <h3>إعادة توزيع الدهون</h3><p>لانتفاخ ما تحت العين والتجويف الذي يعطي مظهر التعب، ولاستعادة امتلاء الوجه بدهونكم الذاتية.</p>
+          <ul><li>تحت العين</li><li>حقن الدهون في الوجه</li></ul></article>
+        <article class="pcard"><div class="num">03</div><div class="art"><svg viewBox="0 0 300 150"><path d="M60 80 Q150 20 240 80 Q150 130 60 80 Z"/><path d="M70 50 Q150 0 230 50"/></svg></div>
+          <h3>تجديد العين والجبهة</h3><p>لارتخاء جلد الجفن العلوي وانخفاض الحاجب مع العمر، مع الحفاظ على الشكل الأصلي للعين.</p>
+          <ul><li>رفع الجفن العلوي</li><li>رفع الحاجب</li><li>رفع الجبهة</li></ul></article>
+        <article class="pcard"><div class="num">04</div><div class="art"><svg viewBox="0 0 300 150"><path d="M110 20 C70 60 70 100 110 140 M190 20 C230 60 230 100 190 140"/><path d="M150 30 L150 120"/></svg></div>
+          <h3>شفط الدهون ونحت الجسم</h3><p>شفط يُخطَّط وفق شكل الجسم ونسبه، مع إمكانية نقل الدهون إلى مناطق تحتاج إلى امتلاء.</p>
+          <ul><li>شفط الدهون</li><li>حقن الدهون في الجسم</li></ul></article>
+        <article class="pcard"><div class="num">05</div><div class="art"><svg viewBox="0 0 300 150"><path d="M70 50 C70 130 145 130 150 90 C155 130 230 130 230 50"/></svg></div>
+          <h3>تجميل الثدي</h3><p>تكبير ورفع يُخطَّط لهما وفق قياسات الجسم، مع خيار حقن الدهون الذاتية.</p>
+          <ul><li>تكبير الثدي</li><li>رفع الثدي</li><li>الهالة والحلمة</li><li>الثدي الإضافي</li></ul></article>
+        <article class="pcard"><div class="num">06</div><div class="art"><svg viewBox="0 0 300 150"><circle cx="150" cy="75" r="50"/><circle cx="150" cy="75" r="28"/><circle cx="150" cy="75" r="8"/></svg></div>
+          <h3>العلاجات غير الجراحية</h3><p>حقن التوكسين، والفيلر، ومعززات البشرة، وعلاج التصبغات والندبات.</p>
+          <ul><li>حقن التوكسين</li><li>الفيلر</li><li>معززات البشرة</li></ul></article>
       </div>
     </div>
   </div>
@@ -453,9 +448,9 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
       <h2>تتحدثون بلغتكم،<br>ونرافقكم في كل خطوة</h2>
       <div class="items">
         <div class="item reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
-          <div><h3>منسّقة خاصة</h3><p>منسّقة ترتّب مواعيدكم وتتابع حالتكم قبل الزيارة وأثناءها وبعد عودتكم.</p></div></div>
+          <div><h3>طبيبة ومنسّقة</h3><p>الاستشارة والإجراء مع طبيبة، ويمكن أن ترافقكم منسّقة خلال زيارتكم عند الطلب.</p></div></div>
         <div class="item reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c0 3-3 7-7 9"/><path d="M13 21l4-10 4 10M14.5 17.5h5"/></svg></div>
-          <div><h3>مترجمة طبية باللغة العربية</h3><p>مترجمة طبية متخصصة ترافقكم في الاستشارة والإجراء، لتفهموا كل تفصيل بوضوح قبل اتخاذ القرار.</p></div></div>
+          <div><h3>ترجمة إلى العربية عند الطلب</h3><p>نرتّب ترجمة إلى العربية في الاستشارة وعند شرح تعليمات الرعاية، لتفهموا كل تفصيل قبل اتخاذ القرار.</p></div></div>
         <div class="item reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
           <div><h3>متابعة عبر واتساب</h3><p>أسئلة قبل السفر، وصور المتابعة بعد العودة إلى بلدكم، في محادثة واحدة مع فريق العيادة.</p></div></div>
       </div>
@@ -463,27 +458,8 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
     <div class="illu">
       <img src="../assets/doctor-illust.jpg" alt="رسم توضيحي للطبيبة بزي العمليات">
       <span class="bubble b1">مرحبًا، كيف يمكنني مساعدتكم؟</span>
-      <span class="bubble b2">안녕하세요</span>
-      <span class="bubble b3">سأترجم لكم كل التفاصيل</span>
-    </div>
-  </div>
-</section>
-
-<!-- BEFORE / AFTER -->
-<section class="ba">
-  <div class="wrap">
-    <div>
-      <p class="eyebrow">قبل وبعد</p>
-      <h2>نتائج حقيقية<br>لمرضى حقيقيين</h2>
-      <p style="margin-top:20px;color:var(--muted)">تُعرض صور قبل وبعد بموافقة المرضى. اسحبوا المؤشر للمقارنة.</p>
-      <p class="note">قد تختلف النتائج من شخص لآخر. تُناقش الآثار الجانبية المحتملة وفترة التعافي بالتفصيل خلال الاستشارة.</p>
-    </div>
-    <div class="compare todo" id="compare" title="يُستبدل بصور المرضى الفعلية">
-      <div class="side before">صورة «قبل»</div>
-      <div class="side after" id="afterSide">صورة «بعد»</div>
-      <span class="lbl l">بعد</span><span class="lbl r">قبل</span>
-      <div class="handle" id="handle"></div>
-      <input type="range" min="0" max="100" value="50" id="cmpRange" aria-label="مقارنة قبل وبعد">
+      <span class="bubble b2" style="direction:rtl;font-family:inherit">أهلًا بكم في سيول</span>
+      <span class="bubble b3">نشرح لكم كل التفاصيل</span>
     </div>
   </div>
 </section>
@@ -495,9 +471,9 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
     <h2 class="wa-line">يسعدنا استقبال<br>أسئلتكم.</h2>
     <p class="lead wa-line">نجيب عن جميع استفساراتكم<br>بوضوح قبل موعدكم.</p>
     <h3 class="wa-line">للاستفسار من العيادة</h3>
-    <div class="qr" id="qr"><img src="../assets/whatsapp-qr.png" alt="رمز واتساب لعيادة إيرو" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',innerHTML:'رمز QR<br>من بطاقة واتساب الأصلية'}))"></div>
+    <div class="qr" id="qr"><img src="../assets/whatsapp-qr.png" alt="رمز واتساب لعيادة إيرو" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',innerHTML:'رمز واتساب<br>يُضاف هنا'}))"></div>
     <p class="cap">رمز التواصل عبر واتساب</p>
-    <a class="btn" data-wa href="#" target="_blank" rel="noopener">افتحوا المحادثة على واتساب</a>
+    <a class="btn" data-wa data-place="wa_card">افتحوا المحادثة على واتساب</a>
     <img class="mark" src="../assets/logo-light.png" alt="IRo+">
   </div>
 </section>
@@ -514,41 +490,59 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
         <div><span>السبت</span><span>10:00 – 16:00</span></div>
         <div class="off"><span>الأحد والعطلات الرسمية</span><span>مغلق</span></div>
       </div>
-      <p style="margin-top:10px;font-size:.84rem;color:var(--muted)">جميع المواعيد بتوقيت كوريا (KST) — متقدمة ٦ ساعات على الرياض و٥ ساعات على دبي.</p>
+      <p style="margin-top:10px;font-size:.84rem;color:var(--muted)">جميع المواعيد بتوقيت كوريا، المتقدم ٥ ساعات على الإمارات و٦ ساعات على السعودية والكويت وقطر. لا تتوفر غرف إقامة في العيادة، فتقيمون في فندق من اختياركم خلال التعافي.</p>
       <div class="addr">
         <div class="row"><b>العنوان:</b> سيول، سودايمون-غو، شينتشون-رو 37-غيل 10، مبنى آهيون الطبي، الطابق 8</div>
+        <div class="row" style="font-size:.86rem;color:var(--muted)">العنوان بالإنجليزية لسائق سيارة الأجرة:</div>
         <div class="row"><span class="ltr" id="addrEn">8F, 10 Sinchon-ro 37-gil, Seodaemun-gu, Seoul</span><button class="copy" type="button" data-copy="addrEn">نسخ العنوان</button></div>
         <div class="row"><b>الهاتف:</b> <span class="ltr" id="tel">+82 2-363-5501</span><button class="copy" type="button" data-copy="tel">نسخ</button></div>
       </div>
       <div class="maps">
-        <a href="https://maps.google.com/?q=10+Sinchon-ro+37-gil+Seodaemun-gu+Seoul" target="_blank" rel="noopener">Google Maps</a>
-        <a href="https://map.naver.com/p/search/%EC%9D%B4%EB%A1%9C%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener">Naver Map</a>
-        <a href="https://map.kakao.com/?q=%EC%9D%B4%EB%A1%9C%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener">Kakao Map</a>
+        <a href="https://maps.google.com/?q=10+Sinchon-ro+37-gil+Seodaemun-gu+Seoul" target="_blank" rel="noopener">خرائط جوجل</a>
+        <a href="https://map.naver.com/p/search/%EC%9D%B4%EB%A1%9C%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener">خرائط نيفر</a>
+        <a href="https://map.kakao.com/?q=%EC%9D%B4%EB%A1%9C%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener">خرائط كاكاو</a>
       </div>
     </div>
-    <form class="consult" id="consultForm" novalidate>
+    <div><form class="consult" id="consultForm" data-consult novalidate>
       <h3>طلب استشارة</h3>
-      <p class="hint">املؤوا النموذج، وسيُفتح واتساب برسالة جاهزة إلى فريق العيادة.</p>
+      <p class="hint">املؤوا النموذج، وسيتواصل معكم فريق العيادة عبر واتساب.</p>
       <div class="two">
-        <div class="field"><label for="f-name">الاسم</label><input id="f-name" name="name" required autocomplete="name" value=""></div>
+        <div class="field"><label for="f-name">الاسم</label><input id="f-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="f-country">البلد</label>
-          <select id="f-country" name="country"><option>الإمارات</option><option>السعودية</option><option>الكويت</option><option>قطر</option><option>البحرين</option><option>عُمان</option><option>بلد آخر</option></select></div>
+          <select id="f-country" name="country">
+            <option data-dial="+971">الإمارات</option><option data-dial="+966">السعودية</option><option data-dial="+965">الكويت</option><option data-dial="+974">قطر</option><option data-dial="+973">البحرين</option><option data-dial="+968">عُمان</option><option data-dial="+">بلد آخر</option>
+          </select></div>
       </div>
-      <div class="field"><span style="font-size:.88rem;font-weight:500">الإجراء المطلوب</span>
-        <div class="chips">
-          <label><input type="checkbox" name="proc" value="شدّ الوجه" id="c1" checked><span>شدّ الوجه</span></label>
-          <label><input type="checkbox" name="proc" value="الدهون" id="c2"><span>الدهون</span></label>
-          <label><input type="checkbox" name="proc" value="الثدي" id="c3"><span>الثدي</span></label>
-          <label><input type="checkbox" name="proc" value="شباب العينين" id="c4"><span>شباب العينين</span></label>
-          <label><input type="checkbox" name="proc" value="البشرة والحقن" id="c5"><span>البشرة والحقن</span></label>
-          <label><input type="checkbox" name="proc" value="لست متأكدًا" id="c6"><span>لست متأكدًا بعد</span></label>
-        </div>
+      <div class="field"><label for="f-phone">رقم واتساب</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" value="+971" required><small>مع رمز الدولة</small></div>
+      <div class="field"><span class="lbl" id="f-proc">الإجراء الذي تودّون الاستفسار عنه</span>
+        <div class="pick" role="group" aria-labelledby="f-proc">
+          <label><input type="checkbox" name="proc" value="lifting"><span>شدّ الوجه</span></label>
+          <label><input type="checkbox" name="proc" value="fat"><span>إعادة توزيع الدهون</span></label>
+          <label><input type="checkbox" name="proc" value="face"><span>العين والجبهة</span></label>
+          <label><input type="checkbox" name="proc" value="body"><span>شفط الدهون</span></label>
+          <label><input type="checkbox" name="proc" value="breast"><span>الثدي</span></label>
+          <label><input type="checkbox" name="proc" value="skin"><span>علاجات غير جراحية</span></label>
+          <label><input type="checkbox" name="proc" value="general"><span>لست متأكدًا بعد</span></label>
+        </div></div>
+      <div class="two">
+        <div class="field"><label for="f-month">الشهر المتوقع للزيارة</label><input id="f-month" name="month" type="month"></div>
+        <div class="field"><label for="f-stay">مدة الإقامة الممكنة في سيول</label>
+          <select id="f-stay" name="stay"><option value="">لم أحدد بعد</option><option>أقل من أسبوع</option><option>من أسبوع إلى أسبوعين</option><option>أكثر من أسبوعين</option></select></div>
       </div>
-      <div class="field"><label for="f-month">موعد الزيارة المتوقع</label><input id="f-month" name="month" type="month"></div>
-      <div class="field"><label for="f-msg">رسالتكم</label><textarea id="f-msg" name="msg" rows="3" placeholder="صفوا ما تودّون تحسينه"></textarea></div>
-      <button class="btn" type="submit">إرسال عبر واتساب</button>
-      <p class="form-msg" id="formMsg" aria-live="polite"></p>
+      <div class="field"><label for="f-lang">لغة التواصل المفضلة</label>
+        <select id="f-lang" name="language"><option>العربية</option><option>الإنجليزية</option></select></div>
+      <div class="field"><label for="f-msg">ما الذي تودّون تحسينه؟</label><textarea id="f-msg" name="msg" rows="3"></textarea><small>لا ترسلوا صورًا هنا. نطلبها منكم عبر واتساب بعد التواصل.</small></div>
+      <div class="hp" aria-hidden="true"><label for="f-web">الموقع</label><input id="f-web" name="website" tabindex="-1" autocomplete="off"></div>
+      <label class="consent"><input type="checkbox" name="consent" required><span>أوافق على جمع بياناتي واستخدامها للرد على استفساري وفق <a href="../ar/privacy/">سياسة الخصوصية</a>.</span></label>
+      <button class="btn ink block" type="submit">إرسال الطلب</button>
+      <p data-form-msg aria-live="polite"></p>
     </form>
+<div class="done" data-consult-done hidden>
+      <h3>شكرًا لكم</h3>
+      <p data-done-text></p>
+      <a class="btn wa" data-done-wa target="_blank" rel="noopener" hidden>متابعة المحادثة على واتساب</a>
+    </div>
+  </div>
   </div>
 </section>
 </main>
@@ -561,13 +555,13 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
     </div>
     <div class="soc">
       <a href="https://www.instagram.com/irops_ar/" target="_blank" rel="noopener" dir="ltr">@irops_ar</a>
-      <a data-wa href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a data-wa data-place="footer">واتساب</a>
     </div>
   </div>
 </footer>
 
 <div class="float">
-  <a class="wa-btn" data-wa href="#" target="_blank" rel="noopener" aria-label="واتساب"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
+  <a class="wa-btn" data-wa data-place="float" aria-label="واتساب"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
   <a class="ig-btn" href="https://www.instagram.com/irops_ar/" target="_blank" rel="noopener" aria-label="إنستغرام"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
 </div>
 
@@ -575,13 +569,11 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
 <script>
 (function(){
-  const CFG = window.IRO_CONFIG || {};
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- WhatsApp links (single source: assets/config.js) ---- */
-  document.querySelectorAll('[data-wa]').forEach(a => a.href = CFG.WA_LINK || '#whatsapp');
 
   /* ---- copy buttons ---- */
   document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => {
@@ -592,24 +584,6 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
       const s = getSelection(); s.removeAllRanges(); s.addRange(r);
     });
   }));
-
-  /* ---- before/after compare ---- */
-  const range = document.getElementById('cmpRange'), after = document.getElementById('afterSide'), handle = document.getElementById('handle');
-  const setCmp = v => { after.style.clipPath = `inset(0 0 0 ${v}%)`; handle.style.left = v + '%'; };
-  range.addEventListener('input', e => setCmp(e.target.value));
-
-  /* ---- consultation form → WhatsApp message ---- */
-  const form = document.getElementById('consultForm'), msg = document.getElementById('formMsg');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const name = form.name.value.trim();
-    if (!name) { msg.textContent = 'يرجى كتابة الاسم حتى نتمكن من الرد عليكم.'; form.name.focus(); return; }
-    const procs = [...form.querySelectorAll('input[name=proc]:checked')].map(i => i.value).join('، ') || 'غير محدد';
-    const text = `مرحبًا عيادة إيرو،\nالاسم: ${name}\nالبلد: ${form.country.value}\nالإجراء: ${procs}\nموعد الزيارة: ${form.month.value || 'غير محدد'}\n${form.msg.value.trim()}`;
-    const base = CFG.WA_LINK && CFG.WA_LINK.startsWith('https://wa.me/') ? CFG.WA_LINK : null;
-    if (base) { window.open(base + '?text=' + encodeURIComponent(text), '_blank', 'noopener'); msg.textContent = 'تم تجهيز رسالتكم في واتساب. اضغطوا «إرسال» هناك لإتمام الطلب.'; }
-    else { msg.textContent = 'رقم واتساب العيادة لم يُضبط بعد في هذا العرض التجريبي.'; }
-  });
 
   /* ---- procedures rail (prev/next + drag) ---- */
   const rail = document.getElementById('rail'), track = document.getElementById('track'), cards = [...track.children];
@@ -674,7 +648,7 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
     .to(loader, { clipPath: 'inset(0 0 100% 0)', duration: .9, ease: 'expo.inOut' }, '+=.35')
     .set(loader, { display: 'none' })
     .from('#heroTitle .w>span', { yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: .12 }, '-=.45')
-    .from('.hero .sub, .hero .ctas, .hero .ko, .hero .eyebrow', { y: 24, opacity: 0, duration: .8, stagger: .08 }, '-=.8')
+    .from('.hero .sub, .hero .ctas, .hero .eyebrow', { y: 24, opacity: 0, duration: .8, stagger: .08 }, '-=.8')
     .from('.arch', { clipPath: 'inset(100% 0 0 0)', duration: 1.3, ease: 'expo.inOut' }, '-=1.3')
     .from('.arch-tag', { x: -30, opacity: 0, duration: .7 }, '-=.4');
 
@@ -706,10 +680,6 @@ footer .soc a{text-decoration:none;border-bottom:1px solid rgba(243,238,231,.3)}
   gsap.from('.illu .bubble', { scale: .6, opacity: 0, duration: .6, stagger: .25, ease: 'back.out(2)', delay: .6, scrollTrigger: { trigger: '.illu', start: 'top 80%', once: true } });
   gsap.to('.illu .bubble', { y: -8, duration: 2.2, yoyo: true, repeat: -1, ease: 'sine.inOut', stagger: .4 });
 
-  // compare: auto-sweep hint once
-  ScrollTrigger.create({ trigger: '#compare', start: 'top 75%', once: true, onEnter: () => {
-    const o = { v: 50 }; gsap.to(o, { v: 22, duration: .9, yoyo: true, repeat: 1, ease: 'power2.inOut', onUpdate: () => { setCmp(o.v); range.value = o.v; } });
-  }});
 
   // WhatsApp card: lines stack in, QR lifts
   gsap.from('.wa-line', { y: 50, opacity: 0, duration: 1, stagger: .15, ease: 'power3.out', scrollTrigger: { trigger: '.wa', start: 'top 70%', once: true } });
